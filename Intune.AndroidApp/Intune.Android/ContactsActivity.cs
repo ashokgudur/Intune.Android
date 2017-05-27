@@ -41,6 +41,8 @@ namespace Intune.Android
                 case Resource.Id.contacts_menu_share:
                 case Resource.Id.contacts_menu_open:
                 case Resource.Id.contacts_menu_new:
+                    showContactActivity();
+                    break;
                 default:
                     break;
             }
@@ -56,6 +58,14 @@ namespace Intune.Android
             accountsActivity.PutExtra("LoginUserId", loginUserId);
             accountsActivity.PutExtra("LoginUserName", loginUserName);
             StartActivity(accountsActivity);
+        }
+
+        private void showContactActivity()
+        {
+            var loginUserId = Intent.GetIntExtra("LoginUserId", 0);
+            var contactActivity = new Intent(this, typeof(ContactActivity));
+            contactActivity.PutExtra("LoginUserId", loginUserId);
+            StartActivity(contactActivity);
         }
     }
 }

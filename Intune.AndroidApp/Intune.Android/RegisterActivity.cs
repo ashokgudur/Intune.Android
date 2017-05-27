@@ -35,8 +35,9 @@ namespace Intune.Android
                 CreatedOn = DateTime.Now
             };
 
+            var result = FindViewById<TextView>(Resource.Id.registerUserResultTextView);
+            result.Text = "Registering new user...";
             user = IntuneService.RegiterUser(user);
-            var result = FindViewById<TextView>(Resource.Id.resultTextView);
 
             if (user != null)
             {

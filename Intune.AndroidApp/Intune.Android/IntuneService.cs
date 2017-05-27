@@ -71,5 +71,31 @@ namespace Intune.Android
 
             return null;
         }
+
+        public static Account AddAccount(Account account)
+        {
+            var body = JsonConvert.SerializeObject(account);
+            var request = new RestRequest(@"api/account/create/", Method.POST);
+            request.AddParameter("text/json", body, ParameterType.RequestBody);
+            var client = new RestClient(intuneServerUri);
+            var response = client.Execute<Account>(request);
+            if (response.StatusCode == HttpStatusCode.OK)
+                return response.Data;
+
+            return null;
+        }
+
+        public static Contact AddContact(Contact contact)
+        {
+            var body = JsonConvert.SerializeObject(contact);
+            var request = new RestRequest(@"api/contact/create/", Method.POST);
+            request.AddParameter("text/json", body, ParameterType.RequestBody);
+            var client = new RestClient(intuneServerUri);
+            var response = client.Execute<Contact>(request);
+            if (response.StatusCode == HttpStatusCode.OK)
+                return response.Data;
+
+            return null;
+        }
     }
 }
