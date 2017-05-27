@@ -55,14 +55,11 @@ namespace Intune.Android
             switch (item.ItemId)
             {
                 case Resource.Id.accounts_menu_refresh:
+                    refreshList();
+                    break;
                 case Resource.Id.accounts_menu_contacts:
                     showContactsActivity();
                     break;
-                case Resource.Id.accounts_menu_comment:
-                case Resource.Id.accounts_menu_share:
-                case Resource.Id.accounts_menu_open:
-                //showAccountEntriesActivity();
-                //break;
                 case Resource.Id.accounts_menu_new:
                     showAccountActivity();
                     break;

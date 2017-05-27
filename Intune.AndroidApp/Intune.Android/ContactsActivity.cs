@@ -18,6 +18,14 @@ namespace Intune.Android
             this.Title = string.Format("{0} - Contacts", loginUserName);
 
             refreshList();
+            var contactsListView = FindViewById<ListView>(Resource.Id.contactsListView);
+            contactsListView.ItemClick +=
+                (object sender, AdapterView.ItemClickEventArgs e) =>
+                {
+                    var obj = contactsListView.GetItemAtPosition(e.Position);
+                    var contact = ((JavaObjectWrapper<Contact>)obj).Obj;
+                    showContactActivity(contact.Id);
+                };
         }
 
         private void refreshList()
@@ -45,14 +53,13 @@ namespace Intune.Android
             switch (item.ItemId)
             {
                 case Resource.Id.contacts_menu_refresh:
+                    refreshList();
+                    break;
                 case Resource.Id.contacts_menu_accounts:
                     showAccountsActivity();
                     break;
-                case Resource.Id.contacts_menu_comment:
-                case Resource.Id.contacts_menu_share:
-                case Resource.Id.contacts_menu_open:
                 case Resource.Id.contacts_menu_new:
-                    showContactActivity();
+                    showContactActivity(0);
                     break;
                 default:
                     break;
@@ -71,11 +78,12 @@ namespace Intune.Android
             StartActivity(accountsActivity);
         }
 
-        private void showContactActivity()
+        private void showContactActivity(int contactId)
         {
             var loginUserId = Intent.GetIntExtra("LoginUserId", 0);
             var contactActivity = new Intent(this, typeof(ContactActivity));
             contactActivity.PutExtra("LoginUserId", loginUserId);
+            contactActivity.PutExtra("ContactId", contactId);
             StartActivity(contactActivity);
         }
     }

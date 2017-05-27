@@ -47,13 +47,18 @@ namespace Intune.Android
             switch (item.ItemId)
             {
                 case Resource.Id.entries_menu_refresh:
-                case Resource.Id.entries_menu_contacts:
+                    refreshList();
+                    break;
+                case Resource.Id.entries_menu_account_contacts:
+                    //TODO: display account contacts...
                     showContactsActivity();
                     break;
-                case Resource.Id.entries_menu_comment:
-                case Resource.Id.entries_menu_share:
-                case Resource.Id.entries_menu_void:
-                case Resource.Id.entries_menu_new:
+                case Resource.Id.entries_menu_comment_account:
+                case Resource.Id.entries_menu_share_account:
+                case Resource.Id.entries_menu_edit_account:
+                    showAccountActivity();
+                    break;
+                case Resource.Id.entries_menu_new_entry:
                     showAccountEntryActivity();
                     break;
                 default:
@@ -71,6 +76,18 @@ namespace Intune.Android
             contactsActivity.PutExtra("LoginUserId", loginUserId);
             contactsActivity.PutExtra("LoginUserName", loginUserName);
             StartActivity(contactsActivity);
+        }
+
+        private void showAccountActivity()
+        {
+            var loginUserId = Intent.GetIntExtra("LoginUserId", 0);
+            var accountId = Intent.GetIntExtra("AccountId", 0);
+            var accountName = Intent.GetStringExtra("AccountName");
+            var accountActivity = new Intent(this, typeof(AccountActivity));
+            accountActivity.PutExtra("LoginUserId", loginUserId);
+            accountActivity.PutExtra("AccountId", accountId);
+            accountActivity.PutExtra("AccountName", accountName);
+            StartActivity(accountActivity);
         }
 
         private void showAccountEntryActivity()

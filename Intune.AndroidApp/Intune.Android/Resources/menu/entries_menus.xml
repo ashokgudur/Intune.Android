@@ -5,23 +5,23 @@
      android:showAsAction="never"
      android:title="Refresh" />
   <item
-       android:id="@+id/entries_menu_contacts"
+       android:id="@+id/entries_menu_account_contacts"
        android:showAsAction="never"
-       android:title="Contacts" />
+       android:title="Account contacts" />
   <item
-       android:id="@+id/entries_menu_comment"
+       android:id="@+id/entries_menu_comment_account"
        android:showAsAction="never"
-       android:title="Comment" />
+       android:title="Comment on account" />
   <item
-       android:id="@+id/entries_menu_share"
+       android:id="@+id/entries_menu_edit_account"
        android:showAsAction="never"
-       android:title="Share" />
+       android:title="Edit account" />
   <item
-         android:id="@+id/entries_menu_void"
+       android:id="@+id/entries_menu_share_account"
+       android:showAsAction="never"
+       android:title="Share account" />
+  <item
+         android:id="@+id/entries_menu_new_entry"
          android:showAsAction="never"
-         android:title="Void" />
-  <item
-         android:id="@+id/entries_menu_new"
-         android:showAsAction="never"
-         android:title="New" />
+         android:title="New entry" />
 </menu>

@@ -2,6 +2,7 @@ using System;
 using Android.App;
 using Android.OS;
 using Android.Widget;
+using Android.Views;
 
 namespace Intune.Android
 {
@@ -19,6 +20,30 @@ namespace Intune.Android
             var okButton = FindViewById<Button>(Resource.Id.entryOkButton);
             okButton.Click += OkButton_Click; ;
         }
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.entry_menus, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.entry_menu_void:
+                    //showAccountsActivity();
+                    //break;
+                case Resource.Id.entry_menu_comment:
+                    //showAccountsActivity();
+                    //break;
+                default:
+                    break;
+            }
+
+            return base.OnOptionsItemSelected(item);
+        }
+
 
         private void OkButton_Click(object sender, EventArgs e)
         {

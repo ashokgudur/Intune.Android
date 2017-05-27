@@ -72,9 +72,21 @@ namespace Intune.Android
             return null;
         }
 
+        public static Contact GetContact(int contactId)
+        {
+            var request = new RestRequest(@"api/contact/contact/", Method.GET);
+            request.AddParameter("contactId", contactId);
+            var client = new RestClient(intuneServerUri);
+            var response = client.Execute<Contact>(request);
+            if (response.StatusCode == HttpStatusCode.OK)
+                return response.Data as Contact;
+
+            return null;
+        }
+
         public static List<Contact> GetAllContacts(int userId)
         {
-            var request = new RestRequest(@"api/contact/allcontacts", Method.GET);
+            var request = new RestRequest(@"api/contact/allcontacts/", Method.GET);
             request.AddParameter("userId", userId);
             var client = new RestClient(intuneServerUri);
             var response = client.Execute<List<Contact>>(request);
@@ -114,6 +126,32 @@ namespace Intune.Android
         {
             var body = JsonConvert.SerializeObject(contact);
             var request = new RestRequest(@"api/contact/create/", Method.POST);
+            request.AddParameter("text/json", body, ParameterType.RequestBody);
+            var client = new RestClient(intuneServerUri);
+            var response = client.Execute<Contact>(request);
+            if (response.StatusCode == HttpStatusCode.OK)
+                return response.Data;
+
+            return null;
+        }
+
+        public static Account UpdateAccount(Account account)
+        {
+            var body = JsonConvert.SerializeObject(account);
+            var request = new RestRequest(@"api/account/update/", Method.POST);
+            request.AddParameter("text/json", body, ParameterType.RequestBody);
+            var client = new RestClient(intuneServerUri);
+            var response = client.Execute<Account>(request);
+            if (response.StatusCode == HttpStatusCode.OK)
+                return response.Data;
+
+            return null;
+        }
+
+        public static Contact UpdateContact(Contact contact)
+        {
+            var body = JsonConvert.SerializeObject(contact);
+            var request = new RestRequest(@"api/contact/update/", Method.POST);
             request.AddParameter("text/json", body, ParameterType.RequestBody);
             var client = new RestClient(intuneServerUri);
             var response = client.Execute<Contact>(request);
