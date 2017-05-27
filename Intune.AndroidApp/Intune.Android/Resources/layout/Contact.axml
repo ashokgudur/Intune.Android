@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:text="Please enter the details of the new contact to be created."
+        android:layout_width="match_parent"
+        android:layout_height="58.5dp"
+        android:id="@+id/contactTitleBarTextView"
+        android:background="@android:color/holo_red_dark"
+        android:padding="5dp"
+        android:textColor="@android:color/background_light"
+        android:textSize="20dp" />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="8.5dp"
+        android:id="@+id/space1" />
+    <EditText
+        android:inputType="textPersonName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/contactNameEditText" />
+    <EditText
+        android:inputType="textEmailAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/contactEmailEditText" />
+    <EditText
+        android:inputType="phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/contactMobileEditText" />
+    <EditText
+        android:inputType="textPostalAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/contactAddressEditText" />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="11.0dp"
+        android:id="@+id/space2" />
+    <Button
+        android:text="OK"
+        android:id="@+id/contactOkButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="130dp"
+        android:layout_marginRight="130dp" />
+</LinearLayout>

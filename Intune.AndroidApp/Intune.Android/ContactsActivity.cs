@@ -21,9 +21,6 @@ namespace Intune.Android
             var contactsAdapter = new ContactsAdapter(this, loginUserId);
             var contactsListView = FindViewById<ListView>(Resource.Id.contactsListView);
             contactsListView.Adapter = contactsAdapter;
-            //contactsListView.ChoiceMode = ChoiceMode.Multiple;
-            //contactsListView.SetItemChecked(1, true);
-            //contactsListView.SetItemChecked(2, true);
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)

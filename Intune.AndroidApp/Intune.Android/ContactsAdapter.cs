@@ -48,6 +48,15 @@ namespace Intune.Android
             var contactName = view.FindViewById<TextView>(Resource.Id.contactNameTextView);
             contactName.Text = contact.Name;
 
+            var contactIsIntuned = view.FindViewById<TextView>(Resource.Id.contactIsIntunedTextView);
+            contactIsIntuned.Text = contact.HasIntune() ? "Intuned" : "";
+
+            var contactMobile = view.FindViewById<TextView>(Resource.Id.contactMobileTextView);
+            contactMobile.Text = contact.Mobile;
+
+            var contactAddress = view.FindViewById<TextView>(Resource.Id.contactAddressTextView);
+            contactAddress.Text = contact.Address;
+
             return view;
         }
     }
