@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:text="Please enter your details below to register as new user."
+        android:layout_width="match_parent"
+        android:layout_height="65.0dp"
+        android:id="@+id/textViewTitle"
+        android:textSize="25dp"
+        android:textColor="@android:color/background_light"
+        android:background="@android:color/holo_orange_dark"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp" />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="21.0dp"
+        android:id="@+id/space1" />
+    <EditText
+        android:inputType="textEmailAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/emailEditText"
+        android:hint="Email"
+        android:text="info@intune.in" />
+    <EditText
+        android:inputType="textPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/passwordEditText"
+        android:hint="Password"
+        android:text="intune" />
+    <EditText
+        android:inputType="textPersonName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fullNameEditText"
+        android:hint="Full name"
+        android:text="Intune" />
+    <EditText
+        android:inputType="phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mobileEditText"
+        android:hint="Mobile number"
+        android:text="9898998989" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/atUserNameEditText"
+        android:hint="User Name"
+        android:text="intune" />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="15.5dp"
+        android:id="@+id/space2" />
+    <Button
+        android:text="OK"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/okButton"
+        android:layout_marginLeft="130dp"
+        android:layout_marginRight="130dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="33.0dp"
+        android:id="@+id/resultTextView"
+        android:textColor="@android:color/holo_blue_bright"
+        android:textStyle="bold"
+        android:textSize="25dp" />
+</LinearLayout>
