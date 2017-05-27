@@ -97,6 +97,19 @@ namespace Intune.Android
             return null;
         }
 
+        public static Entry AddAccountEntry(Entry entry)
+        {
+            var body = JsonConvert.SerializeObject(entry);
+            var request = new RestRequest(@"api/account/addentry/", Method.POST);
+            request.AddParameter("text/json", body, ParameterType.RequestBody);
+            var client = new RestClient(intuneServerUri);
+            var response = client.Execute<Entry>(request);
+            if (response.StatusCode == HttpStatusCode.OK)
+                return response.Data;
+
+            return null;
+        }
+
         public static Contact AddContact(Contact contact)
         {
             var body = JsonConvert.SerializeObject(contact);

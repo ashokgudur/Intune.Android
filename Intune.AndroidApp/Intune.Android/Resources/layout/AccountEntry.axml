@@ -6,10 +6,110 @@
     <TextView
         android:text="Enter the details of the new entry."
         android:layout_width="match_parent"
-        android:layout_height="39.5dp"
+        android:layout_height="34.5dp"
         android:id="@+id/accountEntryTitleBarTextView"
         android:background="@android:color/holo_blue_dark"
         android:padding="5dp"
         android:textColor="@android:color/background_light"
         android:textSize="20dp" />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10.5dp"
+        android:id="@+id/space1" />
+    <EditText
+        android:inputType="date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/entryDateEditText"
+        android:hint="transaction date"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="10dp" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50.5dp"
+        android:id="@+id/linearLayout1"
+        android:gravity="center_vertical"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="5dp">
+        <TextView
+            android:text="Tx.Type:"
+            android:layout_width="73.5dp"
+            android:layout_height="match_parent"
+            android:id="@+id/entryTxnTypeTextView"
+            android:gravity="center_vertical"
+            android:textSize="18dp" />
+        <RadioGroup
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:id="@+id/entryTxnTypeRadioGroup"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="33.0dp">
+            <RadioButton
+                android:layout_width="74.0dp"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Paid"
+                android:id="@+id/entryTxnTypePaidRadioButton"
+                android:textSize="18dp" />
+            <RadioButton
+                android:layout_width="90.5dp"
+                android:layout_height="wrap_content"
+                android:text="Issued"
+                android:id="@+id/entryTxnTypeIssuedRadioButton"
+                android:textSize="18dp" />
+            <RadioButton
+                android:layout_width="112.0dp"
+                android:layout_height="wrap_content"
+                android:text="Received"
+                android:id="@+id/entryTxnTypeReceviedRadioButton"
+                android:textSize="18dp" />
+        </RadioGroup>
+    </LinearLayout>
+    <EditText
+        android:inputType="numberDecimal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/entryQuantityEditText"
+        android:hint="Quantity"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="10dp" />
+    <EditText
+        android:inputType="numberDecimal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/entryAmountEditText"
+        android:hint="Amount"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="10dp" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/entryNotesEditText"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="10dp" />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="7.5dp"
+        android:id="@+id/space2" />
+    <Button
+        android:text="OK"
+        android:layout_width="match_parent"
+        android:layout_height="42.0dp"
+        android:id="@+id/entryOkButton"
+        android:layout_marginLeft="130dp"
+        android:layout_marginRight="130dp" />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="9.5dp"
+        android:id="@+id/space3" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="24.5dp"
+        android:id="@+id/entryResultTextView"
+        android:gravity="center_vertical"
+        android:textColor="@android:color/holo_blue_dark"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="5dp" />
 </LinearLayout>
