@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
+    <Compile Include="ContactActivity.cs" />
     <Compile Include="ContactsActivity.cs" />
     <Compile Include="Contact.cs" />
     <Compile Include="ContactsAdapter.cs" />
