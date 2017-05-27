@@ -89,7 +89,7 @@ namespace Intune.Android
 
         private void showAccountsActivity(User user)
         {
-            var mainActivity = new Intent(this, typeof(MainActivity));
+            var mainActivity = new Intent(this, typeof(AccountsActivity));
             mainActivity.PutExtra("LoginUserId", user.Id);
             mainActivity.PutExtra("LoginUserName", user.Name);
             StartActivity(mainActivity);

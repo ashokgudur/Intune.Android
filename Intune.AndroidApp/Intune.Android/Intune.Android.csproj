@@ -61,10 +61,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
+    <Compile Include="ContactsActivity.cs" />
+    <Compile Include="Contact.cs" />
+    <Compile Include="ContactsAdapter.cs" />
     <Compile Include="AccountsAdapter.cs" />
     <Compile Include="IntuneService.cs" />
     <Compile Include="LoginActivity.cs" />
-    <Compile Include="MainActivity.cs" />
+    <Compile Include="AccountsActivity.cs" />
     <Compile Include="RegisterActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -78,9 +81,13 @@
     <AndroidResource Include="Resources\layout\Register.axml" />
     <AndroidResource Include="Resources\layout\Login.axml" />
     <AndroidResource Include="Resources\layout\AccountListItem.axml" />
+    <AndroidResource Include="Resources\layout\Contacts.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\ContactListItem.axml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\Main.axml">
+    <AndroidResource Include="Resources\layout\Accounts.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

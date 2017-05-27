@@ -6,21 +6,24 @@ using Android.Widget;
 
 namespace Intune.Android
 {
-    [Activity(Label = "Accounts - Intune")]
-    public class MainActivity : Activity
+    [Activity(Label = "Contacts - Intune")]
+    public class ContactsActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.Main);
+            SetContentView(Resource.Layout.Contacts);
 
             var loginUserName = Intent.GetStringExtra("LoginUserName");
-            this.Title = string.Format("{0} - Accounts", loginUserName);
+            this.Title = string.Format("{0} - Contacts", loginUserName);
 
             var loginUserId = Intent.GetIntExtra("LoginUserId", 0);
-            var accountAdapter = new AccountsAdapter(this, loginUserId);
-            var accountsListView = FindViewById<ListView>(Resource.Id.accountsListView);
-            accountsListView.Adapter = accountAdapter;
+            var contactsAdapter = new ContactsAdapter(this, loginUserId);
+            var contactsListView = FindViewById<ListView>(Resource.Id.contactsListView);
+            contactsListView.Adapter = contactsAdapter;
+            //contactsListView.ChoiceMode = ChoiceMode.Multiple;
+            contactsListView.SetItemChecked(1, true);
+            contactsListView.SetItemChecked(2, true);
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)

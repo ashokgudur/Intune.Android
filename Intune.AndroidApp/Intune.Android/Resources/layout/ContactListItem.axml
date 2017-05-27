@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="49.0dp"
+        android:id="@+id/linearLayout1">
+        <TextView
+            android:text="Text"
+            android:layout_width="341.5dp"
+            android:layout_height="match_parent"
+            android:id="@+id/contactNameTextView"
+            android:gravity="center_vertical"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:textColor="@android:color/holo_blue_bright"
+            android:layout_marginLeft="5dp" />
+        <CheckedTextView
+            android:layout_width="26.0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/isIntuneContactCheckedTextView"
+            android:layout_marginRight="0.0dp" />
+    </LinearLayout>
+</LinearLayout>

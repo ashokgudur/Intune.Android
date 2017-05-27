@@ -42,13 +42,34 @@ namespace Intune.Android
             var view = convertView ??
                 _activity.LayoutInflater.Inflate(
                     Resource.Layout.AccountListItem, parent, false);
+
+            var account = _accounts[position];
+
             var accountName = view.FindViewById<TextView>(Resource.Id.accountNameTextView);
-            var accountBalance = view.FindViewById<TextView>(Resource.Id.balanceTextView);
-            accountName.Text = _accounts[position].Name;
-            accountBalance.Text = System.Math.Abs(_accounts[position].Balance)
+            accountName.Text = account.Name;
+
+            var accountBalance = view.FindViewById<TextView>(Resource.Id.accountBalanceTextView);
+            accountBalance.Text = System.Math.Abs(account.Balance)
                                     .ToString("C2", CultureInfo.CurrentCulture);
 
+            var accountPersmission = view.FindViewById<TextView>(Resource.Id.accountPermissionTextView);
+            accountPersmission.Text = string.Format("Permission: ", account.Role.ToString());
+
+            var txn = account.Balance == 0 ? account.HasEntries ? "++" : "NA"
+                    : account.Balance > 0 ? getBalanceTitle(account, "Receivable") 
+                                            : getBalanceTitle(account, "Payable");
+            var accountTx = view.FindViewById<TextView>(Resource.Id.accountTxTextView);
+            accountTx.Text = string.Format("Txns: ", txn);
+
             return view;
+        }
+
+        private string getBalanceTitle(Account account, string ofType)
+        {
+            if (account.Role == UserAccountRole.Collaborator)
+                return ofType == "Receivable" ? "Payable" : "Receivable";
+            else
+                return ofType == "Receivable" ? "Receivable" : "Payable";
         }
     }
 }
