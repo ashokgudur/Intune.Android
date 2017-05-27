@@ -6,17 +6,20 @@ using System.Globalization;
 
 namespace Intune.Android
 {
+    public class JavaObjectWrapper<T> : Java.Lang.Object
+    {
+        public T Obj { get; set; }
+    }
+
     public class AccountsAdapter : BaseAdapter
     {
         List<Account> _accounts;
         Activity _activity;
-        int _userId;
 
         public AccountsAdapter(Activity activity, int userId)
         {
             _activity = activity;
-            _userId = userId;
-            _accounts = IntuneService.GetAllAccounts(_userId, 0);
+            _accounts = IntuneService.GetAllAccounts(userId, 0);
         }
 
         public override int Count
@@ -29,7 +32,8 @@ namespace Intune.Android
 
         public override Java.Lang.Object GetItem(int position)
         {
-            return null;
+            Account account = _accounts[position];
+            return new JavaObjectWrapper<Account> { Obj = account };
         }
 
         public override long GetItemId(int position)

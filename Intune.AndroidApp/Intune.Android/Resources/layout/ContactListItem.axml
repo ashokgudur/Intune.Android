@@ -19,7 +19,7 @@
             android:textSize="18dp"
             android:textColor="@android:color/holo_green_dark"
             android:gravity="center_vertical"
-            android:layout_width="285.5dp"
+            android:layout_width="272.5dp"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp" />
         <TextView
@@ -50,7 +50,7 @@
         <TextView
             android:text="Address:"
             android:id="@+id/contactAddressTextView"
-            android:layout_width="163.0dp"
+            android:layout_width="151.5dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:textSize="16dp"

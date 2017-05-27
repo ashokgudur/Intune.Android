@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+  <item
+     android:id="@+id/entries_menu_refresh"
+     android:showAsAction="never"
+     android:title="Refresh" />
+  <item
+       android:id="@+id/entries_menu_contacts"
+       android:showAsAction="never"
+       android:title="Contacts" />
+  <item
+       android:id="@+id/entries_menu_comment"
+       android:showAsAction="never"
+       android:title="Comment" />
+  <item
+       android:id="@+id/entries_menu_share"
+       android:showAsAction="never"
+       android:title="Share" />
+  <item
+         android:id="@+id/entries_menu_void"
+         android:showAsAction="never"
+         android:title="Void" />
+  <item
+         android:id="@+id/entries_menu_new"
+         android:showAsAction="never"
+         android:title="New" />
+</menu>

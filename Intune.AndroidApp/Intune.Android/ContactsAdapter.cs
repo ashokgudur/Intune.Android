@@ -10,13 +10,11 @@ namespace Intune.Android
     {
         List<Contact> _contacts;
         Activity _activity;
-        int _userId;
 
         public ContactsAdapter(Activity activity, int userId)
         {
             _activity = activity;
-            _userId = userId;
-            _contacts = IntuneService.GetAllContacts(_userId);
+            _contacts = IntuneService.GetAllContacts(userId);
         }
 
         public override int Count
@@ -29,7 +27,8 @@ namespace Intune.Android
 
         public override Java.Lang.Object GetItem(int position)
         {
-            return null;
+            Contact contact = _contacts[position];
+            return new JavaObjectWrapper<Contact> { Obj = contact };
         }
 
         public override long GetItemId(int position)

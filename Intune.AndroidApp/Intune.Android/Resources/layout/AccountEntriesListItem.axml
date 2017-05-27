@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="29.0dp"
+        android:id="@+id/linearLayout1">
+        <TextView
+            android:text="Date"
+            android:id="@+id/entryDateTextView"
+            android:layout_width="120.0dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:textSize="18dp"
+            android:textColor="@android:color/holo_green_dark" />
+        <TextView
+            android:text="TxnT"
+            android:layout_width="66.0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/entryTxnTypeTextView"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:textSize="18dp"
+            android:textColor="@android:color/holo_red_dark" />
+        <TextView
+            android:text="QTY"
+            android:layout_width="46.5dp"
+            android:layout_height="match_parent"
+            android:id="@+id/entryQuantityTextView"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:textSize="18dp"
+            android:textColor="@android:color/holo_green_light" />
+        <TextView
+            android:text="Amount"
+            android:layout_width="124.5dp"
+            android:layout_height="match_parent"
+            android:id="@+id/entryAmountTextView"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:textSize="18dp"
+            android:textColor="@android:color/holo_green_dark" />
+    </LinearLayout>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="5.5dp"
+        android:id="@+id/space1" />
+    <TextView
+        android:text="Notes"
+        android:layout_width="match_parent"
+        android:layout_height="20.0dp"
+        android:id="@+id/entryNotesTextView"
+        android:gravity="center_vertical"
+        android:textStyle="italic"
+        android:textSize="18dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:textColor="@android:color/holo_orange_dark" />
+</LinearLayout>

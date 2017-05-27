@@ -3,5 +3,13 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+    <TextView
+        android:text="Enter the details of the new entry."
+        android:layout_width="match_parent"
+        android:layout_height="39.5dp"
+        android:id="@+id/accountEntryTitleBarTextView"
+        android:background="@android:color/holo_blue_dark"
+        android:padding="5dp"
+        android:textColor="@android:color/background_light"
+        android:textSize="20dp" />
 </LinearLayout>

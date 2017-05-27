@@ -60,6 +60,18 @@ namespace Intune.Android
             return null;
         }
 
+        public static List<Entry> GetAccountEntries(int accountId)
+        {
+            var request = new RestRequest(@"api/account/entries/", Method.GET);
+            request.AddParameter("accountId", accountId);
+            var client = new RestClient(intuneServerUri);
+            var response = client.Execute<List<Entry>>(request);
+            if (response.StatusCode == HttpStatusCode.OK)
+                return response.Data as List<Entry>;
+
+            return null;
+        }
+
         public static List<Contact> GetAllContacts(int userId)
         {
             var request = new RestRequest(@"api/contact/allcontacts", Method.GET);

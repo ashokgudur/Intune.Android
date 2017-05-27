@@ -11,7 +11,7 @@ namespace Intune.Android
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.Contact);
+            SetContentView(Resource.Layout.Account);
 
             var okButton = FindViewById<Button>(Resource.Id.accountOkButton);
             okButton.Click += OkButton_Click; ;

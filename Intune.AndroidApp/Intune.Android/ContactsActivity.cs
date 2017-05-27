@@ -17,10 +17,21 @@ namespace Intune.Android
             var loginUserName = Intent.GetStringExtra("LoginUserName");
             this.Title = string.Format("{0} - Contacts", loginUserName);
 
+            refreshList();
+        }
+
+        private void refreshList()
+        {
             var loginUserId = Intent.GetIntExtra("LoginUserId", 0);
             var contactsAdapter = new ContactsAdapter(this, loginUserId);
             var contactsListView = FindViewById<ListView>(Resource.Id.contactsListView);
             contactsListView.Adapter = contactsAdapter;
+        }
+
+        protected override void OnResume()
+        {
+            refreshList();
+            base.OnResume();
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)

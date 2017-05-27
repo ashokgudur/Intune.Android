@@ -9,6 +9,8 @@ namespace Intune.Android
     [Activity(Label = "Accounts - Intune")]
     public class AccountsActivity : Activity
     {
+        AccountsAdapter _accountsAdapter = null;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -17,10 +19,29 @@ namespace Intune.Android
             var loginUserName = Intent.GetStringExtra("LoginUserName");
             this.Title = string.Format("{0} - Accounts", loginUserName);
 
-            var loginUserId = Intent.GetIntExtra("LoginUserId", 0);
-            var accountsAdapter = new AccountsAdapter(this, loginUserId);
+            refreshList();
             var accountsListView = FindViewById<ListView>(Resource.Id.accountsListView);
-            accountsListView.Adapter = accountsAdapter;
+            accountsListView.ItemClick +=
+                (object sender, AdapterView.ItemClickEventArgs e) =>
+                {
+                    var obj = accountsListView.GetItemAtPosition(e.Position);
+                    var account = ((JavaObjectWrapper<Account>)obj).Obj;
+                    showAccountEntriesActivity(account);
+                };
+        }
+
+        private void refreshList()
+        {
+            var loginUserId = Intent.GetIntExtra("LoginUserId", 0);
+            _accountsAdapter = new AccountsAdapter(this, loginUserId);
+            var accountsListView = FindViewById<ListView>(Resource.Id.accountsListView);
+            accountsListView.Adapter = _accountsAdapter;
+        }
+
+        protected override void OnResume()
+        {
+            refreshList();
+            base.OnResume();
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -40,6 +61,8 @@ namespace Intune.Android
                 case Resource.Id.accounts_menu_comment:
                 case Resource.Id.accounts_menu_share:
                 case Resource.Id.accounts_menu_open:
+                //showAccountEntriesActivity();
+                //break;
                 case Resource.Id.accounts_menu_new:
                     showAccountActivity();
                     break;
@@ -66,6 +89,14 @@ namespace Intune.Android
             var accountActivity = new Intent(this, typeof(AccountActivity));
             accountActivity.PutExtra("LoginUserId", loginUserId);
             StartActivity(accountActivity);
+        }
+
+        private void showAccountEntriesActivity(Account account)
+        {
+            var contactsActivity = new Intent(this, typeof(AccountEntriesActivity));
+            contactsActivity.PutExtra("AccountId", account.Id);
+            contactsActivity.PutExtra("AccountName", account.Name);
+            StartActivity(contactsActivity);
         }
     }
 }
