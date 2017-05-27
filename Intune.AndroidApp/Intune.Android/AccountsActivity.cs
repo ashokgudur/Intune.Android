@@ -25,7 +25,7 @@ namespace Intune.Android
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
-            MenuInflater.Inflate(Resource.Menu.main_mennus, menu);
+            MenuInflater.Inflate(Resource.Menu.accounts_menus, menu);
             return base.OnCreateOptionsMenu(menu);
         }
 
@@ -33,17 +33,29 @@ namespace Intune.Android
         {
             switch (item.ItemId)
             {
-                case Resource.Id.menu_refresh:
-                case Resource.Id.menu_contacts:
-                case Resource.Id.menu_comment:
-                case Resource.Id.menu_share_account:
-                case Resource.Id.menu_open:
-                case Resource.Id.menu_new:
+                case Resource.Id.accounts_menu_refresh:
+                case Resource.Id.accounts_menu_contacts:
+                    showContactsActivity();
+                    break;
+                case Resource.Id.accounts_menu_comment:
+                case Resource.Id.accounts_menu_share:
+                case Resource.Id.accounts_menu_open:
+                case Resource.Id.accounts_menu_new:
                 default:
                     break;
             }
 
             return base.OnOptionsItemSelected(item);
+        }
+
+        private void showContactsActivity()
+        {
+            var loginUserId = Intent.GetIntExtra("LoginUserId", 0);
+            var loginUserName = Intent.GetStringExtra("LoginUserName");
+            var contactsActivity = new Intent(this, typeof(ContactsActivity));
+            contactsActivity.PutExtra("LoginUserId", loginUserId);
+            contactsActivity.PutExtra("LoginUserName", loginUserName);
+            StartActivity(contactsActivity);
         }
     }
 }

@@ -53,13 +53,13 @@ namespace Intune.Android
                                     .ToString("C2", CultureInfo.CurrentCulture);
 
             var accountPersmission = view.FindViewById<TextView>(Resource.Id.accountPermissionTextView);
-            accountPersmission.Text = string.Format("Permission: ", account.Role.ToString());
+            accountPersmission.Text = string.Format("You are {0}", account.Role.ToString());
 
             var txn = account.Balance == 0 ? account.HasEntries ? "++" : "NA"
                     : account.Balance > 0 ? getBalanceTitle(account, "Receivable") 
                                             : getBalanceTitle(account, "Payable");
             var accountTx = view.FindViewById<TextView>(Resource.Id.accountTxTextView);
-            accountTx.Text = string.Format("Txns: ", txn);
+            accountTx.Text = string.Format("Balance is {0}", txn);
 
             return view;
         }

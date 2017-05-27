@@ -12,7 +12,7 @@ namespace Intune.Android
     {
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
-            MenuInflater.Inflate(Resource.Menu.login_mennus, menu);
+            MenuInflater.Inflate(Resource.Menu.login_menus, menu);
             return base.OnCreateOptionsMenu(menu);
         }
 
@@ -89,10 +89,10 @@ namespace Intune.Android
 
         private void showAccountsActivity(User user)
         {
-            var mainActivity = new Intent(this, typeof(AccountsActivity));
-            mainActivity.PutExtra("LoginUserId", user.Id);
-            mainActivity.PutExtra("LoginUserName", user.Name);
-            StartActivity(mainActivity);
+            var accountsActivity = new Intent(this, typeof(AccountsActivity));
+            accountsActivity.PutExtra("LoginUserId", user.Id);
+            accountsActivity.PutExtra("LoginUserName", user.Name);
+            StartActivity(accountsActivity);
         }
     }
 }

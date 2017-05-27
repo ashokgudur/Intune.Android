@@ -22,13 +22,13 @@ namespace Intune.Android
             var contactsListView = FindViewById<ListView>(Resource.Id.contactsListView);
             contactsListView.Adapter = contactsAdapter;
             //contactsListView.ChoiceMode = ChoiceMode.Multiple;
-            contactsListView.SetItemChecked(1, true);
-            contactsListView.SetItemChecked(2, true);
+            //contactsListView.SetItemChecked(1, true);
+            //contactsListView.SetItemChecked(2, true);
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
-            MenuInflater.Inflate(Resource.Menu.main_mennus, menu);
+            MenuInflater.Inflate(Resource.Menu.contacts_menus, menu);
             return base.OnCreateOptionsMenu(menu);
         }
 
@@ -36,17 +36,29 @@ namespace Intune.Android
         {
             switch (item.ItemId)
             {
-                case Resource.Id.menu_refresh:
-                case Resource.Id.menu_contacts:
-                case Resource.Id.menu_comment:
-                case Resource.Id.menu_share_account:
-                case Resource.Id.menu_open:
-                case Resource.Id.menu_new:
+                case Resource.Id.contacts_menu_refresh:
+                case Resource.Id.contacts_menu_accounts:
+                    showAccountsActivity();
+                    break;
+                case Resource.Id.contacts_menu_comment:
+                case Resource.Id.contacts_menu_share:
+                case Resource.Id.contacts_menu_open:
+                case Resource.Id.contacts_menu_new:
                 default:
                     break;
             }
 
             return base.OnOptionsItemSelected(item);
+        }
+
+        private void showAccountsActivity()
+        {
+            var loginUserId = Intent.GetIntExtra("LoginUserId", 0);
+            var loginUserName = Intent.GetStringExtra("LoginUserName");
+            var accountsActivity = new Intent(this, typeof(AccountsActivity));
+            accountsActivity.PutExtra("LoginUserId", loginUserId);
+            accountsActivity.PutExtra("LoginUserName", loginUserName);
+            StartActivity(accountsActivity);
         }
     }
 }

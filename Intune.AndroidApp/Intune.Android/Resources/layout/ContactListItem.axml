@@ -8,22 +8,18 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="49.0dp"
+        android:layout_height="29.0dp"
         android:id="@+id/linearLayout1">
         <TextView
             android:text="Text"
-            android:layout_width="341.5dp"
             android:layout_height="match_parent"
             android:id="@+id/contactNameTextView"
-            android:gravity="center_vertical"
             android:textStyle="bold"
-            android:textSize="20dp"
-            android:textColor="@android:color/holo_blue_bright"
-            android:layout_marginLeft="5dp" />
-        <CheckedTextView
-            android:layout_width="26.0dp"
-            android:layout_height="match_parent"
-            android:id="@+id/isIntuneContactCheckedTextView"
-            android:layout_marginRight="0.0dp" />
+            android:textSize="18dp"
+            android:textColor="@android:color/holo_green_dark"
+            android:layout_marginLeft="5dp"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:layout_marginRight="10dp" />
     </LinearLayout>
 </LinearLayout>
