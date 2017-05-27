@@ -11,7 +11,7 @@
         <TextView
             android:text="Date"
             android:id="@+id/entryDateTextView"
-            android:layout_width="120.0dp"
+            android:layout_width="109.5dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:layout_marginLeft="5dp"
@@ -19,12 +19,12 @@
             android:textColor="@android:color/holo_green_dark" />
         <TextView
             android:text="TxnT"
-            android:layout_width="66.0dp"
+            android:layout_width="72.0dp"
             android:layout_height="match_parent"
             android:id="@+id/entryTxnTypeTextView"
             android:gravity="center_vertical"
             android:layout_marginLeft="5dp"
-            android:textSize="18dp"
+            android:textSize="15dp"
             android:textColor="@android:color/holo_red_dark" />
         <TextView
             android:text="QTY"

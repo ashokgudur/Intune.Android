@@ -33,8 +33,8 @@
         android:layout_marginRight="10dp"
         android:layout_marginLeft="5dp">
         <TextView
-            android:text="Tx.Type:"
-            android:layout_width="73.5dp"
+            android:text="You:"
+            android:layout_width="62.0dp"
             android:layout_height="match_parent"
             android:id="@+id/entryTxnTypeTextView"
             android:gravity="center_vertical"
@@ -47,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="33.0dp">
             <RadioButton
-                android:layout_width="74.0dp"
+                android:layout_width="79.0dp"
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:text="Paid"
@@ -111,5 +111,6 @@
         android:gravity="center_vertical"
         android:textColor="@android:color/holo_blue_dark"
         android:layout_marginRight="10dp"
-        android:layout_marginLeft="5dp" />
+        android:layout_marginLeft="5dp"
+        android:textSize="18dp" />
 </LinearLayout>
