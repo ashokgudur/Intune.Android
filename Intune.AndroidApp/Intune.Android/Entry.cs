@@ -14,7 +14,18 @@ namespace Intune.Android
         public decimal Amount { get; set; }
         public int VoidId { get; set; }
 
-        //public bool IsValid();
+        public Entry()
+        {
+            TxnDate = DateTime.Today;
+        }
+
+        public bool IsValid()
+        {
+            if (string.IsNullOrWhiteSpace(Notes)) return false;
+            if (Quantity == 0 && Amount == 0)  return false;
+
+            return true;
+        }
     }
 
     public enum TxnType

@@ -38,7 +38,8 @@
             android:layout_height="match_parent"
             android:id="@+id/entryTxnTypeTextView"
             android:gravity="center_vertical"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            android:paddingLeft="5dp" />
         <RadioGroup
             android:minWidth="25px"
             android:minHeight="25px"
@@ -93,13 +94,27 @@
         android:layout_width="match_parent"
         android:layout_height="7.5dp"
         android:id="@+id/space2" />
-    <Button
-        android:text="OK"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="42.0dp"
-        android:id="@+id/entryOkButton"
-        android:layout_marginLeft="130dp"
-        android:layout_marginRight="130dp" />
+        android:id="@+id/linearLayout2"
+        android:gravity="center">
+        <Button
+            android:text="Save"
+            android:id="@+id/entryOkButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <Space
+            android:layout_width="90.5dp"
+            android:layout_height="match_parent"
+            android:id="@+id/space4" />
+        <Button
+            android:text="New"
+            android:id="@+id/entryNewButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </LinearLayout>
     <Space
         android:layout_width="match_parent"
         android:layout_height="9.5dp"

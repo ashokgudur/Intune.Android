@@ -20,6 +20,15 @@ namespace Intune.Android
             this.Title = string.Format("{0} - Entries", accountName);
 
             refreshList();
+
+            var entriesListView = FindViewById<ListView>(Resource.Id.accountEntriesListView);
+            entriesListView.ItemClick +=
+                (object sender, AdapterView.ItemClickEventArgs e) =>
+                {
+                    var obj = entriesListView.GetItemAtPosition(e.Position);
+                    var entry = ((JavaObjectWrapper<Entry>)obj).Obj;
+                    showAccountEntryActivity(entry.Id);
+                };
         }
 
         private void refreshList()
@@ -59,7 +68,7 @@ namespace Intune.Android
                     showAccountActivity();
                     break;
                 case Resource.Id.entries_menu_new_entry:
-                    showAccountEntryActivity();
+                    showAccountEntryActivity(0);
                     break;
                 default:
                     break;
@@ -90,16 +99,17 @@ namespace Intune.Android
             StartActivity(accountActivity);
         }
 
-        private void showAccountEntryActivity()
+        private void showAccountEntryActivity(int entryId)
         {
             var loginUserId = Intent.GetIntExtra("LoginUserId", 0);
             var accountId = Intent.GetIntExtra("AccountId", 0);
             var accountName = Intent.GetStringExtra("AccountName");
 
             var accountEntryActivity = new Intent(this, typeof(AccountEntryActivity));
+            accountEntryActivity.PutExtra("EntryId", entryId);
             accountEntryActivity.PutExtra("LoginUserId", loginUserId);
             accountEntryActivity.PutExtra("AccountId", accountId);
-            accountEntryActivity.PutExtra("accountName", accountName);
+            accountEntryActivity.PutExtra("AccountName", accountName);
             StartActivity(accountEntryActivity);
         }
     }

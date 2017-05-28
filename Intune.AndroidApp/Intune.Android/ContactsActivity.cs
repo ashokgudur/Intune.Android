@@ -18,6 +18,7 @@ namespace Intune.Android
             this.Title = string.Format("{0} - Contacts", loginUserName);
 
             refreshList();
+
             var contactsListView = FindViewById<ListView>(Resource.Id.contactsListView);
             contactsListView.ItemClick +=
                 (object sender, AdapterView.ItemClickEventArgs e) =>
