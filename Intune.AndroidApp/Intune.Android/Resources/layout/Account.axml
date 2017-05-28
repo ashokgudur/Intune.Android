@@ -4,14 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
-        android:text="Please enter the details of the new account to be created."
+        android:text="Enter the details of the account and tap OK save. Use menu for more options."
         android:layout_width="match_parent"
         android:layout_height="58.5dp"
         android:id="@+id/accountTitleBarTextView"
         android:background="@android:color/holo_blue_dark"
         android:padding="5dp"
         android:textColor="@android:color/background_light"
-        android:textSize="20dp" />
+        android:textSize="18dp" />
     <Space
         android:layout_width="match_parent"
         android:layout_height="8.5dp"

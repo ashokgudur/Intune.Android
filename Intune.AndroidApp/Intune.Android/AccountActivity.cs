@@ -83,15 +83,10 @@ namespace Intune.Android
                 _account = IntuneService.UpdateAccount(_account);
             }
 
-            if (_account != null)
-            {
+            if (_account == null)
+                result.Text = "Account Saving FAILED!";
+            else
                 result.Text = string.Format("Account {0} saved", _account.Name);
-                _account = new Account();
-                fillForm();
-                return;
-            }
-
-            result.Text = "Account creation FAILED!";
         }
 
         private void fillForm()

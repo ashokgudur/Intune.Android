@@ -85,15 +85,10 @@ namespace Intune.Android
                 _contact = IntuneService.UpdateContact(_contact);
             }
 
-            if (_contact != null)
-            {
+            if (_contact == null)
+                result.Text = "Saving Contact FAILED!";
+            else
                 result.Text = string.Format("Contact {0} saved.", _contact.Name);
-                _contact = new Contact();
-                fillForm();
-                return;
-            }
-
-            result.Text = "Contact creation FAILED!";
         }
 
         private void fillForm()
