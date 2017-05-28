@@ -76,6 +76,19 @@ namespace Intune.Android
             result.Text = "Logging into Intune...";
             var email = FindViewById<EditText>(Resource.Id.editEmail);
             var password = FindViewById<EditText>(Resource.Id.editPassword);
+
+            if (string.IsNullOrWhiteSpace(email.Text.Trim()))
+            {
+                result.Text = "Please enter email address";
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(password.Text.Trim()))
+            {
+                result.Text = "Please enter password";
+                return;
+            }
+
             var user = IntuneService.SignIn(email.Text, password.Text);
             if (user == null)
             {

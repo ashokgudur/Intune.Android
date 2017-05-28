@@ -60,7 +60,14 @@ namespace Intune.Android
 
         private void OkButton_Click(object sender, EventArgs e)
         {
+            var result = FindViewById<TextView>(Resource.Id.accountResultTextView);
             var accountName = FindViewById<EditText>(Resource.Id.accountNameEditText);
+
+            if (string.IsNullOrWhiteSpace(accountName.Text.Trim()))
+            {
+                result.Text = "Please enter account name";
+                return;
+            }
 
             _account.Name = accountName.Text;
 
@@ -69,8 +76,6 @@ namespace Intune.Android
                 _account.UserId = Intent.GetIntExtra("LoginUserId", 0);
                 _account.AddedOn = DateTime.Now;
             }
-
-            var result = FindViewById<TextView>(Resource.Id.accountResultTextView);
 
             if (_account.Id == 0)
             {

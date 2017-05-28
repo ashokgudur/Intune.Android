@@ -21,8 +21,9 @@ namespace Intune.Android
 
         public bool IsValid()
         {
+            if (TxnDate == DateTime.MinValue) return false;
             if (string.IsNullOrWhiteSpace(Notes)) return false;
-            if (Quantity == 0 && Amount == 0)  return false;
+            if (Quantity == 0 && Amount == 0) return false;
 
             return true;
         }

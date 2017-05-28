@@ -123,6 +123,7 @@ namespace Intune.Android
 
         private void OkButton_Click(object sender, EventArgs e)
         {
+            var result = FindViewById<TextView>(Resource.Id.entryResultTextView);
             var entryDate = FindViewById<EditText>(Resource.Id.entryDateEditText);
             var entryTxnType = FindViewById<RadioGroup>(Resource.Id.entryTxnTypeRadioGroup);
             var entryQuantity = FindViewById<EditText>(Resource.Id.entryQuantityEditText);
@@ -139,7 +140,12 @@ namespace Intune.Android
             _entry.Notes = entryNotes.Text;
             _entry.VoidId = 0;
 
-            var result = FindViewById<TextView>(Resource.Id.entryResultTextView);
+            if (!_entry.IsValid())
+            {
+                result.Text = "Please enter all the details";
+                return;
+            }
+
             result.Text = "Adding new entry...";
             _entry = IntuneService.AddAccountEntry(_entry);
 

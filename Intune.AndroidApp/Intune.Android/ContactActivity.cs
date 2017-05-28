@@ -56,6 +56,7 @@ namespace Intune.Android
 
         private void OkButton_Click(object sender, EventArgs e)
         {
+            var result = FindViewById<TextView>(Resource.Id.contactResultTextView);
             var fullName = FindViewById<EditText>(Resource.Id.contactNameEditText);
             var email = FindViewById<EditText>(Resource.Id.contactEmailEditText);
             var mobile = FindViewById<EditText>(Resource.Id.contactMobileEditText);
@@ -66,13 +67,17 @@ namespace Intune.Android
             _contact.Mobile = mobile.Text;
             _contact.Address = address.Text;
 
+            if (!_contact.IsValid())
+            {
+                result.Text = "Please enter all the details...";
+                return;
+            }
+
             if (_contact.Id == 0)
             {
                 _contact.UserId = Intent.GetIntExtra("LoginUserId", 0);
                 _contact.CreatedOn = DateTime.Now;
             }
-
-            var result = FindViewById<TextView>(Resource.Id.contactResultTextView);
 
             if (_contact.Id == 0)
             {

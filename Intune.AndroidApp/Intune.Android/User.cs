@@ -12,5 +12,21 @@ namespace Intune.Android
         public string Password { get; set; }
         public DateTime CreatedOn { get; set; }
         public string SessionToken { get; set; }
+
+        public bool IsValid()
+        {
+            //TODO: Additional validations for max/min length should be cheecked.
+            //TODO: Validate Email for email format
+            //TODO: Validate Mobile Number for its length, with country code included.
+            //TODO: Validate AtUserName to prefix with '@' symobol. Must be included by user.
+
+            if (string.IsNullOrWhiteSpace(Name)) return false;
+            if (string.IsNullOrWhiteSpace(Mobile)) return false;
+            if (string.IsNullOrWhiteSpace(Email)) return false;
+            if (string.IsNullOrWhiteSpace(AtUserName)) return false;
+            if (string.IsNullOrWhiteSpace(Password)) return false;
+
+            return true;
+        }
     }
 }

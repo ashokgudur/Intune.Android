@@ -30,6 +30,21 @@ namespace Intune.Android
             return ContactUserId > 0;
         }
 
-        //public bool IsValid();
+        public bool IsValid()
+        {
+            //TODO: Include validations for min/max length of all fields
+            //TODO: Validate for Email and Mobile formats.
+
+            if (string.IsNullOrWhiteSpace(Name))
+                return false;
+
+            if (string.IsNullOrWhiteSpace(Email))
+                return false;
+
+            if (string.IsNullOrWhiteSpace(Mobile))
+                return false;
+
+            return true;
+        }
     }
 }

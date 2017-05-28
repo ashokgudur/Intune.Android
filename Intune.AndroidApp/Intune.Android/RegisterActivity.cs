@@ -36,6 +36,13 @@ namespace Intune.Android
             };
 
             var result = FindViewById<TextView>(Resource.Id.registerUserResultTextView);
+
+            if (!user.IsValid())
+            {
+                result.Text = "Please enter all the details";
+                return;
+            }
+
             result.Text = "Registering new user...";
             user = IntuneService.RegiterUser(user);
 
