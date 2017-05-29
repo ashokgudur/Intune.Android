@@ -62,7 +62,7 @@ namespace Intune.Android
                 roleRadioButton.Checked = shouldCheckRole(roleRadioButton, contact);
             }
 
-            contactSelected.SetOnCheckedChangeListener(new ContactCheckedChangeListener(accountShareRole));
+            contactSelected.SetOnCheckedChangeListener(new ContactCheckedChangeListener(accountShareRole, contact));
 
             if (contactSelected.Enabled)
             {
@@ -87,6 +87,18 @@ namespace Intune.Android
             return false;
         }
 
+        private static UserAccountRole GetSharedUserRole(RadioButton radioButton)
+        {
+            if (radioButton.Id == Resource.Id.accountShareRoleImpRadioButton)
+                return UserAccountRole.Impersonator;
+            else if (radioButton.Id == Resource.Id.accountShareRoleCollabRadioButton)
+                return UserAccountRole.Collaborator;
+            else if (radioButton.Id == Resource.Id.accountShareRoleViewRadioButton)
+                return UserAccountRole.Viewer;
+            else
+                throw new Exception("Invalid Account User Role");
+        }
+
         private class AccountShareRoleCheckedChangeListener : Java.Lang.Object,
                             RadioGroup.IOnCheckedChangeListener
         {
@@ -100,38 +112,34 @@ namespace Intune.Android
             public void OnCheckedChanged(RadioGroup group, int checkedId)
             {
                 var radioButton = group.FindViewById<RadioButton>(checkedId);
-                _contact.AccountSharedRole = getSharedUserRole(radioButton);
-            }
-
-            private UserAccountRole getSharedUserRole(RadioButton radioButton)
-            {
-                if (radioButton.Id == Resource.Id.accountShareRoleImpRadioButton)
-                    return UserAccountRole.Impersonator;
-                else if (radioButton.Id == Resource.Id.accountShareRoleCollabRadioButton)
-                    return UserAccountRole.Collaborator;
-                else if (radioButton.Id == Resource.Id.accountShareRoleViewRadioButton)
-                    return UserAccountRole.Viewer;
-                else
-                    throw new Exception("Invalid Account User Role");
+                _contact.AccountSharedRole = GetSharedUserRole(radioButton);
             }
         }
 
         private class ContactCheckedChangeListener : Java.Lang.Object,
                                     CompoundButton.IOnCheckedChangeListener
         {
-            RadioGroup _accountShareRole;
+            RadioGroup _accountShareRoleRadioGroup;
+            Contact _contact = null;
 
-            public ContactCheckedChangeListener(RadioGroup accountShareRole)
+            public ContactCheckedChangeListener(RadioGroup accountShareRoleRadioGroup, Contact contact)
             {
-                _accountShareRole = accountShareRole;
+                _accountShareRoleRadioGroup = accountShareRoleRadioGroup;
+                _contact = contact;
             }
 
             public void OnCheckedChanged(CompoundButton buttonView, bool isChecked)
             {
-                for (int i = 0; i < _accountShareRole.ChildCount; i++)
+                if (!isChecked)
+                    _contact.AccountSharedRole = UserAccountRole.Owner;
+
+                for (int i = 0; i < _accountShareRoleRadioGroup.ChildCount; i++)
                 {
-                    var rb = _accountShareRole.GetChildAt(i);
-                    rb.Enabled = isChecked;
+                    var radioButton = _accountShareRoleRadioGroup.GetChildAt(i) as RadioButton;
+                    radioButton.Enabled = isChecked;
+
+                    if (isChecked && radioButton.Checked)
+                        _contact.AccountSharedRole = GetSharedUserRole(radioButton);
                 }
             }
         }

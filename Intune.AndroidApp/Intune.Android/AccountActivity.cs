@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Android.App;
 using Android.OS;
 using Android.Widget;
@@ -96,7 +97,20 @@ namespace Intune.Android
                 IntuneService.UpdateAccount(_account);
             }
 
+            var accountShares = new List<UserAccountShareRole>();
+            var sharedUsers = _contacts.Where(c => c.ContactUserId > 0 && 
+                                c.AccountSharedRole != UserAccountRole.Owner).ToArray();
+            foreach (var sharedUser in sharedUsers)
+                accountShares.Add(
+                    new UserAccountShareRole
+                    {
+                        UserId = sharedUser.ContactUserId,
+                        Role = sharedUser.AccountSharedRole
+                    });
+
+            IntuneService.AddAccountSharing(_account.Id, accountShares.ToArray());
             result.Text = string.Format("Account {0} saved", _account.Name);
+            Finish();
         }
 
         private void fillForm()

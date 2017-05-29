@@ -108,6 +108,20 @@ namespace Intune.Android
             return null;
         }
 
+        public static void AddAccountSharing(int accountId, UserAccountShareRole[] accountShares)
+        {
+            string accountSharingApiUri = @"api/account/sharing";
+            string param = string.Format("/?accountId={0}", accountId);
+            string accountSharingApiUriString = string.Format("{0}{1}", accountSharingApiUri, param);
+            var body = JsonConvert.SerializeObject(accountShares);
+            var request = new RestRequest(accountSharingApiUriString, Method.POST);
+            request.AddParameter("text/json", body, ParameterType.RequestBody);
+            var client = new RestClient(intuneServerUri);
+            var response = client.Execute(request);
+            if (response.StatusCode != HttpStatusCode.OK)
+                throw new Exception("Cannot share account with contacts");
+        }
+
         public static List<Contact> GetAccountSharedContacts(int userId, int accountId)
         {
             var request = new RestRequest(@"api/account/account/sharedcontacts/", Method.GET);
