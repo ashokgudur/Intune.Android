@@ -3,6 +3,7 @@ using Android.App;
 using Android.OS;
 using Android.Widget;
 using Android.Views;
+using System.Collections.Generic;
 
 namespace Intune.Android
 {
@@ -10,6 +11,7 @@ namespace Intune.Android
     public class AccountActivity : Activity
     {
         Account _account = null;
+        List<Contact> _contacts;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -27,18 +29,16 @@ namespace Intune.Android
                 this.Title = string.Format("{0} - Intune", _account.Name);
 
             fillForm();
-
-            loadContacts(UserAccountRole.Impersonator);
+            _contacts = IntuneService.GetAccountSharedContacts(loginUserId, accountId);
+            loadContacts();
 
             var okButton = FindViewById<Button>(Resource.Id.accountOkButton);
             okButton.Click += OkButton_Click;
         }
 
-        private void loadContacts(UserAccountRole ofRole)
+        private void loadContacts()
         {
-            var loginUserId = Intent.GetIntExtra("LoginUserId", 0);
-            var accountId = Intent.GetIntExtra("AccountId", 0);
-            var accountShareToContactsAdapter = new AccountShareAdapter(this, loginUserId, accountId, ofRole);
+            var accountShareToContactsAdapter = new AccountShareAdapter(this, _contacts);
             var contactsListView = FindViewById<ListView>(Resource.Id.accountSharedWithContactsListView);
             contactsListView.Adapter = accountShareToContactsAdapter;
         }

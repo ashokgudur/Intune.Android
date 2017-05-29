@@ -16,6 +16,12 @@ namespace Intune.Android
         public bool HasUnreadComments { get; set; }
     }
 
+    public class AccountUser
+    {
+        public int UserId { get; set; }
+        public UserAccountRole Role { get; set; }
+    }
+
     public enum UserAccountRole
     {
         Owner = 0,

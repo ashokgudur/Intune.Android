@@ -108,6 +108,19 @@ namespace Intune.Android
             return null;
         }
 
+        public static List<Contact> GetAccountSharedContacts(int userId, int accountId)
+        {
+            var request = new RestRequest(@"api/account/account/sharedcontacts/", Method.GET);
+            request.AddParameter("userId", userId);
+            request.AddParameter("accountId", accountId);
+            var client = new RestClient(intuneServerUri);
+            var response = client.Execute<List<Contact>>(request);
+            if (response.StatusCode == HttpStatusCode.OK)
+                return response.Data;
+
+            return null;
+        }
+
         public static List<int> GetAccountUsers(int accountId, UserAccountRole role)
         {
             var request = new RestRequest(@"api/account/account/users/", Method.GET);

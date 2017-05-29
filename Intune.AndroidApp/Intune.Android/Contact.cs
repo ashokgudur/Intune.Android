@@ -1,14 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 
 namespace Intune.Android
 {
@@ -24,6 +14,7 @@ namespace Intune.Android
         public int ContactUserId { get; set; }
         public bool HasComments { get; set; }
         public bool HasUnreadComments { get; set; }
+        public UserAccountRole AccountSharedRole { get; set; }
 
         public bool HasIntune()
         {
