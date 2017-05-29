@@ -108,6 +108,19 @@ namespace Intune.Android
             return null;
         }
 
+        public static List<int> GetAccountUsers(int accountId, UserAccountRole role)
+        {
+            var request = new RestRequest(@"api/account/account/users/", Method.GET);
+            request.AddParameter("accountId", accountId);
+            request.AddParameter("role", (int)role);
+            var client = new RestClient(intuneServerUri);
+            var response = client.Execute<List<int>>(request);
+            if (response.StatusCode == HttpStatusCode.OK)
+                return response.Data;
+
+            return null;
+        }
+
         public static Account AddAccount(Account account)
         {
             var body = JsonConvert.SerializeObject(account);

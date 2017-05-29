@@ -8,8 +8,4 @@
        android:id="@+id/account_menu_comment"
        android:showAsAction="never"
        android:title="Comment" />
-  <item
-       android:id="@+id/account_menu_share"
-       android:showAsAction="never"
-       android:title="Share" />
 </menu>

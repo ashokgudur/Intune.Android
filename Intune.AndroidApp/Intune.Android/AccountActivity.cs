@@ -28,8 +28,19 @@ namespace Intune.Android
 
             fillForm();
 
+            loadContacts(UserAccountRole.Impersonator);
+
             var okButton = FindViewById<Button>(Resource.Id.accountOkButton);
-            okButton.Click += OkButton_Click; ;
+            okButton.Click += OkButton_Click;
+        }
+
+        private void loadContacts(UserAccountRole ofRole)
+        {
+            var loginUserId = Intent.GetIntExtra("LoginUserId", 0);
+            var accountId = Intent.GetIntExtra("AccountId", 0);
+            var accountShareToContactsAdapter = new AccountShareAdapter(this, loginUserId, accountId, ofRole);
+            var contactsListView = FindViewById<ListView>(Resource.Id.accountSharedWithContactsListView);
+            contactsListView.Adapter = accountShareToContactsAdapter;
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -46,10 +57,7 @@ namespace Intune.Android
                     //TODO: display account contacts...?
                     break;
                 case Resource.Id.account_menu_comment:
-                    //showAccountsActivity();
-                    break;
-                case Resource.Id.account_menu_share:
-                    //showContactActivity(0);
+                    //showAccountCommentsActivity();
                     break;
                 default:
                     break;

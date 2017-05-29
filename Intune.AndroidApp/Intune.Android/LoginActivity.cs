@@ -10,6 +10,15 @@ namespace Intune.Android
     [Activity(Label = "Intune - Login", MainLauncher = true, Icon = "@drawable/icon")]
     public class LoginActivity : Activity
     {
+        protected override void OnCreate(Bundle bundle)
+        {
+            base.OnCreate(bundle);
+            SetContentView(Resource.Layout.Login);
+
+            var signInButton = FindViewById<Button>(Resource.Id.buttonSignIn);
+            signInButton.Click += SignInButton_Click;
+        }
+
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             MenuInflater.Inflate(Resource.Menu.login_menus, menu);
@@ -31,15 +40,6 @@ namespace Intune.Android
             }
 
             return base.OnOptionsItemSelected(item);
-        }
-
-        protected override void OnCreate(Bundle bundle)
-        {
-            base.OnCreate(bundle);
-            SetContentView(Resource.Layout.Login);
-
-            var signInButton = FindViewById<Button>(Resource.Id.buttonSignIn);
-            signInButton.Click += SignInButton_Click;
         }
 
         private void ForgotPasswordMenu_Click()

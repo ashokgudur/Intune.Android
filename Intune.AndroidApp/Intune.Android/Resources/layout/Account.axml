@@ -26,25 +26,48 @@
         android:layout_marginRight="10dp" />
     <Space
         android:layout_width="match_parent"
-        android:layout_height="11.0dp"
+        android:layout_height="6.5dp"
         android:id="@+id/space2" />
     <Button
         android:text="OK"
         android:id="@+id/accountOkButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="39.5dp"
         android:layout_marginLeft="130dp"
         android:layout_marginRight="130dp" />
     <Space
         android:layout_width="match_parent"
-        android:layout_height="15.5dp"
+        android:layout_height="6.5dp"
         android:id="@+id/space3" />
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="24.5dp"
+        android:layout_height="22.5dp"
         android:id="@+id/accountResultTextView"
         android:gravity="center_vertical"
         android:textColor="@android:color/holo_blue_dark"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="5dp" />
+    <TextView
+        android:text="Share Account with Contacts"
+        android:layout_width="match_parent"
+        android:layout_height="25.5dp"
+        android:id="@+id/accountSharedWithContactsTextView"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:gravity="center"
+        android:textAllCaps="true"
+        android:background="@android:color/holo_green_dark"
+        android:textColor="@android:color/background_light"
+        android:textSize="15dp"
+        android:layout_marginTop="2dp" />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="8.5dp"
+        android:id="@+id/space4" />
+    <ListView
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/accountSharedWithContactsListView" />
 </LinearLayout>

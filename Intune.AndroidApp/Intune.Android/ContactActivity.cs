@@ -44,6 +44,7 @@ namespace Intune.Android
                     //showAccountsActivity();
                     break;
                 case Resource.Id.contact_menu_comment:
+                    break;
                 case Resource.Id.contact_menu_share:
                     //showContactActivity(0);
                     break;

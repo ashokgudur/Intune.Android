@@ -17,10 +17,6 @@
        android:showAsAction="never"
        android:title="Edit account" />
   <item
-       android:id="@+id/entries_menu_share_account"
-       android:showAsAction="never"
-       android:title="Share account" />
-  <item
          android:id="@+id/entries_menu_new_entry"
          android:showAsAction="never"
          android:title="New entry" />

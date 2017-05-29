@@ -63,7 +63,7 @@ namespace Intune.Android
                     showContactsActivity();
                     break;
                 case Resource.Id.entries_menu_comment_account:
-                case Resource.Id.entries_menu_share_account:
+                    break;
                 case Resource.Id.entries_menu_edit_account:
                     showAccountActivity();
                     break;
