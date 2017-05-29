@@ -3,6 +3,7 @@ using Android.App;
 using Android.OS;
 using Android.Widget;
 using Android.Views;
+using Android.Content;
 
 namespace Intune.Android
 {
@@ -41,11 +42,12 @@ namespace Intune.Android
             switch (item.ItemId)
             {
                 case Resource.Id.contact_menu_accounts:
-                    //showAccountsActivity();
+                    showAccountsActivity();
                     break;
                 case Resource.Id.contact_menu_comment:
                     break;
                 case Resource.Id.contact_menu_share:
+                    //TODO: Contact sharing?
                     //showContactActivity(0);
                     break;
                 default:
@@ -105,6 +107,17 @@ namespace Intune.Android
             email.Text = _contact.Email;
             mobile.Text = _contact.Mobile;
             address.Text = _contact.Address;
+        }
+
+        private void showAccountsActivity()
+        {
+            var loginUserId = Intent.GetIntExtra("LoginUserId", 0);
+            var loginUserName = Intent.GetStringExtra("LoginUserName");
+            var accountsActivity = new Intent(this, typeof(AccountsActivity));
+            accountsActivity.PutExtra("LoginUserId", loginUserId);
+            accountsActivity.PutExtra("LoginUserName", loginUserName);
+            accountsActivity.PutExtra("ContactId", _contact.Id);
+            StartActivity(accountsActivity);
         }
     }
 }

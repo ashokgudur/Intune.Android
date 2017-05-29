@@ -54,9 +54,6 @@ namespace Intune.Android
         {
             switch (item.ItemId)
             {
-                case Resource.Id.account_menu_contacts:
-                    //TODO: display account contacts...?
-                    break;
                 case Resource.Id.account_menu_comment:
                     //showAccountCommentsActivity();
                     break;

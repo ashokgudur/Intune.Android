@@ -16,10 +16,10 @@ namespace Intune.Android
         List<Account> _accounts;
         Activity _activity;
 
-        public AccountsAdapter(Activity activity, int userId)
+        public AccountsAdapter(Activity activity, int userId, int contactId)
         {
             _activity = activity;
-            _accounts = IntuneService.GetAllAccounts(userId, 0);
+            _accounts = IntuneService.GetAllAccounts(userId, contactId);
         }
 
         public override int Count
