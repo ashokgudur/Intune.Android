@@ -27,7 +27,7 @@
             android:textSize="15dp"
             android:textColor="@android:color/holo_red_dark" />
         <TextView
-            android:text="QTY"
+            android:text="Qty"
             android:layout_width="46.5dp"
             android:layout_height="match_parent"
             android:id="@+id/entryQuantityTextView"

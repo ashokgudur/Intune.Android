@@ -12,61 +12,74 @@
         android:textColor="@android:color/background_light"
         android:background="@android:color/holo_orange_dark"
         android:paddingLeft="5dp"
-        android:paddingRight="5dp" />
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="21.0dp"
-        android:id="@+id/space1" />
+        android:paddingRight="5dp"
+        android:layout_marginBottom="5dp" />
     <EditText
         android:inputType="textEmailAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/emailEditText"
         android:hint="Email"
-        android:text="info@intune.in" />
+        android:text="info@intune.in"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="10dp" />
     <EditText
         android:inputType="textPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/passwordEditText"
         android:hint="Password"
-        android:text="intune" />
+        android:text="intune"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="5dp" />
     <EditText
         android:inputType="textPersonName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/fullNameEditText"
         android:hint="Full name"
-        android:text="Intune" />
+        android:text="Intune"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="10dp" />
     <EditText
         android:inputType="phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/mobileEditText"
         android:hint="Mobile number"
-        android:text="9898998989" />
+        android:text="9898998989"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="5dp" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/atUserNameEditText"
         android:hint="User Name"
-        android:text="intune" />
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="15.5dp"
-        android:id="@+id/space2" />
-    <Button
-        android:text="OK"
+        android:text="atUserName"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="10dp" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/okButton"
-        android:layout_marginLeft="130dp"
-        android:layout_marginRight="130dp" />
+        android:id="@+id/linearLayout1"
+        android:gravity="center">
+        <Button
+            android:text="OK"
+            android:id="@+id/okButton"
+            android:layout_width="98.5dp"
+            android:layout_height="match_parent" />
+    </LinearLayout>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="33.0dp"
         android:id="@+id/registerUserResultTextView"
-        android:textColor="@android:color/holo_blue_bright"
+        android:textColor="@android:color/holo_green_dark"
         android:textStyle="bold"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp" />
 </LinearLayout>

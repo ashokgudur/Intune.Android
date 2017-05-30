@@ -11,7 +11,7 @@
         android:layout_height="37.5dp"
         android:id="@+id/linearLayout1">
         <TextView
-            android:text="Text"
+            android:text="Account Name"
             android:layout_width="247.5dp"
             android:layout_height="match_parent"
             android:id="@+id/accountNameTextView"
@@ -21,16 +21,16 @@
             android:textColor="@android:color/holo_green_dark"
             android:layout_marginLeft="5dp" />
         <TextView
-            android:text="Text"
+            android:text="Balance"
             android:layout_width="108.5dp"
             android:layout_height="match_parent"
             android:id="@+id/accountBalanceTextView"
             android:gravity="right|center_vertical"
-            android:textStyle="italic"
             android:textSize="18dp"
-            android:textColor="@android:color/holo_green_light"
+            android:textColor="@android:color/holo_green_dark"
             android:layout_marginRight="5dp"
-            android:paddingRight="5dp" />
+            android:paddingRight="5dp"
+            android:textStyle="bold" />
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
@@ -38,7 +38,7 @@
         android:layout_height="25.5dp"
         android:id="@+id/linearLayout2">
         <TextView
-            android:text="Text"
+            android:text="Permission"
             android:id="@+id/accountPermissionTextView"
             android:layout_width="174.5dp"
             android:layout_height="match_parent"
@@ -47,7 +47,7 @@
             android:textColor="@android:color/holo_red_dark"
             android:textSize="15dp" />
         <TextView
-            android:text="Text"
+            android:text="Balance Type"
             android:id="@+id/accountTxTextView"
             android:layout_width="176.5dp"
             android:layout_height="match_parent"

@@ -17,8 +17,6 @@ namespace Intune.Android
             var loginUserName = Intent.GetStringExtra("LoginUserName");
             this.Title = string.Format("{0} - Contacts", loginUserName);
 
-            refreshList();
-
             var contactsListView = FindViewById<ListView>(Resource.Id.contactsListView);
             contactsListView.ItemClick +=
                 (object sender, AdapterView.ItemClickEventArgs e) =>
@@ -39,8 +37,8 @@ namespace Intune.Android
 
         protected override void OnResume()
         {
-            refreshList();
             base.OnResume();
+            refreshList();
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)

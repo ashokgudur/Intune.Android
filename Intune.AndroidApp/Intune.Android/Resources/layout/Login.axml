@@ -4,24 +4,18 @@
     p1:layout_width="match_parent"
     p1:layout_height="match_parent"
     p1:id="@+id/linearLayout1">
-    <Space
-        p1:layout_width="match_parent"
-        p1:layout_height="14.5dp"
-        p1:id="@+id/space3"
-        p1:layout_marginBottom="0.0dp" />
     <TextView
         p1:text="Login to your Intune"
         p1:layout_width="match_parent"
         p1:layout_height="wrap_content"
-        p1:id="@+id/textView1"
+        p1:id="@+id/LoginGreetingTextView"
         p1:textSize="30dp"
         p1:typeface="sans"
         p1:textStyle="bold|italic"
-        p1:gravity="center" />
-    <Space
-        p1:layout_width="match_parent"
-        p1:layout_height="17.0dp"
-        p1:id="@+id/space4" />
+        p1:gravity="center"
+        p1:layout_marginTop="5dp"
+        p1:layout_marginBottom="5dp"
+        p1:textColor="@android:color/holo_green_dark" />
     <EditText
         p1:inputType="textEmailAddress"
         p1:layout_width="match_parent"
@@ -31,10 +25,6 @@
         p1:text="ashok.gudur@gmail.com"
         p1:layout_marginLeft="10dp"
         p1:layout_marginRight="10dp" />
-    <Space
-        p1:layout_width="match_parent"
-        p1:layout_height="12.5dp"
-        p1:id="@+id/space5" />
     <EditText
         p1:inputType="textPassword"
         p1:layout_width="match_parent"
@@ -44,16 +34,11 @@
         p1:text="ashokg"
         p1:layout_marginRight="10dp"
         p1:layout_marginLeft="10dp" />
-    <Space
-        p1:layout_width="match_parent"
-        p1:layout_height="10.5dp"
-        p1:id="@+id/space1" />
     <LinearLayout
         p1:orientation="horizontal"
         p1:layout_width="match_parent"
         p1:layout_height="47.0dp"
-        p1:id="@+id/linearLayout2"
-        p1:layout_marginBottom="57.5dp">
+        p1:id="@+id/linearLayout2">
         <Button
             p1:text="OK"
             p1:layout_height="match_parent"
@@ -67,6 +52,8 @@
         p1:layout_height="31.5dp"
         p1:id="@+id/textViewResult"
         p1:textSize="20dp"
-        p1:textColor="@android:color/holo_blue_bright"
-        p1:layout_marginLeft="0.0dp" />
+        p1:textColor="@android:color/holo_green_dark"
+        p1:layout_marginLeft="5dp"
+        p1:layout_marginRight="10dp"
+        p1:layout_marginTop="5dp" />
 </LinearLayout>

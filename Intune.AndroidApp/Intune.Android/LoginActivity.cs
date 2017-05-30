@@ -4,6 +4,7 @@ using Android.OS;
 using System;
 using Android.Content;
 using Android.Views;
+using System.Threading;
 
 namespace Intune.Android
 {
@@ -73,7 +74,6 @@ namespace Intune.Android
         {
             var result = FindViewById<TextView>(Resource.Id.textViewResult);
 
-            result.Text = "Logging into Intune...";
             var email = FindViewById<EditText>(Resource.Id.editEmail);
             var password = FindViewById<EditText>(Resource.Id.editPassword);
 
@@ -89,15 +89,48 @@ namespace Intune.Android
                 return;
             }
 
-            var user = IntuneService.SignIn(email.Text, password.Text);
-            if (user == null)
+            result.Text = "Logging into Intune...";
+            var us = new IntuneUserService(this);
+            ThreadPool.QueueUserWorkItem(o => us.SignIn(email.Text, password.Text));
+        }
+
+        private class IntuneUserService
+        {
+            Activity _activity;
+
+            public IntuneUserService(Activity activity)
             {
-                result.Text = "Cannot Login!!!";
-                return;
+                _activity = activity;
             }
 
-            result.Text = "Loading accounts...";
-            showAccountsActivity(user);
+            public void SignIn(string email, string password)
+            {
+                var result = _activity.FindViewById<TextView>(Resource.Id.textViewResult);
+                var user = IntuneService.SignIn(email, password);
+                if (user == null)
+                {
+                    _activity.RunOnUiThread(() => result.Text = "Cannot Login!!!");
+                    return;
+                }
+
+                _activity.RunOnUiThread(() => result.Text = "Loading accounts...");
+                showAccountsActivity(user);
+            }
+
+            private void showAccountsActivity(User user)
+            {
+                var accountsActivity = new Intent(_activity, typeof(AccountsActivity));
+                accountsActivity.PutExtra("LoginUserId", user.Id);
+                accountsActivity.PutExtra("LoginUserName", user.Name);
+                _activity.StartActivity(accountsActivity);
+            }
+        }
+
+        protected override void OnResume()
+        {
+            base.OnResume();
+            var result = FindViewById<TextView>(Resource.Id.textViewResult);
+            result.Text = "";
         }
 
         private void showAccountsActivity(User user)
