@@ -31,24 +31,20 @@
             android:layout_width="46.5dp"
             android:layout_height="match_parent"
             android:id="@+id/entryQuantityTextView"
-            android:gravity="center_vertical"
+            android:gravity="center_vertical|right"
             android:layout_marginLeft="5dp"
             android:textSize="18dp"
-            android:textColor="@android:color/holo_green_light" />
+            android:textColor="@android:color/holo_green_dark" />
         <TextView
             android:text="Amount"
             android:layout_width="124.5dp"
             android:layout_height="match_parent"
             android:id="@+id/entryAmountTextView"
-            android:gravity="center_vertical"
+            android:gravity="center_vertical|right"
             android:layout_marginLeft="5dp"
             android:textSize="18dp"
             android:textColor="@android:color/holo_green_dark" />
     </LinearLayout>
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="5.5dp"
-        android:id="@+id/space1" />
     <TextView
         android:text="Notes"
         android:layout_width="match_parent"
@@ -58,5 +54,6 @@
         android:textSize="15dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:textColor="@android:color/holo_orange_dark" />
+        android:textColor="@android:color/holo_orange_dark"
+        android:layout_marginTop="5dp" />
 </LinearLayout>

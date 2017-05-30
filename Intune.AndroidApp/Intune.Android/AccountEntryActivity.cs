@@ -36,7 +36,10 @@ namespace Intune.Android
             okButton.Enabled = _entry.Id == 0;
 
             var newButton = FindViewById<Button>(Resource.Id.entryNewButton);
-            newButton.Click += NewButton_Click; ;
+            if (userCanAddAndVoidEntries())
+                newButton.Click += NewButton_Click;
+            else
+                newButton.Visibility = ViewStates.Gone;
         }
 
         private void EntryDatePicker_Click(object sender, EventArgs e)
@@ -57,7 +60,15 @@ namespace Intune.Android
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             MenuInflater.Inflate(Resource.Menu.entry_menus, menu);
+            var voidMenuItem = menu.FindItem(Resource.Id.entry_menu_void);
+            voidMenuItem.SetVisible(userCanAddAndVoidEntries());
             return base.OnCreateOptionsMenu(menu);
+        }
+
+        private bool userCanAddAndVoidEntries()
+        {
+            var role = (UserAccountRole)Intent.GetIntExtra("AccountRole", 0);
+            return role == UserAccountRole.Owner || role == UserAccountRole.Impersonator;
         }
 
         public override bool OnPrepareOptionsMenu(IMenu menu)

@@ -11,10 +11,26 @@ namespace Intune.Android
         List<Entry> _accountEntries;
         Activity _activity;
 
+        public double TotalCreditQuantity { get; set; }
+        public double TotalDebitQuantity { get; set; }
+        public decimal TotalCreditAmount { get; set; }
+        public decimal TotalDebitAmount { get; set; }
+
+        public decimal BalanceAmount
+        {
+            get { return TotalCreditAmount - TotalDebitAmount; }
+        }
+
+        public double BalanceQuantity
+        {
+            get { return TotalCreditQuantity - TotalDebitQuantity; }
+        }
+
         public AccountEntriesAdapter(Activity activity, int accountId)
         {
             _activity = activity;
             _accountEntries = IntuneService.GetAccountEntries(accountId);
+            calculateTotals();
         }
 
         public override int Count
@@ -61,6 +77,23 @@ namespace Intune.Android
             entryNotes.Text = accountEntry.Notes;
 
             return view;
+        }
+
+        private void calculateTotals()
+        {
+            foreach (var entry in _accountEntries)
+            {
+                if (entry.TxnType == TxnType.Paid || entry.TxnType == TxnType.Issued)
+                {
+                    TotalCreditAmount += entry.Amount;
+                    TotalCreditQuantity += entry.Quantity;
+                }
+                else
+                {
+                    TotalDebitAmount += entry.Amount;
+                    TotalDebitQuantity += entry.Quantity;
+                }
+            }
         }
     }
 }

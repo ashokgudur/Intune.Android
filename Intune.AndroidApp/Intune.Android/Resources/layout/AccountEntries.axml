@@ -14,14 +14,131 @@
         android:textColor="@android:color/background_light"
         android:textSize="20dp"
         android:text="Select the entry and use void to reverse that entry. Use menu for more options." />
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="8.5dp"
-        android:id="@+id/space1" />
     <ListView
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/accountEntriesListView" />
+        android:layout_height="290dp"
+        android:id="@+id/accountEntriesListView"
+        android:layout_margin="5dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:id="@+id/accountEntriesTotalsTextView"
+        android:background="@android:color/holo_orange_dark"
+        android:textColor="@android:color/background_light"
+        android:textSize="20dp"
+        android:textAllCaps="true"
+        android:gravity="center"
+        android:text="Summary"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:id="@+id/totalPaidLinearLayout">
+        <TextView
+            android:text="Total Paid:"
+            android:id="@+id/totalPaidTextView"
+            android:layout_width="170dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:textSize="17dp"
+            android:textStyle="italic|bold"
+            android:textColor="@android:color/holo_red_dark" />
+        <TextView
+            android:text="Qty"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:id="@+id/totalPaidQtyTextView"
+            android:gravity="center_vertical|right"
+            android:layout_marginLeft="5dp"
+            android:textStyle="bold|italic"
+            android:textSize="18dp"
+            android:textColor="@android:color/holo_red_dark" />
+        <TextView
+            android:text="Amount"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            android:id="@+id/totalPaidAmountTextView"
+            android:gravity="center_vertical|right"
+            android:layout_marginLeft="5dp"
+            android:textSize="18dp"
+            android:textStyle="bold|italic"
+            android:textColor="@android:color/holo_red_dark" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:id="@+id/totalReceivedLinearLayout">
+        <TextView
+            android:text="Total Received:"
+            android:id="@+id/totalReceivedTextView"
+            android:layout_width="170dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:textStyle="bold|italic"
+            android:textSize="17dp"
+            android:textColor="@android:color/holo_green_dark" />
+        <TextView
+            android:text="Qty"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:id="@+id/totalReceivedQtyTextView"
+            android:gravity="center_vertical|right"
+            android:layout_marginLeft="5dp"
+            android:textSize="18dp"
+            android:textStyle="bold|italic"
+            android:textColor="@android:color/holo_green_dark" />
+        <TextView
+            android:text="Amount"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            android:id="@+id/totalReceivedAmountTextView"
+            android:gravity="center_vertical|right"
+            android:layout_marginLeft="5dp"
+            android:textSize="18dp"
+            android:textStyle="italic|bold"
+            android:textColor="@android:color/holo_green_dark" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:id="@+id/totalBalanceLinearLayout">
+        <TextView
+            android:text="Total Received:"
+            android:id="@+id/totalBalanceTextView"
+            android:layout_width="170dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/holo_blue_dark" />
+        <TextView
+            android:text="Qty"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:id="@+id/totalBalanceQtyTextView"
+            android:gravity="center_vertical|right"
+            android:layout_marginLeft="5dp"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/holo_blue_dark" />
+        <TextView
+            android:text="Amount"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            android:id="@+id/totalBalanceAmountTextView"
+            android:gravity="center_vertical|right"
+            android:layout_marginLeft="5dp"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/holo_blue_dark" />
+    </LinearLayout>
 </LinearLayout>
