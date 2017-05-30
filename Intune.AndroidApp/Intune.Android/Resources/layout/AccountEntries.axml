@@ -30,9 +30,7 @@
         android:textSize="20dp"
         android:textAllCaps="true"
         android:gravity="center"
-        android:text="Summary"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp" />
+        android:text="Summary" />
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
