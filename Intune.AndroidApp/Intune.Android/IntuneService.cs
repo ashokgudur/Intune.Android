@@ -23,11 +23,37 @@ namespace Intune.Android
 
             return null;
         }
+        
+        public static User GetUserById(int userId)
+        {
+            var request = new RestRequest(@"api/user/userbyId/", Method.GET);
+            request.AddParameter("userId", userId);
+            var client = new RestClient(intuneServerUri);
+            var response = client.Execute<User>(request);
+            if (response.StatusCode == HttpStatusCode.OK)
+                return response.Data;
+
+            return null;
+        }
+
 
         public static User RegiterUser(User user)
         {
             var body = JsonConvert.SerializeObject(user);
             var request = new RestRequest(@"api/user/register/", Method.POST);
+            request.AddParameter("text/json", body, ParameterType.RequestBody);
+            var client = new RestClient(intuneServerUri);
+            var response = client.Execute<User>(request);
+            if (response.StatusCode == HttpStatusCode.OK)
+                return response.Data;
+
+            return null;
+        }
+
+        public static User UpdateUser(User user)
+        {
+            var body = JsonConvert.SerializeObject(user);
+            var request = new RestRequest(@"api/user/update/", Method.POST);
             request.AddParameter("text/json", body, ParameterType.RequestBody);
             var client = new RestClient(intuneServerUri);
             var response = client.Execute<User>(request);
@@ -67,7 +93,7 @@ namespace Intune.Android
             var client = new RestClient(intuneServerUri);
             var response = client.Execute<Entry>(request);
             if (response.StatusCode == HttpStatusCode.OK)
-                return response.Data as Entry;
+                return response.Data;
 
             return null;
         }
@@ -79,7 +105,7 @@ namespace Intune.Android
             var client = new RestClient(intuneServerUri);
             var response = client.Execute<List<Entry>>(request);
             if (response.StatusCode == HttpStatusCode.OK)
-                return response.Data as List<Entry>;
+                return response.Data;
 
             return null;
         }
@@ -91,7 +117,7 @@ namespace Intune.Android
             var client = new RestClient(intuneServerUri);
             var response = client.Execute<Contact>(request);
             if (response.StatusCode == HttpStatusCode.OK)
-                return response.Data as Contact;
+                return response.Data;
 
             return null;
         }

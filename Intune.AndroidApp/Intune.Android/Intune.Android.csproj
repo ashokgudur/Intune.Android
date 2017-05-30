@@ -71,6 +71,7 @@
     <Compile Include="Contact.cs" />
     <Compile Include="ContactsAdapter.cs" />
     <Compile Include="AccountsAdapter.cs" />
+    <Compile Include="DatePickerFragment.cs" />
     <Compile Include="IntuneService.cs" />
     <Compile Include="LoginActivity.cs" />
     <Compile Include="AccountsActivity.cs" />

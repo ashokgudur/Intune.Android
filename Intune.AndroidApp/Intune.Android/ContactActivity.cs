@@ -21,9 +21,9 @@ namespace Intune.Android
             _contact = IntuneService.GetContact(contactId);
 
             if (_contact.Id == 0)
-                this.Title = "New Contact - Intune";
+                Title = "New Contact - Intune";
             else
-                this.Title = string.Format("{0} - Intune", _contact.Name);
+                Title = string.Format("{0} - Intune", _contact.Name);
 
             fillForm();
 
@@ -35,6 +35,15 @@ namespace Intune.Android
         {
             MenuInflater.Inflate(Resource.Menu.contact_menus, menu);
             return base.OnCreateOptionsMenu(menu);
+        }
+
+        public override bool OnPrepareOptionsMenu(IMenu menu)
+        {
+            var commentMenuItem = menu.FindItem(Resource.Id.contact_menu_comment);
+            var enablecommentMenuItem = _contact.HasIntune();
+            commentMenuItem.SetEnabled(enablecommentMenuItem);
+
+            return base.OnPrepareOptionsMenu(menu);
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)

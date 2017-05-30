@@ -13,14 +13,25 @@
         android:textColor="@android:color/background_light"
         android:textSize="20dp"
         android:layout_marginBottom="5dp" />
-    <EditText
-        android:inputType="date"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/entryDateEditText"
-        android:hint="transaction date"
+        android:id="@+id/linearLayout3"
         android:layout_marginLeft="5dp"
-        android:layout_marginRight="10dp" />
+        android:layout_marginRight="10dp">
+        <EditText
+            android:inputType="date"
+            android:id="@+id/entryDateEditText"
+            android:hint="transaction date"
+            android:layout_width="225.5dp"
+            android:layout_height="match_parent" />
+        <ImageButton
+            android:src="@android:drawable/ic_menu_my_calendar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/entryDatePickerImageButton" />
+    </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"

@@ -28,12 +28,30 @@ namespace Intune.Android
 
             fillForm();
 
+            var entryDatePicker = FindViewById<ImageButton>(Resource.Id.entryDatePickerImageButton);
+            entryDatePicker.Click += EntryDatePicker_Click; ;
+
             var okButton = FindViewById<Button>(Resource.Id.entryOkButton);
             okButton.Click += OkButton_Click;
             okButton.Enabled = _entry.Id == 0;
 
             var newButton = FindViewById<Button>(Resource.Id.entryNewButton);
             newButton.Click += NewButton_Click; ;
+        }
+
+        private void EntryDatePicker_Click(object sender, EventArgs e)
+        {
+            var entryDate = FindViewById<EditText>(Resource.Id.entryDateEditText);
+            var culture = new CultureInfo("en-IN", true);
+            var txnDate = DateTime.Today;
+            DateTime.TryParse(entryDate.Text, culture, DateTimeStyles.AllowWhiteSpaces, out txnDate);
+
+            var datePickerFragment = DatePickerFragment.NewInstance(txnDate, delegate (DateTime date)
+            {
+                entryDate.Text = txnDate.ToString("dd-MM-yyyy");
+            });
+
+            datePickerFragment.Show(FragmentManager, DatePickerFragment.TAG);
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -132,8 +150,15 @@ namespace Intune.Android
 
             _entry.UserId = Intent.GetIntExtra("LoginUserId", 0);
             _entry.AccountId = Intent.GetIntExtra("AccountId", 0);
-            var culture = new System.Globalization.CultureInfo("en-IN", true);
-            _entry.TxnDate = Convert.ToDateTime(entryDate.Text, culture);
+            var culture = new CultureInfo("en-IN", true);
+            DateTime txnDate;
+            if (!DateTime.TryParse(entryDate.Text, culture, DateTimeStyles.AllowWhiteSpaces, out txnDate))
+            {
+                result.Text = "Invalid date entered.";
+                return;
+            }
+
+            _entry.TxnDate = txnDate;
             _entry.TxnType = getTxnType(entryTxnType.CheckedRadioButtonId);
             _entry.Quantity = entryQuantity.Text.Trim() == "" ? 0 : double.Parse(entryQuantity.Text);
             _entry.Amount = entryAmount.Text.Trim() == "" ? 0 : decimal.Parse(entryAmount.Text);

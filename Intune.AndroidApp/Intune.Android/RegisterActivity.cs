@@ -8,10 +8,26 @@ namespace Intune.Android
     [Activity(Label = "Intune - Register new user")]
     public class RegisterActivity : Activity
     {
+        User _user = null;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Register);
+
+            var userId = Intent.GetIntExtra("LoginUserId", 0);
+            _user = IntuneService.GetUserById(userId);
+
+            if (_user.Id == 0)
+                Title = "Register New User - Intune";
+            else
+            {
+                Title = string.Format("{0} - Intune", _user.Name);
+                var email = FindViewById<EditText>(Resource.Id.emailEditText);
+                email.Enabled = false;
+            }
+
+            fillForm();
 
             var okButton = FindViewById<Button>(Resource.Id.okButton);
             okButton.Click += OkButton_Click; ;
@@ -25,38 +41,42 @@ namespace Intune.Android
             var mobile = FindViewById<EditText>(Resource.Id.mobileEditText);
             var atUserName = FindViewById<EditText>(Resource.Id.atUserNameEditText);
 
-            var user = new User
-            {
-                Email = email.Text,
-                Password = password.Text,
-                Name = fullName.Text,
-                Mobile = mobile.Text,
-                AtUserName = atUserName.Text,
-                CreatedOn = DateTime.Now
-            };
+            _user.Email = email.Text;
+            _user.Password = password.Text;
+            _user.Name = fullName.Text;
+            _user.Mobile = mobile.Text;
+            _user.AtUserName = atUserName.Text;
 
             var result = FindViewById<TextView>(Resource.Id.registerUserResultTextView);
 
-            if (!user.IsValid())
+            if (!_user.IsValid())
             {
                 result.Text = "Please enter all the details";
                 return;
             }
 
-            result.Text = "Registering new user...";
-            user = IntuneService.RegiterUser(user);
-
-            if (user != null)
+            if (_user.Id == 0)
             {
-                result.Text = string.Format("{0} is registered", user.Name);
-                clearForm();
-                return;
+                result.Text = "Registering new user...";
+                _user.CreatedOn = DateTime.Now;
+                _user = IntuneService.RegiterUser(_user);
+                if (_user == null)
+                    result.Text = string.Format("Can't register user!!!");
+                else
+                    result.Text = string.Format("User {0} registered", _user.Name);
             }
-
-            result.Text = "Registeration FAILED!!!";
+            else
+            {
+                result.Text = "Updating user...";
+                _user = IntuneService.UpdateUser(_user);
+                if (_user == null)
+                    result.Text = string.Format("Can't save user!!!");
+                else
+                    result.Text = string.Format("Profile saved", _user.Name);
+            }
         }
 
-        private void clearForm()
+        private void fillForm()
         {
             var email = FindViewById<EditText>(Resource.Id.emailEditText);
             var password = FindViewById<EditText>(Resource.Id.passwordEditText);
@@ -64,11 +84,11 @@ namespace Intune.Android
             var mobile = FindViewById<EditText>(Resource.Id.mobileEditText);
             var atUserName = FindViewById<EditText>(Resource.Id.atUserNameEditText);
 
-            email.Text = "";
-            password.Text = "";
-            fullName.Text = "";
-            mobile.Text = "";
-            atUserName.Text = "";
+            email.Text = _user.Email;
+            password.Text = _user.Password;
+            fullName.Text = _user.Name;
+            mobile.Text = _user.Mobile;
+            atUserName.Text = _user.AtUserName;
         }
     }
 }

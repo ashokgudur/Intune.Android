@@ -5,6 +5,10 @@
      android:showAsAction="never"
      android:title="Refresh" />
   <item
+     android:id="@+id/accounts_menu_profile"
+     android:showAsAction="never"
+     android:title="User Profile" />
+  <item
        android:id="@+id/accounts_menu_contacts"
        android:showAsAction="never"
        android:title="Contacts" />
