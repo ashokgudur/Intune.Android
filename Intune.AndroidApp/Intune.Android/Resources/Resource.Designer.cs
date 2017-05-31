@@ -60,9 +60,6 @@ namespace Intune.Android
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f070044
-			public const int LoginGreetingTextView = 2131165252;
-			
 			// aapt resource value: 0x7f07002c
 			public const int accountBalanceTextView = 2131165228;
 			
@@ -311,6 +308,9 @@ namespace Intune.Android
 			
 			// aapt resource value: 0x7f070050
 			public const int registerUserResultTextView = 2131165264;
+			
+			// aapt resource value: 0x7f070044
+			public const int signInGreetingTextView = 2131165252;
 			
 			// aapt resource value: 0x7f070028
 			public const int space4 = 2131165224;

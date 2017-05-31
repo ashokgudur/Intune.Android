@@ -20,7 +20,7 @@ namespace Intune.Android
             var contactId = Intent.GetIntExtra("ContactId", 0);
             _contact = IntuneService.GetContact(contactId);
 
-            if (_contact.Id == 0)
+            if (_contact.IsNew)
                 Title = "New Contact - Intune";
             else
                 Title = string.Format("{0} - Intune", _contact.Name);
@@ -40,8 +40,13 @@ namespace Intune.Android
         public override bool OnPrepareOptionsMenu(IMenu menu)
         {
             var commentMenuItem = menu.FindItem(Resource.Id.contact_menu_comment);
-            var enablecommentMenuItem = _contact.HasIntune();
-            commentMenuItem.SetEnabled(enablecommentMenuItem);
+            commentMenuItem.SetEnabled(_contact.HasIntune());
+
+            var accountsMenuItem = menu.FindItem(Resource.Id.contact_menu_accounts);
+            accountsMenuItem.SetVisible(!_contact.IsNew);
+
+            var shareContactMenuItem = menu.FindItem(Resource.Id.contact_menu_share);
+            shareContactMenuItem.SetVisible(!_contact.IsNew);
 
             return base.OnPrepareOptionsMenu(menu);
         }
@@ -85,13 +90,13 @@ namespace Intune.Android
                 return;
             }
 
-            if (_contact.Id == 0)
+            if (_contact.IsNew)
             {
                 _contact.UserId = Intent.GetIntExtra("LoginUserId", 0);
                 _contact.CreatedOn = DateTime.Now;
             }
 
-            if (_contact.Id == 0)
+            if (_contact.IsNew)
             {
                 result.Text = "Adding new contact...";
                 _contact = IntuneService.AddContact(_contact);

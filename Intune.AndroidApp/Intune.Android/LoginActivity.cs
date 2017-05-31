@@ -5,6 +5,7 @@ using System;
 using Android.Content;
 using Android.Views;
 using System.Threading;
+using Android.Graphics;
 
 namespace Intune.Android
 {
@@ -15,6 +16,9 @@ namespace Intune.Android
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.Login);
+
+            var signInGreetingTextView = FindViewById<TextView>(Resource.Id.signInGreetingTextView);
+            signInGreetingTextView.PaintFlags = PaintFlags.UnderlineText;
 
             var signInButton = FindViewById<Button>(Resource.Id.buttonSignIn);
             signInButton.Click += SignInButton_Click;

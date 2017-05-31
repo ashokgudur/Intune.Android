@@ -24,10 +24,10 @@ namespace Intune.Android
             var accountName = Intent.GetStringExtra("AccountName");
             _account = new Account { Id = accountId, Name = accountName, UserId = loginUserId };
 
-            if (_account.Id == 0)
-                this.Title = "New Account - Intune";
+            if (_account.IsNew)
+                Title = "New Account - Intune";
             else
-                this.Title = string.Format("{0} - Intune", _account.Name);
+                Title = string.Format("{0} - Intune", _account.Name);
 
             fillForm();
             _contacts = IntuneService.GetAccountSharedContacts(loginUserId, accountId);
@@ -77,13 +77,13 @@ namespace Intune.Android
 
             _account.Name = accountName.Text;
 
-            if (_account.Id == 0)
+            if (_account.IsNew)
             {
                 _account.UserId = Intent.GetIntExtra("LoginUserId", 0);
                 _account.AddedOn = DateTime.Now;
             }
 
-            if (_account.Id == 0)
+            if (_account.IsNew)
             {
                 result.Text = "Adding new account...";
                 _account = IntuneService.AddAccount(_account);
@@ -95,7 +95,7 @@ namespace Intune.Android
             }
 
             var accountShares = new List<UserAccountShareRole>();
-            var sharedUsers = _contacts.Where(c => c.ContactUserId > 0 && 
+            var sharedUsers = _contacts.Where(c => c.ContactUserId > 0 &&
                                 c.AccountSharedRole != UserAccountRole.Owner).ToArray();
             foreach (var sharedUser in sharedUsers)
                 accountShares.Add(

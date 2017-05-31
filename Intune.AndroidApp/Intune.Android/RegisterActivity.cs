@@ -18,7 +18,7 @@ namespace Intune.Android
             var userId = Intent.GetIntExtra("LoginUserId", 0);
             _user = IntuneService.GetUserById(userId);
 
-            if (_user.Id == 0)
+            if (_user.IsNew)
                 Title = "Register New User - Intune";
             else
             {
@@ -55,7 +55,7 @@ namespace Intune.Android
                 return;
             }
 
-            if (_user.Id == 0)
+            if (_user.IsNew)
             {
                 result.Text = "Registering new user...";
                 _user.CreatedOn = DateTime.Now;

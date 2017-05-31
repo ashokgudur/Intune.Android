@@ -8,10 +8,10 @@
         p1:text="Login to your Intune"
         p1:layout_width="match_parent"
         p1:layout_height="wrap_content"
-        p1:id="@+id/LoginGreetingTextView"
-        p1:textSize="30dp"
+        p1:id="@+id/signInGreetingTextView"
+        p1:textSize="25dp"
         p1:typeface="sans"
-        p1:textStyle="bold|italic"
+        p1:textStyle="bold"
         p1:gravity="center"
         p1:layout_marginTop="5dp"
         p1:layout_marginBottom="5dp"
@@ -31,7 +31,7 @@
         p1:layout_height="wrap_content"
         p1:id="@+id/editPassword"
         p1:hint="Enter your password"
-        p1:text="ashokg"
+        p1:text="ashok"
         p1:layout_marginRight="10dp"
         p1:layout_marginLeft="10dp" />
     <LinearLayout
@@ -40,7 +40,7 @@
         p1:layout_height="47.0dp"
         p1:id="@+id/linearLayout2">
         <Button
-            p1:text="OK"
+            p1:text="Sign In"
             p1:layout_height="match_parent"
             p1:id="@+id/buttonSignIn"
             p1:layout_width="match_parent"

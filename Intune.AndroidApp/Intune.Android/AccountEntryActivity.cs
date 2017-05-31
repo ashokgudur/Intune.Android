@@ -21,7 +21,7 @@ namespace Intune.Android
             _entry = IntuneService.GetAccountEntry(entryId);
 
             var accountName = Intent.GetStringExtra("AccountName");
-            if (_entry.Id == 0)
+            if (_entry.IsNew)
                 this.Title = string.Format("{0} - New Entry", accountName);
             else
                 this.Title = string.Format("{0} - Entry", accountName);

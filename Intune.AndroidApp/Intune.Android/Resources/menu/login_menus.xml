@@ -7,5 +7,5 @@
   <item
        android:id="@+id/login_menu_register"
        android:showAsAction="never"
-       android:title="Register new user" />
+       android:title="Sign Up" />
 </menu>

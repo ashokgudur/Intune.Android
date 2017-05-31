@@ -15,6 +15,7 @@ namespace Intune.Android
         public bool HasComments { get; set; }
         public bool HasUnreadComments { get; set; }
         public UserAccountRole AccountSharedRole { get; set; }
+        public bool IsNew { get { return Id == 0; } }
 
         public bool HasIntune()
         {
