@@ -9,7 +9,7 @@ using Android.Graphics;
 
 namespace Intune.Android
 {
-    [Activity(Label = "Intune - Login", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "Intune", MainLauncher = true, Icon = "@drawable/icon")]
     public class LoginActivity : Activity
     {
         protected override void OnCreate(Bundle bundle)
