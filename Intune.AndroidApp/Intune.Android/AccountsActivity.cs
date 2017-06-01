@@ -17,8 +17,17 @@ namespace Intune.Android
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Accounts);
 
-            var loginUserName = Intent.GetStringExtra("LoginUserName");
-            this.Title = string.Format("{0} - Accounts", loginUserName);
+            var contactId = Intent.GetIntExtra("ContactId", 0);
+            if (contactId == 0)
+            {
+                var loginUserName = Intent.GetStringExtra("LoginUserName");
+                Title = string.Format("{0} - Accounts", loginUserName);
+            }
+            else
+            {
+                var contactName = Intent.GetStringExtra("ContactName");
+                Title = string.Format("{0} - Accounts", contactName);
+            }
 
             var accountsListView = FindViewById<ListView>(Resource.Id.accountsListView);
             accountsListView.ItemClick +=

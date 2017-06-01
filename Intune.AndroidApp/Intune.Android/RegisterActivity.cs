@@ -31,6 +31,9 @@ namespace Intune.Android
 
             var okButton = FindViewById<Button>(Resource.Id.okButton);
             okButton.Click += OkButton_Click; ;
+
+            if (!_user.IsNew)
+                okButton.Text = "Save";
         }
 
         private void OkButton_Click(object sender, EventArgs e)
@@ -64,6 +67,9 @@ namespace Intune.Android
                     result.Text = string.Format("Can't register user!!!");
                 else
                     result.Text = string.Format("User {0} registered", _user.Name);
+
+                var okButton = FindViewById<Button>(Resource.Id.okButton);
+                okButton.Text = "Save";
             }
             else
             {

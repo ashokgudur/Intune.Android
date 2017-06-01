@@ -61,10 +61,11 @@
     </LinearLayout>
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="24.5dp"
+        android:layout_height="33.0dp"
         android:id="@+id/contactResultTextView"
         android:gravity="center_vertical"
         android:textColor="@android:color/holo_green_dark"
+        android:textSize="18dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="10dp" />
 </LinearLayout>

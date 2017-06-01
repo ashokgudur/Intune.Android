@@ -15,5 +15,5 @@
   <item
          android:id="@+id/accounts_menu_new"
          android:showAsAction="never"
-         android:title="New" />
+         android:title="New/Share account" />
 </menu>

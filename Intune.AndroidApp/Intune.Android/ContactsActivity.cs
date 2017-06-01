@@ -80,8 +80,10 @@ namespace Intune.Android
         private void showContactActivity(int contactId)
         {
             var loginUserId = Intent.GetIntExtra("LoginUserId", 0);
+            var loginUserName = Intent.GetStringExtra("LoginUserName");
             var contactActivity = new Intent(this, typeof(ContactActivity));
             contactActivity.PutExtra("LoginUserId", loginUserId);
+            contactActivity.PutExtra("LoginUserName", loginUserName);
             contactActivity.PutExtra("ContactId", contactId);
             StartActivity(contactActivity);
         }

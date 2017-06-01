@@ -61,6 +61,7 @@
         android:id="@+id/accountResultTextView"
         android:gravity="center_vertical"
         android:textColor="@android:color/holo_green_dark"
+        android:textSize="18dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="5dp" />
 </LinearLayout>

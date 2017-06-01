@@ -7,5 +7,5 @@
   <item
          android:id="@+id/entry_menu_void"
          android:showAsAction="never"
-         android:title="Void" />
+         android:title="Void this entry" />
 </menu>

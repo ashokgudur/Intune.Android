@@ -11,5 +11,5 @@
   <item
          android:id="@+id/contacts_menu_new"
          android:showAsAction="never"
-         android:title="New" />
+         android:title="New contact" />
 </menu>

@@ -131,6 +131,7 @@ namespace Intune.Android
             accountsActivity.PutExtra("LoginUserId", loginUserId);
             accountsActivity.PutExtra("LoginUserName", loginUserName);
             accountsActivity.PutExtra("ContactId", _contact.Id);
+            accountsActivity.PutExtra("ContactName", _contact.Name);
             StartActivity(accountsActivity);
         }
     }
