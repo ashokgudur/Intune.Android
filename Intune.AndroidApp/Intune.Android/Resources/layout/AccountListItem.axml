@@ -49,11 +49,19 @@
         <TextView
             android:text="Balance Type"
             android:id="@+id/accountTxTextView"
-            android:layout_width="176.5dp"
+            android:layout_width="146.0dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:layout_marginLeft="5dp"
             android:textColor="@android:color/holo_red_dark"
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            android:layout_marginRight="5dp" />
+        <ImageView
+            android:src="@drawable/bluedot"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:id="@+id/accountCommentIndicatorImageView"
+            android:scaleType="centerInside"
+            android:layout_gravity="center" />
     </LinearLayout>
 </LinearLayout>

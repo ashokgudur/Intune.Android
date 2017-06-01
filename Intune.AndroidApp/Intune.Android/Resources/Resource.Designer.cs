@@ -45,7 +45,19 @@ namespace Intune.Android
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int Icon = 2130837504;
+			public const int bluedot = 2130837504;
+			
+			// aapt resource value: 0x7f020001
+			public const int greendot = 2130837505;
+			
+			// aapt resource value: 0x7f020002
+			public const int Icon = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int message = 2130837507;
+			
+			// aapt resource value: 0x7f020004
+			public const int reddot = 2130837508;
 			
 			static Drawable()
 			{
@@ -60,8 +72,11 @@ namespace Intune.Android
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f07002c
-			public const int accountBalanceTextView = 2131165228;
+			// aapt resource value: 0x7f07002d
+			public const int accountBalanceTextView = 2131165229;
+			
+			// aapt resource value: 0x7f070030
+			public const int accountCommentIndicatorImageView = 2131165232;
 			
 			// aapt resource value: 0x7f070008
 			public const int accountEntriesListView = 2131165192;
@@ -72,38 +87,41 @@ namespace Intune.Android
 			// aapt resource value: 0x7f070009
 			public const int accountEntriesTotalsTextView = 2131165193;
 			
-			// aapt resource value: 0x7f07001b
-			public const int accountEntryTitleBarTextView = 2131165211;
+			// aapt resource value: 0x7f07001c
+			public const int accountEntryCommentIndicatorImageView = 2131165212;
+			
+			// aapt resource value: 0x7f07001d
+			public const int accountEntryTitleBarTextView = 2131165213;
 			
 			// aapt resource value: 0x7f070001
 			public const int accountNameEditText = 2131165185;
 			
-			// aapt resource value: 0x7f07002b
-			public const int accountNameTextView = 2131165227;
+			// aapt resource value: 0x7f07002c
+			public const int accountNameTextView = 2131165228;
 			
 			// aapt resource value: 0x7f070005
 			public const int accountOkButton = 2131165189;
 			
-			// aapt resource value: 0x7f07002d
-			public const int accountPermissionTextView = 2131165229;
+			// aapt resource value: 0x7f07002e
+			public const int accountPermissionTextView = 2131165230;
 			
 			// aapt resource value: 0x7f070006
 			public const int accountResultTextView = 2131165190;
 			
-			// aapt resource value: 0x7f070035
-			public const int accountShareRoleCollabRadioButton = 2131165237;
-			
-			// aapt resource value: 0x7f070034
-			public const int accountShareRoleImpRadioButton = 2131165236;
-			
-			// aapt resource value: 0x7f070033
-			public const int accountShareRoleRadioGroup = 2131165235;
+			// aapt resource value: 0x7f070037
+			public const int accountShareRoleCollabRadioButton = 2131165239;
 			
 			// aapt resource value: 0x7f070036
-			public const int accountShareRoleViewRadioButton = 2131165238;
+			public const int accountShareRoleImpRadioButton = 2131165238;
 			
-			// aapt resource value: 0x7f070032
-			public const int accountSharedToCheckedTextView = 2131165234;
+			// aapt resource value: 0x7f070035
+			public const int accountShareRoleRadioGroup = 2131165237;
+			
+			// aapt resource value: 0x7f070038
+			public const int accountShareRoleViewRadioButton = 2131165240;
+			
+			// aapt resource value: 0x7f070034
+			public const int accountSharedToCheckedTextView = 2131165236;
 			
 			// aapt resource value: 0x7f070003
 			public const int accountSharedWithContactsListView = 2131165187;
@@ -114,218 +132,221 @@ namespace Intune.Android
 			// aapt resource value: 0x7f070000
 			public const int accountTitleBarTextView = 2131165184;
 			
-			// aapt resource value: 0x7f07002e
-			public const int accountTxTextView = 2131165230;
-			
-			// aapt resource value: 0x7f070051
-			public const int account_menu_comment = 2131165265;
-			
-			// aapt resource value: 0x7f070030
-			public const int accountsListView = 2131165232;
-			
 			// aapt resource value: 0x7f07002f
-			public const int accountsTitleBarTextView = 2131165231;
+			public const int accountTxTextView = 2131165231;
 			
 			// aapt resource value: 0x7f070054
-			public const int accounts_menu_contacts = 2131165268;
+			public const int account_menu_comment = 2131165268;
 			
-			// aapt resource value: 0x7f070055
-			public const int accounts_menu_new = 2131165269;
-			
-			// aapt resource value: 0x7f070053
-			public const int accounts_menu_profile = 2131165267;
-			
-			// aapt resource value: 0x7f070052
-			public const int accounts_menu_refresh = 2131165266;
-			
-			// aapt resource value: 0x7f07004e
-			public const int atUserNameEditText = 2131165262;
-			
-			// aapt resource value: 0x7f070047
-			public const int buttonSignIn = 2131165255;
-			
-			// aapt resource value: 0x7f07003b
-			public const int contactAddressEditText = 2131165243;
-			
-			// aapt resource value: 0x7f070041
-			public const int contactAddressTextView = 2131165249;
-			
-			// aapt resource value: 0x7f070039
-			public const int contactEmailEditText = 2131165241;
-			
-			// aapt resource value: 0x7f07003f
-			public const int contactIsIntunedTextView = 2131165247;
-			
-			// aapt resource value: 0x7f07003a
-			public const int contactMobileEditText = 2131165242;
-			
-			// aapt resource value: 0x7f070040
-			public const int contactMobileTextView = 2131165248;
-			
-			// aapt resource value: 0x7f070038
-			public const int contactNameEditText = 2131165240;
-			
-			// aapt resource value: 0x7f07003e
-			public const int contactNameTextView = 2131165246;
-			
-			// aapt resource value: 0x7f07003c
-			public const int contactOkButton = 2131165244;
-			
-			// aapt resource value: 0x7f07003d
-			public const int contactResultTextView = 2131165245;
+			// aapt resource value: 0x7f070032
+			public const int accountsListView = 2131165234;
 			
 			// aapt resource value: 0x7f070031
-			public const int contactSelectedCheckBox = 2131165233;
-			
-			// aapt resource value: 0x7f070037
-			public const int contactTitleBarTextView = 2131165239;
-			
-			// aapt resource value: 0x7f070056
-			public const int contact_menu_accounts = 2131165270;
+			public const int accountsTitleBarTextView = 2131165233;
 			
 			// aapt resource value: 0x7f070057
-			public const int contact_menu_comment = 2131165271;
+			public const int accounts_menu_contacts = 2131165271;
 			
 			// aapt resource value: 0x7f070058
-			public const int contact_menu_share = 2131165272;
+			public const int accounts_menu_new = 2131165272;
 			
-			// aapt resource value: 0x7f070043
-			public const int contactsListView = 2131165251;
+			// aapt resource value: 0x7f070056
+			public const int accounts_menu_profile = 2131165270;
 			
-			// aapt resource value: 0x7f07005b
-			public const int contacts_menu_accounts = 2131165275;
+			// aapt resource value: 0x7f070055
+			public const int accounts_menu_refresh = 2131165269;
 			
-			// aapt resource value: 0x7f07005c
-			public const int contacts_menu_new = 2131165276;
-			
-			// aapt resource value: 0x7f07005a
-			public const int contacts_menu_profile = 2131165274;
-			
-			// aapt resource value: 0x7f070059
-			public const int contacts_menu_refresh = 2131165273;
-			
-			// aapt resource value: 0x7f070045
-			public const int editEmail = 2131165253;
-			
-			// aapt resource value: 0x7f070046
-			public const int editPassword = 2131165254;
+			// aapt resource value: 0x7f070051
+			public const int atUserNameEditText = 2131165265;
 			
 			// aapt resource value: 0x7f07004a
-			public const int emailEditText = 2131165258;
+			public const int buttonSignIn = 2131165258;
+			
+			// aapt resource value: 0x7f07003d
+			public const int contactAddressEditText = 2131165245;
+			
+			// aapt resource value: 0x7f070044
+			public const int contactAddressTextView = 2131165252;
+			
+			// aapt resource value: 0x7f070042
+			public const int contactCommentsIndicatorImageView = 2131165250;
+			
+			// aapt resource value: 0x7f07003b
+			public const int contactEmailEditText = 2131165243;
+			
+			// aapt resource value: 0x7f070041
+			public const int contactIsIntunedTextView = 2131165249;
+			
+			// aapt resource value: 0x7f07003c
+			public const int contactMobileEditText = 2131165244;
+			
+			// aapt resource value: 0x7f070043
+			public const int contactMobileTextView = 2131165251;
+			
+			// aapt resource value: 0x7f07003a
+			public const int contactNameEditText = 2131165242;
+			
+			// aapt resource value: 0x7f070040
+			public const int contactNameTextView = 2131165248;
+			
+			// aapt resource value: 0x7f07003e
+			public const int contactOkButton = 2131165246;
+			
+			// aapt resource value: 0x7f07003f
+			public const int contactResultTextView = 2131165247;
+			
+			// aapt resource value: 0x7f070033
+			public const int contactSelectedCheckBox = 2131165235;
+			
+			// aapt resource value: 0x7f070039
+			public const int contactTitleBarTextView = 2131165241;
+			
+			// aapt resource value: 0x7f070059
+			public const int contact_menu_accounts = 2131165273;
+			
+			// aapt resource value: 0x7f07005a
+			public const int contact_menu_comment = 2131165274;
+			
+			// aapt resource value: 0x7f07005b
+			public const int contact_menu_share = 2131165275;
+			
+			// aapt resource value: 0x7f070046
+			public const int contactsListView = 2131165254;
 			
 			// aapt resource value: 0x7f07005e
-			public const int entries_menu_comment_account = 2131165278;
+			public const int contacts_menu_accounts = 2131165278;
 			
 			// aapt resource value: 0x7f07005f
-			public const int entries_menu_edit_account = 2131165279;
-			
-			// aapt resource value: 0x7f070060
-			public const int entries_menu_new_entry = 2131165280;
+			public const int contacts_menu_new = 2131165279;
 			
 			// aapt resource value: 0x7f07005d
-			public const int entries_menu_refresh = 2131165277;
+			public const int contacts_menu_profile = 2131165277;
 			
-			// aapt resource value: 0x7f070024
-			public const int entryAmountEditText = 2131165220;
+			// aapt resource value: 0x7f07005c
+			public const int contacts_menu_refresh = 2131165276;
+			
+			// aapt resource value: 0x7f070048
+			public const int editEmail = 2131165256;
+			
+			// aapt resource value: 0x7f070049
+			public const int editPassword = 2131165257;
+			
+			// aapt resource value: 0x7f07004d
+			public const int emailEditText = 2131165261;
+			
+			// aapt resource value: 0x7f070061
+			public const int entries_menu_comment_account = 2131165281;
+			
+			// aapt resource value: 0x7f070062
+			public const int entries_menu_edit_account = 2131165282;
+			
+			// aapt resource value: 0x7f070063
+			public const int entries_menu_new_entry = 2131165283;
+			
+			// aapt resource value: 0x7f070060
+			public const int entries_menu_refresh = 2131165280;
+			
+			// aapt resource value: 0x7f070026
+			public const int entryAmountEditText = 2131165222;
 			
 			// aapt resource value: 0x7f070019
 			public const int entryAmountTextView = 2131165209;
 			
-			// aapt resource value: 0x7f07001d
-			public const int entryDateEditText = 2131165213;
+			// aapt resource value: 0x7f07001f
+			public const int entryDateEditText = 2131165215;
 			
-			// aapt resource value: 0x7f07001e
-			public const int entryDatePickerImageButton = 2131165214;
+			// aapt resource value: 0x7f070020
+			public const int entryDatePickerImageButton = 2131165216;
 			
 			// aapt resource value: 0x7f070016
 			public const int entryDateTextView = 2131165206;
 			
-			// aapt resource value: 0x7f070029
-			public const int entryNewButton = 2131165225;
-			
-			// aapt resource value: 0x7f070025
-			public const int entryNotesEditText = 2131165221;
-			
-			// aapt resource value: 0x7f07001a
-			public const int entryNotesTextView = 2131165210;
+			// aapt resource value: 0x7f07002a
+			public const int entryNewButton = 2131165226;
 			
 			// aapt resource value: 0x7f070027
-			public const int entryOkButton = 2131165223;
+			public const int entryNotesEditText = 2131165223;
 			
-			// aapt resource value: 0x7f070023
-			public const int entryQuantityEditText = 2131165219;
+			// aapt resource value: 0x7f07001b
+			public const int entryNotesTextView = 2131165211;
+			
+			// aapt resource value: 0x7f070028
+			public const int entryOkButton = 2131165224;
+			
+			// aapt resource value: 0x7f070025
+			public const int entryQuantityEditText = 2131165221;
 			
 			// aapt resource value: 0x7f070018
 			public const int entryQuantityTextView = 2131165208;
 			
-			// aapt resource value: 0x7f07002a
-			public const int entryResultTextView = 2131165226;
+			// aapt resource value: 0x7f07002b
+			public const int entryResultTextView = 2131165227;
 			
-			// aapt resource value: 0x7f070021
-			public const int entryTxnTypeIssuedRadioButton = 2131165217;
-			
-			// aapt resource value: 0x7f070020
-			public const int entryTxnTypePaidRadioButton = 2131165216;
-			
-			// aapt resource value: 0x7f07001f
-			public const int entryTxnTypeRadioGroup = 2131165215;
+			// aapt resource value: 0x7f070023
+			public const int entryTxnTypeIssuedRadioButton = 2131165219;
 			
 			// aapt resource value: 0x7f070022
-			public const int entryTxnTypeReceviedRadioButton = 2131165218;
+			public const int entryTxnTypePaidRadioButton = 2131165218;
+			
+			// aapt resource value: 0x7f070021
+			public const int entryTxnTypeRadioGroup = 2131165217;
+			
+			// aapt resource value: 0x7f070024
+			public const int entryTxnTypeReceviedRadioButton = 2131165220;
 			
 			// aapt resource value: 0x7f070017
 			public const int entryTxnTypeTextView = 2131165207;
 			
-			// aapt resource value: 0x7f070061
-			public const int entry_menu_comment = 2131165281;
+			// aapt resource value: 0x7f070064
+			public const int entry_menu_comment = 2131165284;
 			
-			// aapt resource value: 0x7f070062
-			public const int entry_menu_void = 2131165282;
+			// aapt resource value: 0x7f070065
+			public const int entry_menu_void = 2131165285;
 			
-			// aapt resource value: 0x7f07004c
-			public const int fullNameEditText = 2131165260;
+			// aapt resource value: 0x7f07004f
+			public const int fullNameEditText = 2131165263;
 			
 			// aapt resource value: 0x7f070004
 			public const int linearLayout1 = 2131165188;
 			
-			// aapt resource value: 0x7f070026
-			public const int linearLayout2 = 2131165222;
+			// aapt resource value: 0x7f07001a
+			public const int linearLayout2 = 2131165210;
 			
-			// aapt resource value: 0x7f07001c
-			public const int linearLayout3 = 2131165212;
+			// aapt resource value: 0x7f07001e
+			public const int linearLayout3 = 2131165214;
 			
-			// aapt resource value: 0x7f070063
-			public const int login_menu_forgot = 2131165283;
+			// aapt resource value: 0x7f070066
+			public const int login_menu_forgot = 2131165286;
 			
-			// aapt resource value: 0x7f070064
-			public const int login_menu_register = 2131165284;
-			
-			// aapt resource value: 0x7f07004d
-			public const int mobileEditText = 2131165261;
-			
-			// aapt resource value: 0x7f07004f
-			public const int okButton = 2131165263;
-			
-			// aapt resource value: 0x7f07004b
-			public const int passwordEditText = 2131165259;
+			// aapt resource value: 0x7f070067
+			public const int login_menu_register = 2131165287;
 			
 			// aapt resource value: 0x7f070050
-			public const int registerUserResultTextView = 2131165264;
+			public const int mobileEditText = 2131165264;
 			
-			// aapt resource value: 0x7f070044
-			public const int signInGreetingTextView = 2131165252;
+			// aapt resource value: 0x7f070052
+			public const int okButton = 2131165266;
 			
-			// aapt resource value: 0x7f070028
-			public const int space4 = 2131165224;
+			// aapt resource value: 0x7f07004e
+			public const int passwordEditText = 2131165262;
 			
-			// aapt resource value: 0x7f070042
-			public const int textView1 = 2131165250;
+			// aapt resource value: 0x7f070053
+			public const int registerUserResultTextView = 2131165267;
 			
-			// aapt resource value: 0x7f070048
-			public const int textViewResult = 2131165256;
+			// aapt resource value: 0x7f070047
+			public const int signInGreetingTextView = 2131165255;
 			
-			// aapt resource value: 0x7f070049
-			public const int textViewTitle = 2131165257;
+			// aapt resource value: 0x7f070029
+			public const int space4 = 2131165225;
+			
+			// aapt resource value: 0x7f070045
+			public const int textView1 = 2131165253;
+			
+			// aapt resource value: 0x7f07004b
+			public const int textViewResult = 2131165259;
+			
+			// aapt resource value: 0x7f07004c
+			public const int textViewTitle = 2131165260;
 			
 			// aapt resource value: 0x7f070015
 			public const int totalBalanceAmountTextView = 2131165205;

@@ -45,15 +45,26 @@
             android:textSize="18dp"
             android:textColor="@android:color/holo_green_dark" />
     </LinearLayout>
-    <TextView
-        android:text="Notes"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="20.0dp"
-        android:id="@+id/entryNotesTextView"
-        android:gravity="center_vertical"
-        android:textSize="15dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:textColor="@android:color/holo_orange_dark"
-        android:layout_marginTop="5dp" />
+        android:layout_height="22dp"
+        android:id="@+id/linearLayout2">
+        <TextView
+            android:text="Notes"
+            android:id="@+id/entryNotesTextView"
+            android:gravity="center_vertical"
+            android:textSize="15dp"
+            android:textColor="@android:color/holo_orange_dark"
+            android:layout_width="337.5dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="5dp" />
+        <ImageView
+            android:src="@drawable/bluedot"
+            android:id="@+id/accountEntryCommentIndicatorImageView"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:scaleType="centerInside"
+            android:layout_gravity="center" />
+    </LinearLayout>
 </LinearLayout>

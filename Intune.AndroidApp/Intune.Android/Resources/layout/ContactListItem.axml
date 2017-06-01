@@ -19,7 +19,7 @@
             android:textSize="18dp"
             android:textColor="@android:color/holo_green_dark"
             android:gravity="center_vertical"
-            android:layout_width="272.5dp"
+            android:layout_width="249.0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp" />
         <TextView
@@ -29,7 +29,15 @@
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:textSize="16dp"
-            android:textColor="@android:color/holo_red_dark" />
+            android:textColor="@android:color/holo_red_dark"
+            android:layout_marginRight="4dp" />
+        <ImageView
+            android:src="@drawable/bluedot"
+            android:id="@+id/contactCommentsIndicatorImageView"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:scaleType="centerInside"
+            android:layout_gravity="center" />
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
@@ -50,7 +58,7 @@
         <TextView
             android:text="Address:"
             android:id="@+id/contactAddressTextView"
-            android:layout_width="151.5dp"
+            android:layout_width="153.0dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:textSize="16dp"

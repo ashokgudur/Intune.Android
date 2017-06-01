@@ -56,6 +56,13 @@ namespace Intune.Android
             var contactAddress = view.FindViewById<TextView>(Resource.Id.contactAddressTextView);
             contactAddress.Text = contact.Address;
 
+            var commentIndicator = view.FindViewById<ImageView>(Resource.Id.contactCommentsIndicatorImageView);
+            commentIndicator.Visibility = contact.HasUnreadComments || contact.HasComments
+                                            ? ViewStates.Visible : ViewStates.Gone;
+
+            //if (contact.HasUnreadComments)
+            //    commentsIndicator.SetImageResource(Resource.Drawable.greendot);
+
             return view;
         }
     }
