@@ -54,6 +54,9 @@ namespace Intune.Android
                 case Resource.Id.contacts_menu_refresh:
                     refreshList();
                     break;
+                case Resource.Id.contacts_menu_profile:
+                    showUserProfileActivity();
+                    break;
                 case Resource.Id.contacts_menu_accounts:
                     showAccountsActivity();
                     break;
@@ -65,6 +68,16 @@ namespace Intune.Android
             }
 
             return base.OnOptionsItemSelected(item);
+        }
+
+        private void showUserProfileActivity()
+        {
+            var loginUserId = Intent.GetIntExtra("LoginUserId", 0);
+            var loginUserName = Intent.GetStringExtra("LoginUserName");
+            var userProfileActivity = new Intent(this, typeof(RegisterActivity));
+            userProfileActivity.PutExtra("LoginUserId", loginUserId);
+            userProfileActivity.PutExtra("LoginUserName", loginUserName);
+            StartActivity(userProfileActivity);
         }
 
         private void showAccountsActivity()

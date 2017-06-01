@@ -51,7 +51,7 @@ namespace Intune.Android
 
             var datePickerFragment = DatePickerFragment.NewInstance(txnDate, delegate (DateTime date)
             {
-                entryDate.Text = txnDate.ToString("dd-MM-yyyy");
+                entryDate.Text = date.ToString("dd-MM-yyyy");
             });
 
             datePickerFragment.Show(FragmentManager, DatePickerFragment.TAG);
