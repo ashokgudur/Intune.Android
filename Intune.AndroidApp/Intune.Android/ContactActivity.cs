@@ -59,6 +59,7 @@ namespace Intune.Android
                     showAccountsActivity();
                     break;
                 case Resource.Id.contact_menu_comment:
+                    showMessageBoardActivity();
                     break;
                 case Resource.Id.contact_menu_share:
                     //TODO: Contact sharing?
@@ -133,6 +134,18 @@ namespace Intune.Android
             accountsActivity.PutExtra("ContactId", _contact.Id);
             accountsActivity.PutExtra("ContactName", _contact.Name);
             StartActivity(accountsActivity);
+        }
+
+        private void showMessageBoardActivity()
+        {
+            //var loginUserId = Intent.GetIntExtra("LoginUserId", 0);
+            //var loginUserName = Intent.GetStringExtra("LoginUserName");
+            var messageBoardActivity = new Intent(this, typeof(ChatMessageBoardActivity));
+            //messageBoardActivity.PutExtra("LoginUserId", loginUserId);
+            //messageBoardActivity.PutExtra("LoginUserName", loginUserName);
+            //messageBoardActivity.PutExtra("ContactId", _contact.Id);
+            //messageBoardActivity.PutExtra("ContactName", _contact.Name);
+            StartActivity(messageBoardActivity);
         }
     }
 }

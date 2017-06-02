@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <TextView
+        android:text="chat message"
+        android:id="@+id/chatMessageSTextView"
+        android:textSize="18dp"
+        android:textColor="@android:color/background_light"
+        android:background="@android:color/holo_green_dark"
+        android:singleLine="false"
+        android:maxWidth="230dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:layout_marginRight="50dp"
+        android:padding="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_gravity="right" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/messageInfoLinearLayout"
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="5dp">
+        <TextView
+            android:text="datetime"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_height="match_parent"
+            android:id="@+id/chatMessageSTimestampTextView"
+            android:layout_gravity="left"
+            android:textSize="15dp"
+            android:textColor="@android:color/holo_red_dark"
+            android:layout_width="144.0dp" />
+        <TextView
+            android:text="Username"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:id="@+id/chatMessageSUsernameTextView"
+            android:layout_height="match_parent"
+            android:gravity="right"
+            android:layout_gravity="right"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="5dp"
+            android:textSize="15dp"
+            android:textStyle="italic"
+            android:textColor="@android:color/holo_red_light" />
+    </LinearLayout>
+</LinearLayout>

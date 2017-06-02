@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:text="Conversation between you and &lt;the other contact, account and account entry&gt;"
+        android:layout_width="match_parent"
+        android:layout_height="50.0dp"
+        android:id="@+id/chatMessageBoardTitleBarTextView"
+        android:background="@android:color/holo_blue_dark"
+        android:padding="5dp"
+        android:textColor="@android:color/background_light"
+        android:textSize="18dp" />
+    <ListView
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="319.0dp"
+        android:id="@+id/chatMessageBoardListView"
+        android:stackFromBottom="true"
+        android:transcriptMode="alwaysScroll" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout1">
+        <EditText
+            android:id="@+id/chatMessageEditText"
+            android:hint="type a comment"
+            android:layout_width="317.0dp"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:singleLine="false" />
+        <ImageButton
+            android:src="@drawable/sendmessage"
+            android:layout_width="38.5dp"
+            android:layout_height="match_parent"
+            android:id="@+id/chatSendMessageImageButton"
+            android:scaleType="centerInside" />
+    </LinearLayout>
+</LinearLayout>
