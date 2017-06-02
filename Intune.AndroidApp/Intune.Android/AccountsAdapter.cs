@@ -65,6 +65,13 @@ namespace Intune.Android
             var accountTx = view.FindViewById<TextView>(Resource.Id.accountTxTextView);
             accountTx.Text = string.Format("Balance is {0}", txn);
 
+            var commentIndicator = view.FindViewById<ImageView>(Resource.Id.accountCommentIndicatorImageView);
+            commentIndicator.Visibility = account.HasUnreadComments || account.HasComments
+                                            ? ViewStates.Visible : ViewStates.Gone;
+
+            if (account.HasUnreadComments)
+                commentIndicator.SetImageResource(Resource.Drawable.greendot);
+
             return view;
         }
 

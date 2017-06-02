@@ -169,7 +169,7 @@ namespace Intune.Android
 			public const int contactAddressTextView = 2131165252;
 			
 			// aapt resource value: 0x7f070042
-			public const int contactCommentsIndicatorImageView = 2131165250;
+			public const int contactCommentIndicatorImageView = 2131165250;
 			
 			// aapt resource value: 0x7f07003b
 			public const int contactEmailEditText = 2131165243;

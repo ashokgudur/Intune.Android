@@ -76,6 +76,13 @@ namespace Intune.Android
             var entryNotes = view.FindViewById<TextView>(Resource.Id.entryNotesTextView);
             entryNotes.Text = accountEntry.Notes;
 
+            //var commentIndicator = view.FindViewById<ImageView>(Resource.Id.accountEntryCommentIndicatorImageView);
+            //commentIndicator.Visibility = accountEntry.HasUnreadComments || accountEntry.HasComments
+            //                                ? ViewStates.Visible : ViewStates.Gone;
+
+            //if (accountEntry.HasUnreadComments)
+            //    commentIndicator.SetImageResource(Resource.Drawable.greendot);
+
             return view;
         }
 

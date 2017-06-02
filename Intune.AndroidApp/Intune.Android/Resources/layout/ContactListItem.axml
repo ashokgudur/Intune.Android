@@ -33,7 +33,7 @@
             android:layout_marginRight="4dp" />
         <ImageView
             android:src="@drawable/bluedot"
-            android:id="@+id/contactCommentsIndicatorImageView"
+            android:id="@+id/contactCommentIndicatorImageView"
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:scaleType="centerInside"
