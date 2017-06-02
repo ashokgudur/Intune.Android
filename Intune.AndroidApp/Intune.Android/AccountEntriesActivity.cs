@@ -127,6 +127,7 @@ namespace Intune.Android
                     refreshList();
                     break;
                 case Resource.Id.entries_menu_comment_account:
+                    showMessageBoardActivity();
                     break;
                 case Resource.Id.entries_menu_edit_account:
                     showAccountActivity();
@@ -140,6 +141,19 @@ namespace Intune.Android
 
             return base.OnOptionsItemSelected(item);
         }
+
+        private void showMessageBoardActivity()
+        {
+            //var loginUserId = Intent.GetIntExtra("LoginUserId", 0);
+            //var loginUserName = Intent.GetStringExtra("LoginUserName");
+            var messageBoardActivity = new Intent(this, typeof(ChatMessageBoardActivity));
+            //messageBoardActivity.PutExtra("LoginUserId", loginUserId);
+            //messageBoardActivity.PutExtra("LoginUserName", loginUserName);
+            //messageBoardActivity.PutExtra("ContactId", _contact.Id);
+            //messageBoardActivity.PutExtra("ContactName", _contact.Name);
+            StartActivity(messageBoardActivity);
+        }
+
 
         private void showAccountActivity()
         {

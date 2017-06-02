@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Widget;
 using Android.Views;
 using System.Globalization;
+using Android.Content;
 
 namespace Intune.Android
 {
@@ -88,8 +89,8 @@ namespace Intune.Android
                     voidCurrentEntry();
                     break;
                 case Resource.Id.entry_menu_comment:
-                //showAccountsActivity();
-                //break;
+                    showMessageBoardActivity();
+                    break;
                 default:
                     break;
             }
@@ -237,5 +238,18 @@ namespace Intune.Android
             var entryNotes = FindViewById<EditText>(Resource.Id.entryNotesEditText);
             entryNotes.Text = _entry.Notes;
         }
+
+        private void showMessageBoardActivity()
+        {
+            //var loginUserId = Intent.GetIntExtra("LoginUserId", 0);
+            //var loginUserName = Intent.GetStringExtra("LoginUserName");
+            var messageBoardActivity = new Intent(this, typeof(ChatMessageBoardActivity));
+            //messageBoardActivity.PutExtra("LoginUserId", loginUserId);
+            //messageBoardActivity.PutExtra("LoginUserName", loginUserName);
+            //messageBoardActivity.PutExtra("ContactId", _contact.Id);
+            //messageBoardActivity.PutExtra("ContactName", _contact.Name);
+            StartActivity(messageBoardActivity);
+        }
+
     }
 }

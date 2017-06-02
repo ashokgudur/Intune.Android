@@ -55,7 +55,6 @@ namespace Intune.Android
             _messageBoardAdapter.NotifyDataSetChanged();
 
             _sentMessage = !_sentMessage;
-
         }
 
         private void setMessageBoardListAdapter()

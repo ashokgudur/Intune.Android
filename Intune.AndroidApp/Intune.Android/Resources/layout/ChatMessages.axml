@@ -8,15 +8,15 @@
         android:layout_width="match_parent"
         android:layout_height="50.0dp"
         android:id="@+id/chatMessageBoardTitleBarTextView"
-        android:background="@android:color/holo_blue_dark"
-        android:padding="5dp"
+        android:background="@android:color/holo_orange_dark"
         android:textColor="@android:color/background_light"
+        android:padding="5dp"
         android:textSize="18dp" />
     <ListView
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
-        android:layout_height="319.0dp"
+        android:layout_height="345.0dp"
         android:id="@+id/chatMessageBoardListView"
         android:stackFromBottom="true"
         android:transcriptMode="alwaysScroll" />

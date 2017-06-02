@@ -80,16 +80,11 @@ namespace Intune.Android
         private void showMessageSent(ChatMessage chatMessage, View view)
         {
             //TODO: display the date in a separate line... Today, Yesterday, 2 days back... on 12-MAY-2017 etc.
-
-            //var layout = view.FindViewById<LinearLayout>(Resource.Id.messageLinearLayout);
-            //var messageBox = new TextView(_activity);
-            //layout.AddView(messageBox);
-
             var chatMessageText = view.FindViewById<TextView>(Resource.Id.chatMessageSTextView);
             chatMessageText.Text = chatMessage.Message;
 
-            //var chatMessageTimestamp = view.FindViewById<TextView>(Resource.Id.chatMessageSTimestampTextView);
-            //chatMessageTimestamp.Text = chatMessage.Timestamp.ToShortTimeString();
+            var chatMessageTimestamp = view.FindViewById<TextView>(Resource.Id.chatMessageSTimestampTextView);
+            chatMessageTimestamp.Text = chatMessage.Timestamp.ToShortTimeString();
 
             var chatMessageUsername = view.FindViewById<TextView>(Resource.Id.chatMessageSUsernameTextView);
             chatMessageUsername.Text = chatMessage.Username;
@@ -97,11 +92,12 @@ namespace Intune.Android
 
         private void showMessageReceived(ChatMessage chatMessage, View view)
         {
+            //TODO: display the date in a separate line... Today, Yesterday, 2 days back... on 12-MAY-2017 etc.
             var chatMessageText = view.FindViewById<TextView>(Resource.Id.chatMessageRTextView);
             chatMessageText.Text = chatMessage.Message;
 
-            //var chatMessageTimestamp = view.FindViewById<TextView>(Resource.Id.chatMessageRTimestampTextView);
-            //chatMessageTimestamp.Text = chatMessage.Timestamp.ToShortTimeString();
+            var chatMessageTimestamp = view.FindViewById<TextView>(Resource.Id.chatMessageRTimestampTextView);
+            chatMessageTimestamp.Text = chatMessage.Timestamp.ToShortTimeString();
 
             var chatMessageUsername = view.FindViewById<TextView>(Resource.Id.chatMessageRUsernameTextView);
             chatMessageUsername.Text = chatMessage.Username;
