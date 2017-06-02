@@ -10,11 +10,10 @@
         android:textColor="@android:color/background_light"
         android:background="@android:color/holo_green_dark"
         android:singleLine="false"
-        android:maxWidth="230dp"
+        android:maxWidth="500dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="right"
-        android:layout_marginRight="50dp"
+        android:layout_marginRight="10dp"
         android:padding="5dp"
         android:layout_marginLeft="5dp"
         android:layout_gravity="right" />
@@ -22,8 +21,8 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/messageInfoLinearLayout"
-        android:layout_marginRight="50dp"
+        android:id="@+id/linearLayout2"
+        android:layout_marginRight="10dp"
         android:layout_marginLeft="5dp"
         android:layout_marginBottom="5dp">
         <TextView
@@ -34,7 +33,7 @@
             android:layout_gravity="left"
             android:textSize="15dp"
             android:textColor="@android:color/holo_red_dark"
-            android:layout_width="144.0dp" />
+            android:layout_width="145dp" />
         <TextView
             android:text="Username"
             android:textAppearance="?android:attr/textAppearanceSmall"

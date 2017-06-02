@@ -34,15 +34,24 @@
         <EditText
             android:id="@+id/chatMessageEditText"
             android:hint="type a comment"
-            android:layout_width="317.0dp"
+            android:layout_width="305dp"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"
             android:singleLine="false" />
-        <ImageButton
-            android:src="@drawable/sendmessage"
-            android:layout_width="38.5dp"
-            android:layout_height="match_parent"
-            android:id="@+id/chatSendMessageImageButton"
-            android:scaleType="centerInside" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="40dp"
+            android:id="@+id/linearLayout2"
+            android:gravity="center"
+            android:layout_height="40dp"
+            android:layout_marginLeft="2dp"
+            android:layout_gravity="bottom|right">
+            <ImageButton
+                android:src="@drawable/sendmessage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/chatSendMessageImageButton"
+                android:scaleType="centerInside" />
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

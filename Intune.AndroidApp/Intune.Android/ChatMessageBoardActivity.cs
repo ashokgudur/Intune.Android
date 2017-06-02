@@ -11,6 +11,7 @@ namespace Intune.Android
     public class ChatMessageBoardActivity : Activity
     {
         ChatMessageBoardAdapter _messageBoardAdapter = null;
+        bool _sentMessage = true;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -44,7 +45,7 @@ namespace Intune.Android
 
             var chatMessage = new ChatMessage
             {
-                Direction = ChatMessageDirection.Sent,
+                Direction = _sentMessage ? ChatMessageDirection.Sent : ChatMessageDirection.Received,
                 Message = chatMessageTextView.Text,
                 Timestamp = DateTime.Now,
                 Username = "Ashok Guduru",
@@ -52,6 +53,9 @@ namespace Intune.Android
 
             _messageBoardAdapter.AddMessage(chatMessage);
             _messageBoardAdapter.NotifyDataSetChanged();
+
+            _sentMessage = !_sentMessage;
+
         }
 
         private void setMessageBoardListAdapter()

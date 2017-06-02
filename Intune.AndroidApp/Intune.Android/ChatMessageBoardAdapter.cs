@@ -67,7 +67,7 @@ namespace Intune.Android
             if (chatMessage.Direction == ChatMessageDirection.Received)
                 resource = Resource.Layout.ChatMessageReceived;
 
-            var view = convertView ?? _activity.LayoutInflater.Inflate(resource, parent, false);
+            var view = _activity.LayoutInflater.Inflate(resource, parent, false);
 
             if (chatMessage.Direction == ChatMessageDirection.Sent)
                 showMessageSent(chatMessage, view);
@@ -88,8 +88,8 @@ namespace Intune.Android
             var chatMessageText = view.FindViewById<TextView>(Resource.Id.chatMessageSTextView);
             chatMessageText.Text = chatMessage.Message;
 
-            var chatMessageTimestamp = view.FindViewById<TextView>(Resource.Id.chatMessageSTimestampTextView);
-            chatMessageTimestamp.Text = chatMessage.Timestamp.ToShortTimeString();
+            //var chatMessageTimestamp = view.FindViewById<TextView>(Resource.Id.chatMessageSTimestampTextView);
+            //chatMessageTimestamp.Text = chatMessage.Timestamp.ToShortTimeString();
 
             var chatMessageUsername = view.FindViewById<TextView>(Resource.Id.chatMessageSUsernameTextView);
             chatMessageUsername.Text = chatMessage.Username;
@@ -100,8 +100,8 @@ namespace Intune.Android
             var chatMessageText = view.FindViewById<TextView>(Resource.Id.chatMessageRTextView);
             chatMessageText.Text = chatMessage.Message;
 
-            var chatMessageTimestamp = view.FindViewById<TextView>(Resource.Id.chatMessageRTimestampTextView);
-            chatMessageTimestamp.Text = chatMessage.Timestamp.ToShortTimeString();
+            //var chatMessageTimestamp = view.FindViewById<TextView>(Resource.Id.chatMessageRTimestampTextView);
+            //chatMessageTimestamp.Text = chatMessage.Timestamp.ToShortTimeString();
 
             var chatMessageUsername = view.FindViewById<TextView>(Resource.Id.chatMessageRUsernameTextView);
             chatMessageUsername.Text = chatMessage.Username;
