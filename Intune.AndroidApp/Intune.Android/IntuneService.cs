@@ -238,5 +238,18 @@ namespace Intune.Android
 
             return null;
         }
+
+        public static List<Comment> GetContactComments(int byUserId, int toUserId)
+        {
+            var request = new RestRequest(@"api/comment/contact/allcomments/", Method.GET);
+            request.AddParameter("byUserId", byUserId);
+            request.AddParameter("toUserId", toUserId);
+            var client = new RestClient(intuneServerUri);
+            var response = client.Execute<List<Comment>>(request);
+            if (response.StatusCode == HttpStatusCode.OK)
+                return response.Data;
+
+            return null;
+        }
     }
 }

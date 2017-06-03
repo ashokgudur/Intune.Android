@@ -9,8 +9,9 @@ namespace Intune.Android
 {
     public enum ChatMessageDirection
     {
-        Sent = 0,
-        Received = 1
+        None = 0,
+        Sent = 1,
+        Received = 2
     }
 
     public class ChatMessage
@@ -27,11 +28,10 @@ namespace Intune.Android
         List<ChatMessage> _chatMessages;
         Activity _activity;
 
-        public ChatMessageBoardAdapter(Activity activity)
+        public ChatMessageBoardAdapter(Activity activity, List<ChatMessage> chatMessages)
         {
             _activity = activity;
-            _chatMessages = new List<ChatMessage>();
-            //_accounts = IntuneService.GetAllAccounts(userId, contactId);
+            _chatMessages = chatMessages;
         }
 
         public void AddMessage(ChatMessage chatMessage)
@@ -61,46 +61,82 @@ namespace Intune.Android
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
             var chatMessage = _chatMessages[position];
-
-            var resource = Resource.Layout.ChatMessageSent;
-
-            if (chatMessage.Direction == ChatMessageDirection.Received)
-                resource = Resource.Layout.ChatMessageReceived;
-
+            var resource = getChatMessageListItemResource(chatMessage);
             var view = _activity.LayoutInflater.Inflate(resource, parent, false);
 
-            if (chatMessage.Direction == ChatMessageDirection.Sent)
-                showMessageSent(chatMessage, view);
-            else
-                showMessageReceived(chatMessage, view);
+            switch (chatMessage.Direction)
+            {
+                case ChatMessageDirection.None:
+                    renderMessagesDay(chatMessage, view);
+                    break;
+                case ChatMessageDirection.Sent:
+                    renderSentMessage(chatMessage, view);
+                    break;
+                case ChatMessageDirection.Received:
+                    renderReceivedMessage(chatMessage, view);
+                    break;
+                default:
+                    throw new Exception("Invalid chatting direction");
+            }
 
             return view;
         }
 
-        private void showMessageSent(ChatMessage chatMessage, View view)
+        private int getChatMessageListItemResource(ChatMessage chatMessage)
         {
-            //TODO: display the date in a separate line... Today, Yesterday, 2 days back... on 12-MAY-2017 etc.
-            var chatMessageText = view.FindViewById<TextView>(Resource.Id.chatMessageSTextView);
-            chatMessageText.Text = chatMessage.Message;
-
-            var chatMessageTimestamp = view.FindViewById<TextView>(Resource.Id.chatMessageSTimestampTextView);
-            chatMessageTimestamp.Text = chatMessage.Timestamp.ToShortTimeString();
-
-            var chatMessageUsername = view.FindViewById<TextView>(Resource.Id.chatMessageSUsernameTextView);
-            chatMessageUsername.Text = chatMessage.Username;
+            switch (chatMessage.Direction)
+            {
+                case ChatMessageDirection.None:
+                    return Resource.Layout.ChatMessageDay;
+                case ChatMessageDirection.Sent:
+                    return Resource.Layout.ChatMessageSent;
+                case ChatMessageDirection.Received:
+                    return Resource.Layout.ChatMessageReceived;
+                default:
+                    throw new Exception("Invalid chatting direction");
+            }
         }
 
-        private void showMessageReceived(ChatMessage chatMessage, View view)
+        private void renderMessagesDay(ChatMessage chatMessage, View view)
         {
-            //TODO: display the date in a separate line... Today, Yesterday, 2 days back... on 12-MAY-2017 etc.
-            var chatMessageText = view.FindViewById<TextView>(Resource.Id.chatMessageRTextView);
-            chatMessageText.Text = chatMessage.Message;
+            var messagesDay = view.FindViewById<TextView>(Resource.Id.chatMessagesDay);
+            var timeSpan = DateTime.Now.Subtract(chatMessage.Timestamp);
 
-            var chatMessageTimestamp = view.FindViewById<TextView>(Resource.Id.chatMessageRTimestampTextView);
-            chatMessageTimestamp.Text = chatMessage.Timestamp.ToShortTimeString();
+            if (chatMessage.Timestamp == DateTime.Today)
+                messagesDay.Text = "Today";
+            else if (timeSpan.TotalDays == 1)
+                messagesDay.Text = "Yesterday";
+            else
+                messagesDay.Text = chatMessage.Timestamp.ToString("dddd, MMMM dd, yyyy");
+        }
 
-            var chatMessageUsername = view.FindViewById<TextView>(Resource.Id.chatMessageRUsernameTextView);
-            chatMessageUsername.Text = chatMessage.Username;
+        private void renderSentMessage(ChatMessage chatMessage, View view)
+        {
+            var message = view.FindViewById<TextView>(Resource.Id.chatMessageSTextView);
+            message.Text = chatMessage.Message;
+
+            var messageTimestamp = view.FindViewById<TextView>(Resource.Id.chatMessageSTimestampTextView);
+            messageTimestamp.Text = chatMessage.Timestamp.ToShortTimeString();
+        }
+
+        private void renderReceivedMessage(ChatMessage chatMessage, View view)
+        {
+            var message = view.FindViewById<TextView>(Resource.Id.chatMessageRTextView);
+            message.Text = chatMessage.Message;
+
+            var messageTimestamp = view.FindViewById<TextView>(Resource.Id.chatMessageRTimestampTextView);
+            messageTimestamp.Text = chatMessage.Timestamp.ToShortTimeString();
+
+            var messageUsername = view.FindViewById<TextView>(Resource.Id.chatMessageRUsernameTextView);
+            messageUsername.Text = chatMessage.Username;
+
+            if (string.IsNullOrWhiteSpace(chatMessage.Username))
+            {
+                messageUsername.Visibility = ViewStates.Gone;
+                messageTimestamp.Gravity = GravityFlags.Left;
+            }
+            else
+                messageUsername.Text = chatMessage.Username;
         }
     }
 }
