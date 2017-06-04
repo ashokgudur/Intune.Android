@@ -16,7 +16,7 @@
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
-        android:layout_height="345.0dp"
+        android:layout_height="390dp"
         android:id="@+id/chatMessageBoardListView"
         android:stackFromBottom="true"
         android:transcriptMode="alwaysScroll" />
@@ -27,7 +27,7 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginTop="5dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/linearLayout1">

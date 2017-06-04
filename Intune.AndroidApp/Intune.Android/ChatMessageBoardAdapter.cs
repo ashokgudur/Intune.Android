@@ -7,17 +7,17 @@ using System.Globalization;
 
 namespace Intune.Android
 {
-    public enum ChatMessageDirection
+    public enum CommentMessageDirection
     {
         None = 0,
         Sent = 1,
         Received = 2
     }
 
-    public class ChatMessage
+    public class CommentMessage
     {
         public int Id { get; set; }
-        public ChatMessageDirection Direction { get; set; }
+        public CommentMessageDirection Direction { get; set; }
         public string Username { get; set; }
         public string Message { get; set; }
         public DateTime Timestamp { get; set; }
@@ -25,16 +25,16 @@ namespace Intune.Android
 
     public class ChatMessageBoardAdapter : BaseAdapter
     {
-        List<ChatMessage> _chatMessages;
+        List<CommentMessage> _chatMessages;
         Activity _activity;
 
-        public ChatMessageBoardAdapter(Activity activity, List<ChatMessage> chatMessages)
+        public ChatMessageBoardAdapter(Activity activity, List<CommentMessage> chatMessages)
         {
             _activity = activity;
             _chatMessages = chatMessages;
         }
 
-        public void AddMessage(ChatMessage chatMessage)
+        public void AddMessage(CommentMessage chatMessage)
         {
             _chatMessages.Add(chatMessage);
         }
@@ -49,8 +49,8 @@ namespace Intune.Android
 
         public override Java.Lang.Object GetItem(int position)
         {
-            ChatMessage chatMessage = _chatMessages[position];
-            return new JavaObjectWrapper<ChatMessage> { Obj = chatMessage };
+            CommentMessage chatMessage = _chatMessages[position];
+            return new JavaObjectWrapper<CommentMessage> { Obj = chatMessage };
         }
 
         public override long GetItemId(int position)
@@ -66,13 +66,13 @@ namespace Intune.Android
 
             switch (chatMessage.Direction)
             {
-                case ChatMessageDirection.None:
+                case CommentMessageDirection.None:
                     renderMessagesDay(chatMessage, view);
                     break;
-                case ChatMessageDirection.Sent:
+                case CommentMessageDirection.Sent:
                     renderSentMessage(chatMessage, view);
                     break;
-                case ChatMessageDirection.Received:
+                case CommentMessageDirection.Received:
                     renderReceivedMessage(chatMessage, view);
                     break;
                 default:
@@ -82,22 +82,22 @@ namespace Intune.Android
             return view;
         }
 
-        private int getChatMessageListItemResource(ChatMessage chatMessage)
+        private int getChatMessageListItemResource(CommentMessage chatMessage)
         {
             switch (chatMessage.Direction)
             {
-                case ChatMessageDirection.None:
+                case CommentMessageDirection.None:
                     return Resource.Layout.ChatMessageDay;
-                case ChatMessageDirection.Sent:
+                case CommentMessageDirection.Sent:
                     return Resource.Layout.ChatMessageSent;
-                case ChatMessageDirection.Received:
+                case CommentMessageDirection.Received:
                     return Resource.Layout.ChatMessageReceived;
                 default:
                     throw new Exception("Invalid chatting direction");
             }
         }
 
-        private void renderMessagesDay(ChatMessage chatMessage, View view)
+        private void renderMessagesDay(CommentMessage chatMessage, View view)
         {
             var messagesDay = view.FindViewById<TextView>(Resource.Id.chatMessagesDay);
             var timeSpan = DateTime.Now.Subtract(chatMessage.Timestamp);
@@ -110,7 +110,7 @@ namespace Intune.Android
                 messagesDay.Text = chatMessage.Timestamp.ToString("dddd, MMMM dd, yyyy");
         }
 
-        private void renderSentMessage(ChatMessage chatMessage, View view)
+        private void renderSentMessage(CommentMessage chatMessage, View view)
         {
             var message = view.FindViewById<TextView>(Resource.Id.chatMessageSTextView);
             message.Text = chatMessage.Message;
@@ -119,7 +119,7 @@ namespace Intune.Android
             messageTimestamp.Text = chatMessage.Timestamp.ToShortTimeString();
         }
 
-        private void renderReceivedMessage(ChatMessage chatMessage, View view)
+        private void renderReceivedMessage(CommentMessage chatMessage, View view)
         {
             var message = view.FindViewById<TextView>(Resource.Id.chatMessageRTextView);
             message.Text = chatMessage.Message;

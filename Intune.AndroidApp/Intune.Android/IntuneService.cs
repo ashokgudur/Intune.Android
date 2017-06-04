@@ -251,5 +251,18 @@ namespace Intune.Android
 
             return null;
         }
+
+        public static Comment AddComment(Comment comment)
+        {
+            var body = JsonConvert.SerializeObject(comment);
+            var request = new RestRequest(@"api/comment/addcomment/", Method.POST);
+            request.AddParameter("text/json", body, ParameterType.RequestBody);
+            var client = new RestClient(intuneServerUri);
+            var response = client.Execute<Comment>(request);
+            if (response.StatusCode == HttpStatusCode.OK)
+                return response.Data;
+
+            return null;
+        }
     }
 }

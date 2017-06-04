@@ -58,8 +58,7 @@
     <EnableProguard>False</EnableProguard>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.AspNet.SignalR.Client, Version=2.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Microsoft.AspNet.SignalR.Client">
       <HintPath>..\Components\signalr-2.1.2.2\lib\android\Microsoft.AspNet.SignalR.Client.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
@@ -74,8 +73,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Net.Http.Extensions, Version=1.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="System.Net.Http.Extensions">
       <HintPath>..\Components\signalr-2.1.2.2\lib\android\System.Net.Http.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http.Primitives">
@@ -93,6 +91,7 @@
     <Compile Include="AccountActivity.cs" />
     <Compile Include="AccountEntriesAdapter.cs" />
     <Compile Include="AccountEntriesActivity.cs" />
+    <Compile Include="ChatMessage.cs" />
     <Compile Include="Comment.cs" />
     <Compile Include="ContactActivity.cs" />
     <Compile Include="ContactsActivity.cs" />
