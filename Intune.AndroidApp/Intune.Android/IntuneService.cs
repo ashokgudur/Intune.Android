@@ -252,6 +252,32 @@ namespace Intune.Android
             return null;
         }
 
+        public static List<Comment> GetAccountComments(int accountId, int userId)
+        {
+            var request = new RestRequest(@"api/comment/account/allcomments/", Method.GET);
+            request.AddParameter("accountId", accountId);
+            request.AddParameter("userId", userId);
+            var client = new RestClient(intuneServerUri);
+            var response = client.Execute<List<Comment>>(request);
+            if (response.StatusCode == HttpStatusCode.OK)
+                return response.Data;
+
+            return null;
+        }
+
+        public static List<Comment> GetEntryComments(int entryId, int userId)
+        {
+            var request = new RestRequest(@"api/comment/entry/allcomments/", Method.GET);
+            request.AddParameter("entryId", entryId);
+            request.AddParameter("userId", userId);
+            var client = new RestClient(intuneServerUri);
+            var response = client.Execute<List<Comment>>(request);
+            if (response.StatusCode == HttpStatusCode.OK)
+                return response.Data;
+
+            return null;
+        }
+
         public static Comment AddComment(Comment comment)
         {
             var body = JsonConvert.SerializeObject(comment);

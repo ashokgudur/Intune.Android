@@ -39,8 +39,8 @@ namespace Intune.Android
 
         public override bool OnPrepareOptionsMenu(IMenu menu)
         {
-            var commentMenuItem = menu.FindItem(Resource.Id.contact_menu_comment);
-            commentMenuItem.SetEnabled(_contact.HasIntune());
+            var chatMenuItem = menu.FindItem(Resource.Id.contact_menu_chat);
+            chatMenuItem.SetEnabled(_contact.HasIntune());
 
             var accountsMenuItem = menu.FindItem(Resource.Id.contact_menu_accounts);
             accountsMenuItem.SetVisible(!_contact.IsNew);
@@ -58,7 +58,7 @@ namespace Intune.Android
                 case Resource.Id.contact_menu_accounts:
                     showAccountsActivity();
                     break;
-                case Resource.Id.contact_menu_comment:
+                case Resource.Id.contact_menu_chat:
                     showMessageBoardActivity();
                     break;
                 case Resource.Id.contact_menu_share:
@@ -140,7 +140,7 @@ namespace Intune.Android
         {
             var loginUserId = Intent.GetIntExtra("LoginUserId", 0);
             var loginUserName = Intent.GetStringExtra("LoginUserName");
-            var messageBoardActivity = new Intent(this, typeof(ChatMessageBoardActivity));
+            var messageBoardActivity = new Intent(this, typeof(ChatBoardActivity));
             messageBoardActivity.PutExtra("ByUserId", loginUserId);
             messageBoardActivity.PutExtra("ToUserId", _contact.ContactUserId);
             StartActivity(messageBoardActivity);

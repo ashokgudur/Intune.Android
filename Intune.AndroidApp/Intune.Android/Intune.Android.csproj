@@ -84,8 +84,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
-    <Compile Include="ChatMessageBoardActivity.cs" />
-    <Compile Include="ChatMessageBoardAdapter.cs" />
+    <Compile Include="ChatBoardActivity.cs" />
+    <Compile Include="ChatBoardAdapter.cs" />
     <Compile Include="AccountShareAdapter.cs" />
     <Compile Include="AccountEntryActivity.cs" />
     <Compile Include="AccountActivity.cs" />
@@ -153,6 +153,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\ChatMessageDay.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\layout1.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

@@ -10,10 +10,10 @@
         android:textColor="@android:color/background_light"
         android:background="@android:color/holo_green_dark"
         android:singleLine="false"
-        android:maxWidth="500dp"
+        android:maxWidth="275dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
+        android:layout_marginRight="5dp"
         android:padding="5dp"
         android:layout_marginLeft="5dp"
         android:layout_gravity="right" />
@@ -26,6 +26,6 @@
         android:layout_width="match_parent"
         android:layout_height="18dp"
         android:layout_marginLeft="5dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginRight="5dp"
         android:gravity="right" />
 </LinearLayout>

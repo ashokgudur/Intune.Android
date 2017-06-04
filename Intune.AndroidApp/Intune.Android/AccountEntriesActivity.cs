@@ -144,16 +144,16 @@ namespace Intune.Android
 
         private void showMessageBoardActivity()
         {
-            //var loginUserId = Intent.GetIntExtra("LoginUserId", 0);
-            //var loginUserName = Intent.GetStringExtra("LoginUserName");
-            var messageBoardActivity = new Intent(this, typeof(ChatMessageBoardActivity));
-            //messageBoardActivity.PutExtra("LoginUserId", loginUserId);
-            //messageBoardActivity.PutExtra("LoginUserName", loginUserName);
-            //messageBoardActivity.PutExtra("ContactId", _contact.Id);
-            //messageBoardActivity.PutExtra("ContactName", _contact.Name);
+            var loginUserId = Intent.GetIntExtra("LoginUserId", 0);
+            var loginUserName = Intent.GetStringExtra("LoginUserName");
+            var accountId = Intent.GetIntExtra("AccountId", 0);
+            var accountName = Intent.GetStringExtra("AccountName");
+            var messageBoardActivity = new Intent(this, typeof(ChatBoardActivity));
+            messageBoardActivity.PutExtra("ByUserId", loginUserId);
+            messageBoardActivity.PutExtra("AccountId", accountId);
+            messageBoardActivity.PutExtra("AccountName", accountName);
             StartActivity(messageBoardActivity);
         }
-
 
         private void showAccountActivity()
         {

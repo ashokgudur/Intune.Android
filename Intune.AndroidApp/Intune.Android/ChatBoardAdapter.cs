@@ -23,12 +23,12 @@ namespace Intune.Android
         public DateTime Timestamp { get; set; }
     }
 
-    public class ChatMessageBoardAdapter : BaseAdapter
+    public class ChatBoardAdapter : BaseAdapter
     {
         List<CommentMessage> _chatMessages;
         Activity _activity;
 
-        public ChatMessageBoardAdapter(Activity activity, List<CommentMessage> chatMessages)
+        public ChatBoardAdapter(Activity activity, List<CommentMessage> chatMessages)
         {
             _activity = activity;
             _chatMessages = chatMessages;
