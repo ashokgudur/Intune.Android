@@ -261,12 +261,6 @@ namespace Intune.Android
 			// aapt resource value: 0x7f070067
 			public const int contacts_menu_refresh = 2131165287;
 			
-			// aapt resource value: 0x7f070053
-			public const int editEmail = 2131165267;
-			
-			// aapt resource value: 0x7f070054
-			public const int editPassword = 2131165268;
-			
 			// aapt resource value: 0x7f070058
 			public const int emailEditText = 2131165272;
 			
@@ -350,6 +344,12 @@ namespace Intune.Android
 			
 			// aapt resource value: 0x7f07001e
 			public const int linearLayout3 = 2131165214;
+			
+			// aapt resource value: 0x7f070053
+			public const int loginEmailEditText = 2131165267;
+			
+			// aapt resource value: 0x7f070054
+			public const int loginPasswordEditText = 2131165268;
 			
 			// aapt resource value: 0x7f070071
 			public const int login_menu_forgot = 2131165297;

@@ -20,7 +20,7 @@
         p1:inputType="textEmailAddress"
         p1:layout_width="match_parent"
         p1:layout_height="wrap_content"
-        p1:id="@+id/editEmail"
+        p1:id="@+id/loginEmailEditText"
         p1:hint="Enter your email address"
         p1:text="ashok.gudur@gmail.com"
         p1:layout_marginLeft="10dp"
@@ -29,9 +29,8 @@
         p1:inputType="textPassword"
         p1:layout_width="match_parent"
         p1:layout_height="wrap_content"
-        p1:id="@+id/editPassword"
+        p1:id="@+id/loginPasswordEditText"
         p1:hint="Enter your password"
-        p1:text="ashok"
         p1:layout_marginRight="10dp"
         p1:layout_marginLeft="10dp" />
     <LinearLayout

@@ -22,6 +22,13 @@ namespace Intune.Android
 
             var signInButton = FindViewById<Button>(Resource.Id.buttonSignIn);
             signInButton.Click += SignInButton_Click;
+
+#if DEBUG
+            var emailEditText = FindViewById<EditText>(Resource.Id.loginEmailEditText);
+            emailEditText.Text = "ashok.gudur@gmail.com";
+            var passwordEditText = FindViewById<EditText>(Resource.Id.loginPasswordEditText);
+            passwordEditText.Text = "ashokg";
+#endif
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -50,7 +57,7 @@ namespace Intune.Android
         private void ForgotPasswordMenu_Click()
         {
             var result = FindViewById<TextView>(Resource.Id.textViewResult);
-            var email = FindViewById<EditText>(Resource.Id.editEmail);
+            var email = FindViewById<EditText>(Resource.Id.loginEmailEditText);
             if (string.IsNullOrWhiteSpace(email.Text.Trim()))
             {
                 result.Text = "Please enter email address";
@@ -78,8 +85,8 @@ namespace Intune.Android
         {
             var result = FindViewById<TextView>(Resource.Id.textViewResult);
 
-            var email = FindViewById<EditText>(Resource.Id.editEmail);
-            var password = FindViewById<EditText>(Resource.Id.editPassword);
+            var email = FindViewById<EditText>(Resource.Id.loginEmailEditText);
+            var password = FindViewById<EditText>(Resource.Id.loginPasswordEditText);
 
             if (string.IsNullOrWhiteSpace(email.Text.Trim()))
             {

@@ -114,12 +114,12 @@ namespace Intune.Android
         private void showAccountEntriesActivity(Account account)
         {
             var loginUserId = Intent.GetIntExtra("LoginUserId", 0);
-            var accountsEntryActivity = new Intent(this, typeof(AccountEntriesActivity));
-            accountsEntryActivity.PutExtra("LoginUserId", loginUserId);
-            accountsEntryActivity.PutExtra("AccountId", account.Id);
-            accountsEntryActivity.PutExtra("AccountName", account.Name);
-            accountsEntryActivity.PutExtra("AccountRole", (int)account.Role);
-            StartActivity(accountsEntryActivity);
+            var accountEntriesActivity = new Intent(this, typeof(AccountEntriesActivity));
+            accountEntriesActivity.PutExtra("LoginUserId", loginUserId);
+            accountEntriesActivity.PutExtra("AccountId", account.Id);
+            accountEntriesActivity.PutExtra("AccountName", account.Name);
+            accountEntriesActivity.PutExtra("AccountRole", (int)account.Role);
+            StartActivity(accountEntriesActivity);
         }
     }
 }

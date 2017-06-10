@@ -99,7 +99,7 @@
         android:id="@+id/entryNotesEditText"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="10dp"
-        android:text="Notes" />
+        android:hint="Notes (optional)" />
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"

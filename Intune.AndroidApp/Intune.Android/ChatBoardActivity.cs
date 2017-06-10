@@ -163,6 +163,8 @@ namespace Intune.Android
             {
                 ByUserId = _byUser.Id,
                 ToUserId = _toUser.Id,
+                AccountId = _account == null ? 0 : _account.Id,
+                EntryId = _entry == null ? 0 : _entry.Id,
                 CommentText = message,
                 DateTimeStamp = DateTime.Now,
             };

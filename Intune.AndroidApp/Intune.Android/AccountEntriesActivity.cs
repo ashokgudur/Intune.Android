@@ -179,7 +179,7 @@ namespace Intune.Android
             accountEntryActivity.PutExtra("LoginUserId", loginUserId);
             accountEntryActivity.PutExtra("AccountId", accountId);
             accountEntryActivity.PutExtra("AccountName", accountName);
-            accountEntryActivity.PutExtra("accountRole", accountRole);
+            accountEntryActivity.PutExtra("AccountRole", accountRole);
             StartActivity(accountEntryActivity);
         }
     }

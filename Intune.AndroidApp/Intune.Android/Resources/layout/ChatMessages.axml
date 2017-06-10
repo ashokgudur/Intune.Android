@@ -37,14 +37,16 @@
         <EditText
             android:id="@+id/chatMessageEditText"
             android:hint="type a comment"
-            android:inputType="textMultiLine"
             android:singleLine="false"
             android:layout_width="310dp"
-            android:layout_height="45dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:minLines="1"
-            android:minHeight="45dp" />
+            android:minHeight="45dp"
+            android:inputType="textCapSentences|textShortMessage|textMultiLine"
+            android:maxLength="2000"
+            android:maxLines="4" />
         <ImageButton
             android:src="@drawable/sendmessage"
             android:id="@+id/chatSendMessageImageButton"
