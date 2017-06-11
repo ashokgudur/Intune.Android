@@ -6,14 +6,14 @@ using Android.Widget;
 namespace Intune.Android
 {
     [Activity(Label = "Intune - Register new user")]
-    public class RegisterActivity : Activity
+    public class SignUpActivity : Activity
     {
         User _user = null;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.Register);
+            SetContentView(Resource.Layout.SignUp);
 
             var userId = Intent.GetIntExtra("LoginUserId", 0);
             _user = IntuneService.GetUserById(userId);

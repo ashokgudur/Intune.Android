@@ -28,7 +28,6 @@ namespace Intune.Android
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.ChatMessages);
 
-
             var byUserId = Intent.GetIntExtra("ByUserId", 0);
             _byUser = IntuneService.GetUserById(byUserId);
             var toUserId = Intent.GetIntExtra("ToUserId", 0);
@@ -204,7 +203,7 @@ namespace Intune.Android
             };
 
             _chatBoardAdapter.AddMessage(message);
-            _chatBoardAdapter.NotifyDataSetChanged();
+            RunOnUiThread(() => _chatBoardAdapter.NotifyDataSetChanged());
 
             //TODO: indate on main window saying that a new message is arrived contact, account, entry...
             //if (!processed)

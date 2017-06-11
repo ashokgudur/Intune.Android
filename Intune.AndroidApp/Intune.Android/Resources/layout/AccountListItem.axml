@@ -12,7 +12,7 @@
         android:id="@+id/linearLayout1">
         <TextView
             android:text="Account Name"
-            android:layout_width="223.0dp"
+            android:layout_width="213dp"
             android:layout_height="match_parent"
             android:id="@+id/accountNameTextView"
             android:gravity="center_vertical"
@@ -23,7 +23,7 @@
             android:layout_marginRight="0.0dp" />
         <TextView
             android:text="Balance"
-            android:layout_width="137.0dp"
+            android:layout_width="140dp"
             android:layout_height="match_parent"
             android:id="@+id/accountBalanceTextView"
             android:gravity="right|center_vertical"
@@ -41,7 +41,7 @@
         <TextView
             android:text="Permission"
             android:id="@+id/accountPermissionTextView"
-            android:layout_width="187.5dp"
+            android:layout_width="181.5dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:layout_marginLeft="5dp"
@@ -50,7 +50,7 @@
         <TextView
             android:text="Balance Type"
             android:id="@+id/accountTxTextView"
-            android:layout_width="146.0dp"
+            android:layout_width="145dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
             android:layout_marginLeft="5dp"
@@ -59,8 +59,8 @@
             android:layout_marginRight="5dp" />
         <ImageView
             android:src="@drawable/bluedot"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
             android:id="@+id/accountCommentIndicatorImageView"
             android:scaleType="centerInside"
             android:layout_gravity="center" />

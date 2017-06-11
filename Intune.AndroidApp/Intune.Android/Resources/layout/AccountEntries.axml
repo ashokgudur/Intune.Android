@@ -23,7 +23,7 @@
         android:layout_margin="5dp" />
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="32dp"
+        android:layout_height="30dp"
         android:id="@+id/accountEntriesTotalsTextView"
         android:background="@android:color/holo_orange_dark"
         android:textColor="@android:color/background_light"

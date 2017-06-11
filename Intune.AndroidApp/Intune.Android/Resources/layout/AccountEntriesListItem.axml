@@ -11,15 +11,14 @@
         <TextView
             android:text="Date"
             android:id="@+id/entryDateTextView"
-            android:layout_width="109.5dp"
+            android:layout_width="108dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical"
-            android:layout_marginLeft="5dp"
-            android:textSize="18dp"
+            android:textSize="17dp"
             android:textColor="@android:color/holo_green_dark" />
         <TextView
-            android:text="TxnT"
-            android:layout_width="72.0dp"
+            android:text="Received"
+            android:layout_width="63dp"
             android:layout_height="match_parent"
             android:id="@+id/entryTxnTypeTextView"
             android:gravity="center_vertical"
@@ -28,7 +27,7 @@
             android:textColor="@android:color/holo_red_dark" />
         <TextView
             android:text="Qty"
-            android:layout_width="46.5dp"
+            android:layout_width="44dp"
             android:layout_height="match_parent"
             android:id="@+id/entryQuantityTextView"
             android:gravity="center_vertical|right"
@@ -37,7 +36,7 @@
             android:textColor="@android:color/holo_green_dark" />
         <TextView
             android:text="Amount"
-            android:layout_width="124.5dp"
+            android:layout_width="115dp"
             android:layout_height="match_parent"
             android:id="@+id/entryAmountTextView"
             android:gravity="center_vertical|right"
@@ -56,14 +55,14 @@
             android:gravity="center_vertical"
             android:textSize="15dp"
             android:textColor="@android:color/holo_orange_dark"
-            android:layout_width="323.5dp"
+            android:layout_width="330dp"
             android:layout_height="match_parent"
             android:layout_marginRight="5dp" />
         <ImageView
             android:src="@drawable/bluedot"
             android:id="@+id/accountEntryCommentIndicatorImageView"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
             android:scaleType="centerInside"
             android:layout_gravity="center" />
     </LinearLayout>

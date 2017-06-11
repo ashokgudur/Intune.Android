@@ -26,7 +26,7 @@ namespace Intune.Android
             SetTheme(Resource.Style.SignInTheme);
 
             base.OnCreate(bundle);
-            SetContentView(Resource.Layout.Login);
+            SetContentView(Resource.Layout.SignIn);
 
             Title = "Welcome to Intune";
 
@@ -119,7 +119,7 @@ namespace Intune.Android
 
         private void RegisterMenu_Click()
         {
-            StartActivity(typeof(RegisterActivity));
+            StartActivity(typeof(SignUpActivity));
         }
 
         private void SignInButton_Click(object sender, System.EventArgs e)

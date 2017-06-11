@@ -11,6 +11,7 @@ namespace Intune.Android
     [Activity(Label = "Account Entry - Intune")]
     public class AccountEntryActivity : Activity
     {
+        Button _okButton;
         Entry _entry = null;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -32,9 +33,9 @@ namespace Intune.Android
             var entryDatePicker = FindViewById<ImageButton>(Resource.Id.entryDatePickerImageButton);
             entryDatePicker.Click += EntryDatePicker_Click; ;
 
-            var okButton = FindViewById<Button>(Resource.Id.entryOkButton);
-            okButton.Click += OkButton_Click;
-            okButton.Enabled = _entry.Id == 0;
+            _okButton = FindViewById<Button>(Resource.Id.entryOkButton);
+            _okButton.Click += OkButton_Click;
+            _okButton.Enabled = _entry.IsNew;
 
             var newButton = FindViewById<Button>(Resource.Id.entryNewButton);
             if (userCanAddAndVoidEntries())
@@ -148,7 +149,7 @@ namespace Intune.Android
             _entry = new Entry();
             fillForm();
             var okButton = FindViewById<Button>(Resource.Id.entryOkButton);
-            okButton.Enabled = _entry.Id == 0;
+            okButton.Enabled = _entry.IsNew;
         }
 
         private void OkButton_Click(object sender, EventArgs e)
@@ -189,10 +190,11 @@ namespace Intune.Android
             if (_entry != null)
             {
                 result.Text = string.Format("{0} entry saved.", _entry.Notes);
+                _okButton.Enabled = _entry.IsNew;
                 return;
             }
 
-            result.Text = "Entry saving FAILED!";
+            result.Text = "Saving entry FAILED!";
         }
 
         private TxnType getTxnType(int checkedRadioButtonId)

@@ -4,6 +4,7 @@ using Android.App;
 using Android.Views;
 using Android.Widget;
 using System.Globalization;
+using Android.Database;
 
 namespace Intune.Android
 {
