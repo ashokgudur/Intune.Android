@@ -1,58 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:p1="http://schemas.android.com/apk/res/android"
-    p1:orientation="vertical"
-    p1:layout_width="match_parent"
-    p1:layout_height="match_parent"
-    p1:id="@+id/linearLayout1">
-    <TextView
-        p1:text="Login to your Intune"
-        p1:layout_width="match_parent"
-        p1:layout_height="wrap_content"
-        p1:id="@+id/signInGreetingTextView"
-        p1:textSize="25dp"
-        p1:typeface="sans"
-        p1:textStyle="bold"
-        p1:gravity="center"
-        p1:layout_marginTop="5dp"
-        p1:layout_marginBottom="5dp"
-        p1:textColor="@android:color/holo_green_dark" />
-    <EditText
-        p1:inputType="textEmailAddress"
-        p1:layout_width="match_parent"
-        p1:layout_height="wrap_content"
-        p1:id="@+id/loginEmailEditText"
-        p1:hint="Enter your email address"
-        p1:text="ashok.gudur@gmail.com"
-        p1:layout_marginLeft="10dp"
-        p1:layout_marginRight="10dp" />
-    <EditText
-        p1:inputType="textPassword"
-        p1:layout_width="match_parent"
-        p1:layout_height="wrap_content"
-        p1:id="@+id/loginPasswordEditText"
-        p1:hint="Enter your password"
-        p1:layout_marginRight="10dp"
-        p1:layout_marginLeft="10dp" />
-    <LinearLayout
-        p1:orientation="horizontal"
-        p1:layout_width="match_parent"
-        p1:layout_height="47.0dp"
-        p1:id="@+id/linearLayout2">
-        <Button
-            p1:text="Sign In"
-            p1:layout_height="match_parent"
-            p1:id="@+id/buttonSignIn"
-            p1:layout_width="match_parent"
-            p1:layout_marginLeft="130dp"
-            p1:layout_marginRight="130dp" />
-    </LinearLayout>
-    <TextView
-        p1:layout_width="match_parent"
-        p1:layout_height="31.5dp"
-        p1:id="@+id/textViewResult"
-        p1:textSize="20dp"
-        p1:textColor="@android:color/holo_green_dark"
-        p1:layout_marginLeft="5dp"
-        p1:layout_marginRight="10dp"
-        p1:layout_marginTop="5dp" />
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/loginRootLinearLayout">
+  <TextView
+      android:text="Login to your Intune"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/signInMessageTextView"
+      android:textSize="25dp"
+      android:typeface="sans"
+      android:textStyle="bold"
+      android:gravity="center"
+      android:layout_marginTop="5dp"
+      android:layout_marginBottom="5dp"
+      android:textColor="@android:color/holo_green_dark" />
+  <android.support.design.widget.TextInputLayout
+      android:id="@+id/loginEmailInputLayout"
+      android:layout_marginLeft="10dp"
+      android:layout_marginRight="10dp"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+    <android.support.design.widget.TextInputEditText
+        android:id="@+id/loginEmailEditText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:fontFamily="sans-serif"
+        android:hint="Email" />
+  </android.support.design.widget.TextInputLayout>
+  <android.support.design.widget.TextInputLayout
+      android:id="@+id/loginPasswordInputLayout"
+      android:layout_marginRight="10dp"
+      android:layout_marginLeft="10dp"
+      app:passwordToggleEnabled="true"
+      app:passwordToggleTint="@android:color/holo_green_dark"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+    <android.support.design.widget.TextInputEditText
+        android:id="@+id/loginPasswordEditText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="Password" />
+  </android.support.design.widget.TextInputLayout>
+  <Button
+      android:text="Sign In"
+      android:layout_height="40dp"
+      android:id="@+id/signInButton"
+      android:layout_width="100dp"
+      android:layout_gravity="center" />
 </LinearLayout>
