@@ -33,7 +33,7 @@ namespace Intune.Android
         private void refreshList()
         {
             var accountId = Intent.GetIntExtra("AccountId", 0);
-            _accountsAdapter = new AccountEntriesAdapter(this, accountId);
+            _accountsAdapter = new AccountEntriesAdapter(this, accountId, getAccountRole());
             var accountsListView = FindViewById<ListView>(Resource.Id.accountEntriesListView);
             accountsListView.Adapter = _accountsAdapter;
 

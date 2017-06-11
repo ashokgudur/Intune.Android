@@ -10,6 +10,7 @@ namespace Intune.Android
     {
         List<Entry> _accountEntries;
         Activity _activity;
+        UserAccountRole _role;
 
         public double TotalCreditQuantity { get; set; }
         public double TotalDebitQuantity { get; set; }
@@ -26,9 +27,10 @@ namespace Intune.Android
             get { return TotalCreditQuantity - TotalDebitQuantity; }
         }
 
-        public AccountEntriesAdapter(Activity activity, int accountId)
+        public AccountEntriesAdapter(Activity activity, int accountId, UserAccountRole role)
         {
             _activity = activity;
+            _role = role;
             _accountEntries = IntuneService.GetAccountEntries(accountId);
             calculateTotals();
         }
@@ -64,7 +66,7 @@ namespace Intune.Android
             entryDate.Text = accountEntry.TxnDate.ToString("dd-MMM-yyyy");
 
             var entryTxnType = view.FindViewById<TextView>(Resource.Id.entryTxnTypeTextView);
-            entryTxnType.Text = accountEntry.TxnType.ToString();
+            entryTxnType.Text = getTxnType(accountEntry);
 
             var entryTxnQuantity = view.FindViewById<TextView>(Resource.Id.entryQuantityTextView);
             entryTxnQuantity.Text = accountEntry.Quantity.ToString("#0");
@@ -84,6 +86,20 @@ namespace Intune.Android
             //    commentIndicator.SetImageResource(Resource.Drawable.greendot);
 
             return view;
+        }
+
+        private string getTxnType(Entry entry)
+        {
+            if (_role != UserAccountRole.Collaborator)
+                return entry.TxnType.ToString();
+
+            if (entry.TxnType == TxnType.Paid || entry.TxnType == TxnType.Issued)
+                return TxnType.Received.ToString();
+
+            if (entry.Amount >= 0)
+                return TxnType.Paid.ToString();
+            else
+                return TxnType.Issued.ToString();
         }
 
         private void calculateTotals()
