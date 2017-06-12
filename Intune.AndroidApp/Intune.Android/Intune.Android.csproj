@@ -123,8 +123,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
-    <Compile Include="ChatBoardActivity.cs" />
-    <Compile Include="ChatBoardAdapter.cs" />
+    <Compile Include="ChatboardActivity.cs" />
+    <Compile Include="ChatboardAdapter.cs" />
     <Compile Include="AccountShareAdapter.cs" />
     <Compile Include="AccountEntryActivity.cs" />
     <Compile Include="AccountActivity.cs" />
@@ -145,6 +145,7 @@
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entry.cs" />
+    <Compile Include="Util.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -13,9 +13,9 @@ using System.Globalization;
 namespace Intune.Android
 {
     [Activity(Label = "Chat Board - Intune", WindowSoftInputMode = SoftInput.AdjustResize)]
-    public class ChatBoardActivity : Activity
+    public class ChatboardActivity : Activity
     {
-        ChatBoardAdapter _chatBoardAdapter = null;
+        ChatboardAdapter _chatBoardAdapter = null;
         IHubProxy _hubProxy = null;
         HubConnection _hubConnection = null;
         User _byUser { get; set; }
@@ -217,7 +217,7 @@ namespace Intune.Android
 
         private void setMessageBoardListAdapter(List<CommentMessage> chatMessages)
         {
-            _chatBoardAdapter = new ChatBoardAdapter(this, chatMessages);
+            _chatBoardAdapter = new ChatboardAdapter(this, chatMessages);
             var chatBoardMessagesListView = FindViewById<ListView>(Resource.Id.chatBoardMessagesListView);
             chatBoardMessagesListView.Adapter = _chatBoardAdapter;
         }

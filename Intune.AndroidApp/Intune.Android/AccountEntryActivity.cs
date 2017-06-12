@@ -5,6 +5,7 @@ using Android.Widget;
 using Android.Views;
 using System.Globalization;
 using Android.Content;
+using Android.Views.InputMethods;
 
 namespace Intune.Android
 {
@@ -155,8 +156,16 @@ namespace Intune.Android
             okButton.Enabled = _entry.IsNew;
         }
 
+        private void hideKeyboard()
+        {
+            var imm = GetSystemService(Context.InputMethodService) as InputMethodManager;
+            imm.HideSoftInputFromWindow(CurrentFocus.WindowToken, HideSoftInputFlags.NotAlways);
+        }
+
         private void OkButton_Click(object sender, EventArgs e)
         {
+            hideKeyboard();
+
             var result = FindViewById<TextView>(Resource.Id.entryResultTextView);
             var entryDate = FindViewById<EditText>(Resource.Id.entryDateEditText);
             var entryTxnType = FindViewById<RadioGroup>(Resource.Id.entryTxnTypeRadioGroup);
@@ -249,7 +258,7 @@ namespace Intune.Android
             var loginUserId = Intent.GetIntExtra("LoginUserId", 0);
             var loginUserName = Intent.GetStringExtra("LoginUserName");
             var accountName = Intent.GetStringExtra("AccountName");
-            var messageBoardActivity = new Intent(this, typeof(ChatBoardActivity));
+            var messageBoardActivity = new Intent(this, typeof(ChatboardActivity));
             messageBoardActivity.PutExtra("ByUserId", loginUserId);
             messageBoardActivity.PutExtra("AccountId", _entry.AccountId);
             messageBoardActivity.PutExtra("AccountName", accountName);

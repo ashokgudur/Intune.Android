@@ -128,7 +128,7 @@ namespace Intune.Android
         {
             var loginUserId = Intent.GetIntExtra("LoginUserId", 0);
             var loginUserName = Intent.GetStringExtra("LoginUserName");
-            var messageBoardActivity = new Intent(this, typeof(ChatBoardActivity));
+            var messageBoardActivity = new Intent(this, typeof(ChatboardActivity));
             messageBoardActivity.PutExtra("ByUserId", loginUserId);
             messageBoardActivity.PutExtra("AccountId", _account.Id);
             messageBoardActivity.PutExtra("AccountName", _account.Name);
