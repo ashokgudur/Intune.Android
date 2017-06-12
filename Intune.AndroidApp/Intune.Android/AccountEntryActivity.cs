@@ -76,8 +76,11 @@ namespace Intune.Android
         public override bool OnPrepareOptionsMenu(IMenu menu)
         {
             var voidMenuItem = menu.FindItem(Resource.Id.entry_menu_void);
-            var enableVloidMenuItem = _entry.Id != 0 && _entry.VoidId == 0;
+            var enableVloidMenuItem = !_entry.IsNew && _entry.IsVoid;
             voidMenuItem.SetEnabled(enableVloidMenuItem);
+
+            var commentMenuItem = menu.FindItem(Resource.Id.entry_menu_comment);
+            commentMenuItem.SetEnabled(!_entry.IsNew);
 
             return base.OnPrepareOptionsMenu(menu);
         }

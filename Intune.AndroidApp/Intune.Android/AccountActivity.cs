@@ -51,6 +51,13 @@ namespace Intune.Android
             return base.OnCreateOptionsMenu(menu);
         }
 
+        public override bool OnPrepareOptionsMenu(IMenu menu)
+        {
+            var commentMenuItem = menu.FindItem(Resource.Id.account_menu_comment);
+            commentMenuItem.SetEnabled(!_account.IsNew);
+            return base.OnPrepareOptionsMenu(menu);
+        }
+
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             switch (item.ItemId)

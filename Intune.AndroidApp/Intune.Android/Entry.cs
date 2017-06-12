@@ -14,6 +14,7 @@ namespace Intune.Android
         public decimal Amount { get; set; }
         public int VoidId { get; set; }
         public bool IsNew { get { return Id == 0; } }
+        public bool IsVoid { get { return VoidId != 0; } }
 
         public Entry()
         {
