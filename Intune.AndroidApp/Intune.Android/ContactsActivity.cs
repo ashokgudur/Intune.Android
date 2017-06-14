@@ -74,7 +74,7 @@ namespace Intune.Android
         {
             var loginUserId = Intent.GetIntExtra("LoginUserId", 0);
             var loginUserName = Intent.GetStringExtra("LoginUserName");
-            var userProfileActivity = new Intent(this, typeof(SignUpActivity));
+            var userProfileActivity = new Intent(this, typeof(UserProfileActivity));
             userProfileActivity.PutExtra("LoginUserId", loginUserId);
             userProfileActivity.PutExtra("LoginUserName", loginUserName);
             StartActivity(userProfileActivity);

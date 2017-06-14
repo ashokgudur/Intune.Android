@@ -2,83 +2,89 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:text="Please enter your details below to register as new user."
+    android:layout_height="match_parent"
+    android:id="@+id/signUpRootLinearLayout">
+  <TextView
+        android:text="Join Intune today."
         android:layout_width="match_parent"
-        android:layout_height="65.0dp"
-        android:id="@+id/textViewTitle"
+        android:layout_height="wrap_content"
+        android:id="@+id/signInGreetingTextView"
         android:textSize="25dp"
-        android:textColor="@android:color/background_light"
-        android:background="@android:color/holo_orange_dark"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:layout_marginBottom="5dp" />
-    <EditText
-        android:inputType="textEmailAddress"
+        android:typeface="sans"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:textColor="@android:color/holo_green_dark" />
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/emailEditText"
-        android:hint="Email"
-        android:text="info@intune.in"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="10dp" />
-    <EditText
-        android:inputType="textPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/passwordEditText"
-        android:hint="Password"
-        android:text="intune"
+        android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginLeft="5dp" />
-    <EditText
-        android:inputType="textPersonName"
+        android:id="@+id/signUpFullNameTextInputLayout">
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/signUpFullNameTextInputEditText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapWords"
+            android:hint="Full Name" />
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/fullNameEditText"
-        android:hint="Full name"
-        android:text="Intune"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="10dp" />
-    <EditText
-        android:inputType="phone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/mobileEditText"
-        android:hint="Mobile number"
-        android:text="9898998989"
+        android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginLeft="5dp" />
-    <EditText
+        android:id="@+id/signUpIdTextInputLayout">
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/signUpIdTextInputEditText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mobile or email" />
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/atUserNameEditText"
-        android:hint="User Name"
-        android:text="atUserName"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="10dp" />
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:id="@+id/signUpPasswordTextInputLayout">
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/signUpPasswordTextInputEditText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="Password" />
+    </android.support.design.widget.TextInputLayout>
+    <Button
+        android:text="Sign up"
+        android:layout_height="40dp"
+        android:id="@+id/signUpButton"
+        android:layout_width="100dp"
+        android:layout_gravity="center" />
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/linearLayout1"
-        android:gravity="center">
+        android:id="@+id/signUpVerifyCodeLinearLayout">
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/signUpVerifyCodeTextInputLayout">
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/signUpVerifyCodeTextInputEditText"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="Verification code" />
+        </android.support.design.widget.TextInputLayout>
         <Button
-            android:text="Sign Up"
-            android:id="@+id/okButton"
-            android:layout_width="107.0dp"
-            android:layout_height="match_parent" />
+            android:text="Verify"
+            android:layout_height="40dp"
+            android:id="@+id/signUpVerifyOtpButton"
+            android:layout_width="100dp"
+            android:layout_gravity="center" />
     </LinearLayout>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="33.0dp"
-        android:id="@+id/registerUserResultTextView"
-        android:textColor="@android:color/holo_green_dark"
-        android:textSize="18dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp" />
 </LinearLayout>

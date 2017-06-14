@@ -5,7 +5,7 @@
        android:showAsAction="never"
        android:title="Forgot password" />
   <item
-       android:id="@+id/login_menu_register"
+       android:id="@+id/login_menu_sign_up"
        android:showAsAction="never"
        android:title="Sign Up" />
 </menu>

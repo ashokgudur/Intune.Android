@@ -142,6 +142,7 @@
     <Compile Include="SignInActivity.cs" />
     <Compile Include="AccountsActivity.cs" />
     <Compile Include="SignUpActivity.cs" />
+    <Compile Include="UserProfileActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Entry.cs" />
@@ -153,10 +154,12 @@
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
-    <AndroidResource Include="Resources\layout\SignUp.axml">
+    <AndroidResource Include="Resources\layout\UserProfile.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\SignIn.axml" />
+    <AndroidResource Include="Resources\layout\SignIn.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <AndroidResource Include="Resources\layout\AccountListItem.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -194,6 +197,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\ChatMessageDay.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\SignUp.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\layout1.axml">

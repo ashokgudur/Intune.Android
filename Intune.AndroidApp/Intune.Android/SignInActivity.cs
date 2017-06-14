@@ -62,11 +62,11 @@ namespace Intune.Android
         {
             switch (item.ItemId)
             {
-                case Resource.Id.login_menu_register:
-                    RegisterMenu_Click();
+                case Resource.Id.login_menu_sign_up:
+                    signUpMenu_Click();
                     break;
                 case Resource.Id.login_menu_forgot:
-                    ForgotPasswordMenu_Click();
+                    forgotPasswordMenu_Click();
                     break;
                 default:
                     break;
@@ -75,7 +75,7 @@ namespace Intune.Android
             return base.OnOptionsItemSelected(item);
         }
 
-        private void ForgotPasswordMenu_Click()
+        private void forgotPasswordMenu_Click()
         {
             var email = _emailEditText.Text.Trim();
 
@@ -117,7 +117,7 @@ namespace Intune.Android
             }
         }
 
-        private void RegisterMenu_Click()
+        private void signUpMenu_Click()
         {
             StartActivity(typeof(SignUpActivity));
         }
@@ -182,12 +182,6 @@ namespace Intune.Android
         {
             var imm = GetSystemService(Context.InputMethodService) as InputMethodManager;
             imm.HideSoftInputFromWindow(CurrentFocus.WindowToken, HideSoftInputFlags.NotAlways);
-        }
-
-        private void showKeyboard(View view)
-        {
-            var imm = GetSystemService(Context.InputMethodService) as InputMethodManager;
-            imm.ShowSoftInput(view, ShowFlags.Forced);
         }
 
         private class IntuneUserService

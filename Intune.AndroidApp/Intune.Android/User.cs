@@ -24,8 +24,8 @@ namespace Intune.Android
             if (string.IsNullOrWhiteSpace(Name)) return false;
             if (string.IsNullOrWhiteSpace(Mobile)) return false;
             if (string.IsNullOrWhiteSpace(Email)) return false;
-            if (string.IsNullOrWhiteSpace(AtUserName)) return false;
             if (string.IsNullOrWhiteSpace(Password)) return false;
+            if (string.IsNullOrWhiteSpace(AtUserName)) return false;
 
             return true;
         }

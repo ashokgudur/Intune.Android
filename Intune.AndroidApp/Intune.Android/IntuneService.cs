@@ -23,7 +23,7 @@ namespace Intune.Android
 
             return null;
         }
-        
+
         public static User GetUserById(int userId)
         {
             var request = new RestRequest(@"api/user/userbyId/", Method.GET);
@@ -289,6 +289,57 @@ namespace Intune.Android
                 return response.Data;
 
             return null;
+        }
+
+        public static void SendEmailOtp(string emailAddress)
+        {
+            var request = new RestRequest(@"api/email/otp/send/", Method.GET);
+            request.AddParameter("emailAddress", emailAddress);
+            var client = new RestClient(intuneServerUri);
+            var response = client.Execute<List<Comment>>(request);
+            if (response.StatusCode != HttpStatusCode.OK)
+                throw new Exception("Cannot send email verification code");
+        }
+
+        public static void VerifyEmailOtp(string emailAddress, string otp)
+        {
+            var request = new RestRequest(@"api/email/otp/verify/", Method.GET);
+            request.AddParameter("emailAddress", emailAddress);
+            request.AddParameter("otp", otp);
+            var client = new RestClient(intuneServerUri);
+            var response = client.Execute<List<Comment>>(request);
+            if (response.StatusCode != HttpStatusCode.OK)
+                throw new Exception("Cannot verify email verification code");
+        }
+
+        public static void SendMobileOtp(string isdCode, string mobileNumber)
+        {
+            var countryIsdCode = isdCode.Substring(0, 1) == "+"
+                                 ? isdCode.Substring(1)
+                                 : isdCode;
+
+            var request = new RestRequest(@"api/mobile/otp/send/", Method.GET);
+            request.AddParameter("isdCode", isdCode);
+            request.AddParameter("mobileNumber", mobileNumber);
+            var client = new RestClient(intuneServerUri);
+            var response = client.Execute<List<Comment>>(request);
+            if (response.StatusCode != HttpStatusCode.OK)
+                throw new Exception("Cannot send mobile verification code");
+        }
+
+        public static void VerifyMobileOtp(string isdCode, string mobileNumber, string otp)
+        {
+            var countryIsdCode = isdCode.Substring(0, 1) == "+"
+                      ? isdCode.Substring(1)
+                      : isdCode;
+            var request = new RestRequest(@"api/mobile/otp/verify/", Method.GET);
+            request.AddParameter("isdCode", isdCode);
+            request.AddParameter("mobileNumber", mobileNumber);
+            request.AddParameter("otp", otp);
+            var client = new RestClient(intuneServerUri);
+            var response = client.Execute<List<Comment>>(request);
+            if (response.StatusCode != HttpStatusCode.OK)
+                throw new Exception("Cannot verify mobile verification code");
         }
     }
 }
