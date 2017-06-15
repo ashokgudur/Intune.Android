@@ -1091,44 +1091,44 @@ namespace Intune.Android
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f0b004e
-			public const int abc_background_cache_hint_selector_material_dark = 2131427406;
-			
 			// aapt resource value: 0x7f0b004f
-			public const int abc_background_cache_hint_selector_material_light = 2131427407;
+			public const int abc_background_cache_hint_selector_material_dark = 2131427407;
 			
 			// aapt resource value: 0x7f0b0050
-			public const int abc_btn_colored_borderless_text_material = 2131427408;
+			public const int abc_background_cache_hint_selector_material_light = 2131427408;
 			
 			// aapt resource value: 0x7f0b0051
-			public const int abc_btn_colored_text_material = 2131427409;
+			public const int abc_btn_colored_borderless_text_material = 2131427409;
 			
 			// aapt resource value: 0x7f0b0052
-			public const int abc_color_highlight_material = 2131427410;
+			public const int abc_btn_colored_text_material = 2131427410;
 			
 			// aapt resource value: 0x7f0b0053
-			public const int abc_hint_foreground_material_dark = 2131427411;
+			public const int abc_color_highlight_material = 2131427411;
 			
 			// aapt resource value: 0x7f0b0054
-			public const int abc_hint_foreground_material_light = 2131427412;
+			public const int abc_hint_foreground_material_dark = 2131427412;
+			
+			// aapt resource value: 0x7f0b0055
+			public const int abc_hint_foreground_material_light = 2131427413;
 			
 			// aapt resource value: 0x7f0b0001
 			public const int abc_input_method_navigation_guard = 2131427329;
 			
-			// aapt resource value: 0x7f0b0055
-			public const int abc_primary_text_disable_only_material_dark = 2131427413;
-			
 			// aapt resource value: 0x7f0b0056
-			public const int abc_primary_text_disable_only_material_light = 2131427414;
+			public const int abc_primary_text_disable_only_material_dark = 2131427414;
 			
 			// aapt resource value: 0x7f0b0057
-			public const int abc_primary_text_material_dark = 2131427415;
+			public const int abc_primary_text_disable_only_material_light = 2131427415;
 			
 			// aapt resource value: 0x7f0b0058
-			public const int abc_primary_text_material_light = 2131427416;
+			public const int abc_primary_text_material_dark = 2131427416;
 			
 			// aapt resource value: 0x7f0b0059
-			public const int abc_search_url_text = 2131427417;
+			public const int abc_primary_text_material_light = 2131427417;
+			
+			// aapt resource value: 0x7f0b005a
+			public const int abc_search_url_text = 2131427418;
 			
 			// aapt resource value: 0x7f0b0002
 			public const int abc_search_url_text_normal = 2131427330;
@@ -1139,35 +1139,35 @@ namespace Intune.Android
 			// aapt resource value: 0x7f0b0004
 			public const int abc_search_url_text_selected = 2131427332;
 			
-			// aapt resource value: 0x7f0b005a
-			public const int abc_secondary_text_material_dark = 2131427418;
-			
 			// aapt resource value: 0x7f0b005b
-			public const int abc_secondary_text_material_light = 2131427419;
+			public const int abc_secondary_text_material_dark = 2131427419;
 			
 			// aapt resource value: 0x7f0b005c
-			public const int abc_tint_btn_checkable = 2131427420;
+			public const int abc_secondary_text_material_light = 2131427420;
 			
 			// aapt resource value: 0x7f0b005d
-			public const int abc_tint_default = 2131427421;
+			public const int abc_tint_btn_checkable = 2131427421;
 			
 			// aapt resource value: 0x7f0b005e
-			public const int abc_tint_edittext = 2131427422;
+			public const int abc_tint_default = 2131427422;
 			
 			// aapt resource value: 0x7f0b005f
-			public const int abc_tint_seek_thumb = 2131427423;
+			public const int abc_tint_edittext = 2131427423;
 			
 			// aapt resource value: 0x7f0b0060
-			public const int abc_tint_spinner = 2131427424;
+			public const int abc_tint_seek_thumb = 2131427424;
 			
 			// aapt resource value: 0x7f0b0061
-			public const int abc_tint_switch_thumb = 2131427425;
+			public const int abc_tint_spinner = 2131427425;
 			
 			// aapt resource value: 0x7f0b0062
-			public const int abc_tint_switch_track = 2131427426;
+			public const int abc_tint_switch_thumb = 2131427426;
 			
-			// aapt resource value: 0x7f0b0049
-			public const int accent = 2131427401;
+			// aapt resource value: 0x7f0b0063
+			public const int abc_tint_switch_track = 2131427427;
+			
+			// aapt resource value: 0x7f0b004a
+			public const int accent = 2131427402;
 			
 			// aapt resource value: 0x7f0b0005
 			public const int accent_material_dark = 2131427333;
@@ -1214,8 +1214,8 @@ namespace Intune.Android
 			// aapt resource value: 0x7f0b003b
 			public const int design_bottom_navigation_shadow_color = 2131427387;
 			
-			// aapt resource value: 0x7f0b0063
-			public const int design_error = 2131427427;
+			// aapt resource value: 0x7f0b0064
+			public const int design_error = 2131427428;
 			
 			// aapt resource value: 0x7f0b003c
 			public const int design_fab_shadow_end_color = 2131427388;
@@ -1247,8 +1247,8 @@ namespace Intune.Android
 			// aapt resource value: 0x7f0b0045
 			public const int design_textinput_error_color_light = 2131427397;
 			
-			// aapt resource value: 0x7f0b0064
-			public const int design_tint_password_toggle = 2131427428;
+			// aapt resource value: 0x7f0b0065
+			public const int design_tint_password_toggle = 2131427429;
 			
 			// aapt resource value: 0x7f0b0013
 			public const int dim_foreground_disabled_material_dark = 2131427347;
@@ -1262,8 +1262,8 @@ namespace Intune.Android
 			// aapt resource value: 0x7f0b0016
 			public const int dim_foreground_material_light = 2131427350;
 			
-			// aapt resource value: 0x7f0b004d
-			public const int divider = 2131427405;
+			// aapt resource value: 0x7f0b004e
+			public const int divider = 2131427406;
 			
 			// aapt resource value: 0x7f0b0017
 			public const int foreground_material_dark = 2131427351;
@@ -1277,8 +1277,8 @@ namespace Intune.Android
 			// aapt resource value: 0x7f0b001a
 			public const int highlighted_text_material_light = 2131427354;
 			
-			// aapt resource value: 0x7f0b004c
-			public const int icons = 2131427404;
+			// aapt resource value: 0x7f0b004d
+			public const int icons = 2131427405;
 			
 			// aapt resource value: 0x7f0b001b
 			public const int material_blue_grey_800 = 2131427355;
@@ -1325,11 +1325,11 @@ namespace Intune.Android
 			// aapt resource value: 0x7f0b0028
 			public const int notification_material_background_media_default_color = 2131427368;
 			
-			// aapt resource value: 0x7f0b0046
-			public const int primary = 2131427398;
-			
 			// aapt resource value: 0x7f0b0047
-			public const int primary_dark = 2131427399;
+			public const int primary = 2131427399;
+			
+			// aapt resource value: 0x7f0b0048
+			public const int primary_dark = 2131427400;
 			
 			// aapt resource value: 0x7f0b0029
 			public const int primary_dark_material_dark = 2131427369;
@@ -1337,8 +1337,8 @@ namespace Intune.Android
 			// aapt resource value: 0x7f0b002a
 			public const int primary_dark_material_light = 2131427370;
 			
-			// aapt resource value: 0x7f0b0048
-			public const int primary_light = 2131427400;
+			// aapt resource value: 0x7f0b0049
+			public const int primary_light = 2131427401;
 			
 			// aapt resource value: 0x7f0b002b
 			public const int primary_material_dark = 2131427371;
@@ -1346,8 +1346,8 @@ namespace Intune.Android
 			// aapt resource value: 0x7f0b002c
 			public const int primary_material_light = 2131427372;
 			
-			// aapt resource value: 0x7f0b004a
-			public const int primary_text = 2131427402;
+			// aapt resource value: 0x7f0b004b
+			public const int primary_text = 2131427403;
 			
 			// aapt resource value: 0x7f0b002d
 			public const int primary_text_default_material_dark = 2131427373;
@@ -1367,8 +1367,8 @@ namespace Intune.Android
 			// aapt resource value: 0x7f0b0032
 			public const int ripple_material_light = 2131427378;
 			
-			// aapt resource value: 0x7f0b004b
-			public const int secondary_text = 2131427403;
+			// aapt resource value: 0x7f0b004c
+			public const int secondary_text = 2131427404;
 			
 			// aapt resource value: 0x7f0b0033
 			public const int secondary_text_default_material_dark = 2131427379;
@@ -1382,17 +1382,20 @@ namespace Intune.Android
 			// aapt resource value: 0x7f0b0036
 			public const int secondary_text_disabled_material_light = 2131427382;
 			
+			// aapt resource value: 0x7f0b0046
+			public const int splash_background = 2131427398;
+			
 			// aapt resource value: 0x7f0b0037
 			public const int switch_thumb_disabled_material_dark = 2131427383;
 			
 			// aapt resource value: 0x7f0b0038
 			public const int switch_thumb_disabled_material_light = 2131427384;
 			
-			// aapt resource value: 0x7f0b0065
-			public const int switch_thumb_material_dark = 2131427429;
-			
 			// aapt resource value: 0x7f0b0066
-			public const int switch_thumb_material_light = 2131427430;
+			public const int switch_thumb_material_dark = 2131427430;
+			
+			// aapt resource value: 0x7f0b0067
+			public const int switch_thumb_material_light = 2131427431;
 			
 			// aapt resource value: 0x7f0b0039
 			public const int switch_thumb_normal_material_dark = 2131427385;
@@ -2152,11 +2155,11 @@ namespace Intune.Android
 			// aapt resource value: 0x7f020066
 			public const int notification_icon_background = 2130837606;
 			
-			// aapt resource value: 0x7f02006c
-			public const int notification_template_icon_bg = 2130837612;
+			// aapt resource value: 0x7f02006e
+			public const int notification_template_icon_bg = 2130837614;
 			
-			// aapt resource value: 0x7f02006d
-			public const int notification_template_icon_low_bg = 2130837613;
+			// aapt resource value: 0x7f02006f
+			public const int notification_template_icon_low_bg = 2130837615;
 			
 			// aapt resource value: 0x7f020067
 			public const int notification_tile_bg = 2130837607;
@@ -2172,6 +2175,12 @@ namespace Intune.Android
 			
 			// aapt resource value: 0x7f02006b
 			public const int sendmessage = 2130837611;
+			
+			// aapt resource value: 0x7f02006c
+			public const int splash_logo = 2130837612;
+			
+			// aapt resource value: 0x7f02006d
+			public const int splash_screen = 2130837613;
 			
 			static Drawable()
 			{
@@ -2205,7 +2214,10 @@ namespace Intune.Android
 			public const int accountEntryCommentIndicatorImageView = 2131165327;
 			
 			// aapt resource value: 0x7f070090
-			public const int accountEntryTitleBarTextView = 2131165328;
+			public const int accountEntryRootLinearLayout = 2131165328;
+			
+			// aapt resource value: 0x7f070091
+			public const int accountEntryTitleBarTextView = 2131165329;
 			
 			// aapt resource value: 0x7f070074
 			public const int accountNameEditText = 2131165300;
@@ -2249,8 +2261,8 @@ namespace Intune.Android
 			// aapt resource value: 0x7f0700a2
 			public const int accountTxTextView = 2131165346;
 			
-			// aapt resource value: 0x7f070106
-			public const int account_menu_comment = 2131165446;
+			// aapt resource value: 0x7f070107
+			public const int account_menu_comment = 2131165447;
 			
 			// aapt resource value: 0x7f0700a5
 			public const int accountsListView = 2131165349;
@@ -2258,17 +2270,17 @@ namespace Intune.Android
 			// aapt resource value: 0x7f0700a4
 			public const int accountsTitleBarTextView = 2131165348;
 			
-			// aapt resource value: 0x7f070109
-			public const int accounts_menu_contacts = 2131165449;
-			
 			// aapt resource value: 0x7f07010a
-			public const int accounts_menu_new = 2131165450;
+			public const int accounts_menu_contacts = 2131165450;
+			
+			// aapt resource value: 0x7f07010b
+			public const int accounts_menu_new = 2131165451;
+			
+			// aapt resource value: 0x7f070109
+			public const int accounts_menu_profile = 2131165449;
 			
 			// aapt resource value: 0x7f070108
-			public const int accounts_menu_profile = 2131165448;
-			
-			// aapt resource value: 0x7f070107
-			public const int accounts_menu_refresh = 2131165447;
+			public const int accounts_menu_refresh = 2131165448;
 			
 			// aapt resource value: 0x7f0700d4
 			public const int action0 = 2131165396;
@@ -2342,8 +2354,8 @@ namespace Intune.Android
 			// aapt resource value: 0x7f070023
 			public const int always = 2131165219;
 			
-			// aapt resource value: 0x7f070101
-			public const int atUserNameEditText = 2131165441;
+			// aapt resource value: 0x7f070102
+			public const int atUserNameEditText = 2131165442;
 			
 			// aapt resource value: 0x7f07002f
 			public const int auto = 2131165231;
@@ -2456,29 +2468,29 @@ namespace Intune.Android
 			// aapt resource value: 0x7f0700b7
 			public const int contactTitleBarTextView = 2131165367;
 			
-			// aapt resource value: 0x7f07010b
-			public const int contact_menu_accounts = 2131165451;
-			
 			// aapt resource value: 0x7f07010c
-			public const int contact_menu_chat = 2131165452;
+			public const int contact_menu_accounts = 2131165452;
 			
 			// aapt resource value: 0x7f07010d
-			public const int contact_menu_share = 2131165453;
+			public const int contact_menu_chat = 2131165453;
+			
+			// aapt resource value: 0x7f07010e
+			public const int contact_menu_share = 2131165454;
 			
 			// aapt resource value: 0x7f0700c4
 			public const int contactsListView = 2131165380;
 			
-			// aapt resource value: 0x7f070110
-			public const int contacts_menu_accounts = 2131165456;
-			
 			// aapt resource value: 0x7f070111
-			public const int contacts_menu_new = 2131165457;
+			public const int contacts_menu_accounts = 2131165457;
+			
+			// aapt resource value: 0x7f070112
+			public const int contacts_menu_new = 2131165458;
+			
+			// aapt resource value: 0x7f070110
+			public const int contacts_menu_profile = 2131165456;
 			
 			// aapt resource value: 0x7f07010f
-			public const int contacts_menu_profile = 2131165455;
-			
-			// aapt resource value: 0x7f07010e
-			public const int contacts_menu_refresh = 2131165454;
+			public const int contacts_menu_refresh = 2131165455;
 			
 			// aapt resource value: 0x7f07004e
 			public const int contentPanel = 2131165262;
@@ -2516,8 +2528,8 @@ namespace Intune.Android
 			// aapt resource value: 0x7f070066
 			public const int edit_query = 2131165286;
 			
-			// aapt resource value: 0x7f0700fd
-			public const int emailEditText = 2131165437;
+			// aapt resource value: 0x7f0700fe
+			public const int emailEditText = 2131165438;
 			
 			// aapt resource value: 0x7f070021
 			public const int end = 2131165217;
@@ -2531,74 +2543,71 @@ namespace Intune.Android
 			// aapt resource value: 0x7f07002b
 			public const int enterAlwaysCollapsed = 2131165227;
 			
-			// aapt resource value: 0x7f070113
-			public const int entries_menu_comment_account = 2131165459;
-			
 			// aapt resource value: 0x7f070114
-			public const int entries_menu_edit_account = 2131165460;
+			public const int entries_menu_comment_account = 2131165460;
 			
 			// aapt resource value: 0x7f070115
-			public const int entries_menu_new_entry = 2131165461;
+			public const int entries_menu_edit_account = 2131165461;
 			
-			// aapt resource value: 0x7f070112
-			public const int entries_menu_refresh = 2131165458;
+			// aapt resource value: 0x7f070116
+			public const int entries_menu_new_entry = 2131165462;
 			
-			// aapt resource value: 0x7f070099
-			public const int entryAmountEditText = 2131165337;
+			// aapt resource value: 0x7f070113
+			public const int entries_menu_refresh = 2131165459;
+			
+			// aapt resource value: 0x7f07009a
+			public const int entryAmountEditText = 2131165338;
 			
 			// aapt resource value: 0x7f07008c
 			public const int entryAmountTextView = 2131165324;
 			
-			// aapt resource value: 0x7f070092
-			public const int entryDateEditText = 2131165330;
-			
 			// aapt resource value: 0x7f070093
-			public const int entryDatePickerImageButton = 2131165331;
+			public const int entryDateEditText = 2131165331;
+			
+			// aapt resource value: 0x7f070094
+			public const int entryDatePickerImageButton = 2131165332;
 			
 			// aapt resource value: 0x7f070089
 			public const int entryDateTextView = 2131165321;
 			
-			// aapt resource value: 0x7f07009d
-			public const int entryNewButton = 2131165341;
+			// aapt resource value: 0x7f07009e
+			public const int entryNewButton = 2131165342;
 			
-			// aapt resource value: 0x7f07009a
-			public const int entryNotesEditText = 2131165338;
+			// aapt resource value: 0x7f07009b
+			public const int entryNotesEditText = 2131165339;
 			
 			// aapt resource value: 0x7f07008e
 			public const int entryNotesTextView = 2131165326;
 			
-			// aapt resource value: 0x7f07009b
-			public const int entryOkButton = 2131165339;
+			// aapt resource value: 0x7f07009c
+			public const int entryOkButton = 2131165340;
 			
-			// aapt resource value: 0x7f070098
-			public const int entryQuantityEditText = 2131165336;
+			// aapt resource value: 0x7f070099
+			public const int entryQuantityEditText = 2131165337;
 			
 			// aapt resource value: 0x7f07008b
 			public const int entryQuantityTextView = 2131165323;
 			
-			// aapt resource value: 0x7f07009e
-			public const int entryResultTextView = 2131165342;
+			// aapt resource value: 0x7f070097
+			public const int entryTxnTypeIssuedRadioButton = 2131165335;
 			
 			// aapt resource value: 0x7f070096
-			public const int entryTxnTypeIssuedRadioButton = 2131165334;
+			public const int entryTxnTypePaidRadioButton = 2131165334;
 			
 			// aapt resource value: 0x7f070095
-			public const int entryTxnTypePaidRadioButton = 2131165333;
+			public const int entryTxnTypeRadioGroup = 2131165333;
 			
-			// aapt resource value: 0x7f070094
-			public const int entryTxnTypeRadioGroup = 2131165332;
-			
-			// aapt resource value: 0x7f070097
-			public const int entryTxnTypeReceviedRadioButton = 2131165335;
+			// aapt resource value: 0x7f070098
+			public const int entryTxnTypeReceviedRadioButton = 2131165336;
 			
 			// aapt resource value: 0x7f07008a
 			public const int entryTxnTypeTextView = 2131165322;
 			
-			// aapt resource value: 0x7f070116
-			public const int entry_menu_comment = 2131165462;
-			
 			// aapt resource value: 0x7f070117
-			public const int entry_menu_void = 2131165463;
+			public const int entry_menu_comment = 2131165463;
+			
+			// aapt resource value: 0x7f070118
+			public const int entry_menu_void = 2131165464;
 			
 			// aapt resource value: 0x7f07002c
 			public const int exitUntilCollapsed = 2131165228;
@@ -2621,8 +2630,8 @@ namespace Intune.Android
 			// aapt resource value: 0x7f07003f
 			public const int @fixed = 2131165247;
 			
-			// aapt resource value: 0x7f0700ff
-			public const int fullNameEditText = 2131165439;
+			// aapt resource value: 0x7f070100
+			public const int fullNameEditText = 2131165440;
 			
 			// aapt resource value: 0x7f070005
 			public const int home = 2131165189;
@@ -2666,8 +2675,8 @@ namespace Intune.Android
 			// aapt resource value: 0x7f07008d
 			public const int linearLayout2 = 2131165325;
 			
-			// aapt resource value: 0x7f070091
-			public const int linearLayout3 = 2131165329;
+			// aapt resource value: 0x7f070092
+			public const int linearLayout3 = 2131165330;
 			
 			// aapt resource value: 0x7f07000f
 			public const int listMode = 2131165199;
@@ -2690,14 +2699,14 @@ namespace Intune.Android
 			// aapt resource value: 0x7f0700e8
 			public const int loginRootLinearLayout = 2131165416;
 			
-			// aapt resource value: 0x7f070118
-			public const int login_menu_forgot = 2131165464;
-			
 			// aapt resource value: 0x7f070119
-			public const int login_menu_sign_up = 2131165465;
+			public const int login_menu_forgot = 2131165465;
 			
-			// aapt resource value: 0x7f070105
-			public const int masked = 2131165445;
+			// aapt resource value: 0x7f07011a
+			public const int login_menu_sign_up = 2131165466;
+			
+			// aapt resource value: 0x7f070106
+			public const int masked = 2131165446;
 			
 			// aapt resource value: 0x7f0700d7
 			public const int media_actions = 2131165399;
@@ -2708,8 +2717,8 @@ namespace Intune.Android
 			// aapt resource value: 0x7f07003e
 			public const int mini = 2131165246;
 			
-			// aapt resource value: 0x7f070100
-			public const int mobileEditText = 2131165440;
+			// aapt resource value: 0x7f070101
+			public const int mobileEditText = 2131165441;
 			
 			// aapt resource value: 0x7f07001a
 			public const int multiply = 2131165210;
@@ -2735,8 +2744,8 @@ namespace Intune.Android
 			// aapt resource value: 0x7f0700d9
 			public const int notification_main_column_container = 2131165401;
 			
-			// aapt resource value: 0x7f070102
-			public const int okButton = 2131165442;
+			// aapt resource value: 0x7f070103
+			public const int okButton = 2131165443;
 			
 			// aapt resource value: 0x7f070037
 			public const int parallax = 2131165239;
@@ -2744,8 +2753,8 @@ namespace Intune.Android
 			// aapt resource value: 0x7f07004d
 			public const int parentPanel = 2131165261;
 			
-			// aapt resource value: 0x7f0700fe
-			public const int passwordEditText = 2131165438;
+			// aapt resource value: 0x7f0700ff
+			public const int passwordEditText = 2131165439;
 			
 			// aapt resource value: 0x7f070038
 			public const int pin = 2131165240;
@@ -2759,8 +2768,8 @@ namespace Intune.Android
 			// aapt resource value: 0x7f07005d
 			public const int radio = 2131165277;
 			
-			// aapt resource value: 0x7f070103
-			public const int registerUserResultTextView = 2131165443;
+			// aapt resource value: 0x7f070104
+			public const int registerUserResultTextView = 2131165444;
 			
 			// aapt resource value: 0x7f070035
 			public const int right = 2131165237;
@@ -2834,50 +2843,53 @@ namespace Intune.Android
 			// aapt resource value: 0x7f070017
 			public const int showTitle = 2131165207;
 			
-			// aapt resource value: 0x7f0700ee
-			public const int signInButton = 2131165422;
+			// aapt resource value: 0x7f0700ef
+			public const int signInButton = 2131165423;
 			
-			// aapt resource value: 0x7f0700f0
-			public const int signInGreetingTextView = 2131165424;
+			// aapt resource value: 0x7f0700f1
+			public const int signInGreetingTextView = 2131165425;
 			
 			// aapt resource value: 0x7f0700e9
 			public const int signInMessageTextView = 2131165417;
 			
-			// aapt resource value: 0x7f0700f7
-			public const int signUpButton = 2131165431;
-			
-			// aapt resource value: 0x7f0700f2
-			public const int signUpFullNameTextInputEditText = 2131165426;
-			
-			// aapt resource value: 0x7f0700f1
-			public const int signUpFullNameTextInputLayout = 2131165425;
-			
-			// aapt resource value: 0x7f0700f4
-			public const int signUpIdTextInputEditText = 2131165428;
-			
-			// aapt resource value: 0x7f0700f3
-			public const int signUpIdTextInputLayout = 2131165427;
-			
-			// aapt resource value: 0x7f0700f6
-			public const int signUpPasswordTextInputEditText = 2131165430;
-			
-			// aapt resource value: 0x7f0700f5
-			public const int signUpPasswordTextInputLayout = 2131165429;
-			
-			// aapt resource value: 0x7f0700ef
-			public const int signUpRootLinearLayout = 2131165423;
+			// aapt resource value: 0x7f0700ee
+			public const int signInRememberCheckBox = 2131165422;
 			
 			// aapt resource value: 0x7f0700f8
-			public const int signUpVerifyCodeLinearLayout = 2131165432;
+			public const int signUpButton = 2131165432;
 			
-			// aapt resource value: 0x7f0700fa
-			public const int signUpVerifyCodeTextInputEditText = 2131165434;
+			// aapt resource value: 0x7f0700f3
+			public const int signUpFullNameTextInputEditText = 2131165427;
+			
+			// aapt resource value: 0x7f0700f2
+			public const int signUpFullNameTextInputLayout = 2131165426;
+			
+			// aapt resource value: 0x7f0700f5
+			public const int signUpIdTextInputEditText = 2131165429;
+			
+			// aapt resource value: 0x7f0700f4
+			public const int signUpIdTextInputLayout = 2131165428;
+			
+			// aapt resource value: 0x7f0700f7
+			public const int signUpPasswordTextInputEditText = 2131165431;
+			
+			// aapt resource value: 0x7f0700f6
+			public const int signUpPasswordTextInputLayout = 2131165430;
+			
+			// aapt resource value: 0x7f0700f0
+			public const int signUpRootLinearLayout = 2131165424;
 			
 			// aapt resource value: 0x7f0700f9
-			public const int signUpVerifyCodeTextInputLayout = 2131165433;
+			public const int signUpVerifyCodeLinearLayout = 2131165433;
 			
 			// aapt resource value: 0x7f0700fb
-			public const int signUpVerifyOtpButton = 2131165435;
+			public const int signUpVerifyCodeTextInputEditText = 2131165435;
+			
+			// aapt resource value: 0x7f0700fa
+			public const int signUpVerifyCodeTextInputLayout = 2131165434;
+			
+			// aapt resource value: 0x7f0700fc
+			public const int signUpVerifyOtpButton = 2131165436;
 			
 			// aapt resource value: 0x7f0700c5
 			public const int smallLabel = 2131165381;
@@ -2891,8 +2903,8 @@ namespace Intune.Android
 			// aapt resource value: 0x7f07002e
 			public const int snap = 2131165230;
 			
-			// aapt resource value: 0x7f07009c
-			public const int space4 = 2131165340;
+			// aapt resource value: 0x7f07009d
+			public const int space4 = 2131165341;
 			
 			// aapt resource value: 0x7f07004c
 			public const int spacer = 2131165260;
@@ -2939,8 +2951,8 @@ namespace Intune.Android
 			// aapt resource value: 0x7f0700c3
 			public const int textView1 = 2131165379;
 			
-			// aapt resource value: 0x7f0700fc
-			public const int textViewTitle = 2131165436;
+			// aapt resource value: 0x7f0700fd
+			public const int textViewTitle = 2131165437;
 			
 			// aapt resource value: 0x7f0700d0
 			public const int text_input_password_toggle = 2131165392;
@@ -3023,8 +3035,8 @@ namespace Intune.Android
 			// aapt resource value: 0x7f07000e
 			public const int view_offset_helper = 2131165198;
 			
-			// aapt resource value: 0x7f070104
-			public const int visible = 2131165444;
+			// aapt resource value: 0x7f070105
+			public const int visible = 2131165445;
 			
 			// aapt resource value: 0x7f070027
 			public const int withText = 2131165223;
@@ -3251,73 +3263,70 @@ namespace Intune.Android
 			public const int design_text_input_password_icon = 2130903094;
 			
 			// aapt resource value: 0x7f030037
-			public const int layout1 = 2130903095;
+			public const int notification_action = 2130903095;
 			
 			// aapt resource value: 0x7f030038
-			public const int notification_action = 2130903096;
+			public const int notification_action_tombstone = 2130903096;
 			
 			// aapt resource value: 0x7f030039
-			public const int notification_action_tombstone = 2130903097;
+			public const int notification_media_action = 2130903097;
 			
 			// aapt resource value: 0x7f03003a
-			public const int notification_media_action = 2130903098;
+			public const int notification_media_cancel_action = 2130903098;
 			
 			// aapt resource value: 0x7f03003b
-			public const int notification_media_cancel_action = 2130903099;
+			public const int notification_template_big_media = 2130903099;
 			
 			// aapt resource value: 0x7f03003c
-			public const int notification_template_big_media = 2130903100;
+			public const int notification_template_big_media_custom = 2130903100;
 			
 			// aapt resource value: 0x7f03003d
-			public const int notification_template_big_media_custom = 2130903101;
+			public const int notification_template_big_media_narrow = 2130903101;
 			
 			// aapt resource value: 0x7f03003e
-			public const int notification_template_big_media_narrow = 2130903102;
+			public const int notification_template_big_media_narrow_custom = 2130903102;
 			
 			// aapt resource value: 0x7f03003f
-			public const int notification_template_big_media_narrow_custom = 2130903103;
+			public const int notification_template_custom_big = 2130903103;
 			
 			// aapt resource value: 0x7f030040
-			public const int notification_template_custom_big = 2130903104;
+			public const int notification_template_icon_group = 2130903104;
 			
 			// aapt resource value: 0x7f030041
-			public const int notification_template_icon_group = 2130903105;
+			public const int notification_template_lines_media = 2130903105;
 			
 			// aapt resource value: 0x7f030042
-			public const int notification_template_lines_media = 2130903106;
+			public const int notification_template_media = 2130903106;
 			
 			// aapt resource value: 0x7f030043
-			public const int notification_template_media = 2130903107;
+			public const int notification_template_media_custom = 2130903107;
 			
 			// aapt resource value: 0x7f030044
-			public const int notification_template_media_custom = 2130903108;
+			public const int notification_template_part_chronometer = 2130903108;
 			
 			// aapt resource value: 0x7f030045
-			public const int notification_template_part_chronometer = 2130903109;
+			public const int notification_template_part_time = 2130903109;
 			
 			// aapt resource value: 0x7f030046
-			public const int notification_template_part_time = 2130903110;
+			public const int select_dialog_item_material = 2130903110;
 			
 			// aapt resource value: 0x7f030047
-			public const int select_dialog_item_material = 2130903111;
+			public const int select_dialog_multichoice_material = 2130903111;
 			
 			// aapt resource value: 0x7f030048
-			public const int select_dialog_multichoice_material = 2130903112;
+			public const int select_dialog_singlechoice_material = 2130903112;
 			
 			// aapt resource value: 0x7f030049
-			public const int select_dialog_singlechoice_material = 2130903113;
+			public const int SignIn = 2130903113;
 			
 			// aapt resource value: 0x7f03004a
-			public const int SignIn = 2130903114;
+			public const int SignUp = 2130903114;
 			
 			// aapt resource value: 0x7f03004b
-			public const int SignUp = 2130903115;
+			public const int support_simple_spinner_dropdown_item = 2130903115;
 			
 			// aapt resource value: 0x7f03004c
-			public const int support_simple_spinner_dropdown_item = 2130903116;
-			
-			// aapt resource value: 0x7f03004d
-			public const int UserProfile = 2130903117;
+			public const int UserProfile = 2130903116;
 			
 			static Layout()
 			{
@@ -3985,8 +3994,11 @@ namespace Intune.Android
 			// aapt resource value: 0x7f090163
 			public const int Base_Widget_Design_TabLayout = 2131296611;
 			
+			// aapt resource value: 0x7f09017b
+			public const int IntuneTheme = 2131296635;
+			
 			// aapt resource value: 0x7f09017a
-			public const int IntuneTheme = 2131296634;
+			public const int IntuneTheme_Splash = 2131296634;
 			
 			// aapt resource value: 0x7f09001e
 			public const int Platform_AppCompat = 2131296286;
@@ -4072,8 +4084,8 @@ namespace Intune.Android
 			// aapt resource value: 0x7f09003e
 			public const int RtlUnderlay_Widget_AppCompat_ActionButton_Overflow = 2131296318;
 			
-			// aapt resource value: 0x7f09017b
-			public const int SignInTheme = 2131296635;
+			// aapt resource value: 0x7f09017c
+			public const int SignInTheme = 2131296636;
 			
 			// aapt resource value: 0x7f0900ce
 			public const int TextAppearance_AppCompat = 2131296462;

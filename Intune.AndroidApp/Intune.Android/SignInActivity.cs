@@ -12,7 +12,7 @@ using Android.Util;
 
 namespace Intune.Android
 {
-    [Activity(Label = "Intune", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "Intune", Icon = "@drawable/icon")]
     public class SignInActivity : Activity
     {
         TextInputLayout _emailLayout;

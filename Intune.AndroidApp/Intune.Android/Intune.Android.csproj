@@ -142,6 +142,7 @@
     <Compile Include="SignInActivity.cs" />
     <Compile Include="AccountsActivity.cs" />
     <Compile Include="SignUpActivity.cs" />
+    <Compile Include="SplashActivity.cs" />
     <Compile Include="UserProfileActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -202,9 +203,6 @@
     <AndroidResource Include="Resources\layout\SignUp.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\layout1.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Accounts.axml">
@@ -224,7 +222,9 @@
     <AndroidResource Include="Resources\menu\accounts_menus.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\values\styles.xml" />
+    <AndroidResource Include="Resources\values\styles.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\menu\contacts_menus.xml" />
@@ -261,6 +261,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\colours.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\splash_screen.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\splash_logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

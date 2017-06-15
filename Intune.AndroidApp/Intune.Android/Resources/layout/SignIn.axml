@@ -5,51 +5,57 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/loginRootLinearLayout">
-  <TextView
-      android:text="Login to your Intune"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:id="@+id/signInMessageTextView"
-      android:textSize="25dp"
-      android:typeface="sans"
-      android:textStyle="bold"
-      android:gravity="center"
-      android:layout_marginTop="5dp"
-      android:layout_marginBottom="5dp"
-      android:textColor="@android:color/holo_green_dark" />
-  <android.support.design.widget.TextInputLayout
-      android:id="@+id/loginEmailInputLayout"
-      android:layout_marginLeft="10dp"
-      android:layout_marginRight="10dp"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content">
-    <android.support.design.widget.TextInputEditText
-        android:id="@+id/loginEmailEditText"
-        android:layout_width="fill_parent"
+    <TextView
+        android:text="Login to your Intune"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:fontFamily="sans-serif"
-        android:hint="Email" />
-  </android.support.design.widget.TextInputLayout>
-  <android.support.design.widget.TextInputLayout
-      android:id="@+id/loginPasswordInputLayout"
-      android:layout_marginRight="10dp"
-      android:layout_marginLeft="10dp"
-      app:passwordToggleEnabled="true"
-      app:passwordToggleTint="@android:color/holo_green_dark"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content">
-    <android.support.design.widget.TextInputEditText
-        android:id="@+id/loginPasswordEditText"
-        android:layout_width="fill_parent"
+        android:id="@+id/signInMessageTextView"
+        android:textSize="25dp"
+        android:typeface="sans"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:textColor="@android:color/holo_green_dark" />
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/loginEmailInputLayout"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/loginEmailEditText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:fontFamily="sans-serif"
+            android:hint="Mobile or Email" />
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/loginPasswordInputLayout"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@android:color/holo_green_dark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/loginPasswordEditText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="Password" />
+    </android.support.design.widget.TextInputLayout>
+    <CheckBox
+        android:text="Remeber me"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:hint="Password" />
-  </android.support.design.widget.TextInputLayout>
-  <Button
-      android:text="Sign In"
-      android:layout_height="40dp"
-      android:id="@+id/signInButton"
-      android:layout_width="100dp"
-      android:layout_gravity="center" />
+        android:id="@+id/signInRememberCheckBox"
+        android:layout_margin="5dp" />
+    <Button
+        android:text="Sign In"
+        android:layout_height="40dp"
+        android:id="@+id/signInButton"
+        android:layout_width="100dp"
+        android:layout_gravity="center" />
 </LinearLayout>

@@ -60,6 +60,14 @@ namespace Intune.Android
             return base.OnCreateOptionsMenu(menu);
         }
 
+        public override bool OnPrepareOptionsMenu(IMenu menu)
+        {
+            var userProfileMenuItem = menu.FindItem(Resource.Id.accounts_menu_profile);
+            userProfileMenuItem.SetEnabled(false);
+
+            return base.OnPrepareOptionsMenu(menu);
+        }
+
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             switch (item.ItemId)

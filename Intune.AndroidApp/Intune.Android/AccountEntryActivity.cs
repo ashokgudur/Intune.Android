@@ -6,12 +6,20 @@ using Android.Views;
 using System.Globalization;
 using Android.Content;
 using Android.Views.InputMethods;
+using Android.Support.Design.Widget;
+using System.Threading;
 
 namespace Intune.Android
 {
     [Activity(Label = "Account Entry - Intune")]
     public class AccountEntryActivity : Activity
     {
+        View _rootView;
+        EditText _entryDate;
+        RadioGroup _entryTxnType;
+        EditText _entryQuantity;
+        EditText _entryAmount;
+        EditText _entryNotes;
         Button _okButton;
         Entry _entry = null;
 
@@ -19,6 +27,13 @@ namespace Intune.Android
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.AccountEntry);
+
+            _rootView = FindViewById<View>(Resource.Id.accountEntryRootLinearLayout);
+            _entryDate = FindViewById<EditText>(Resource.Id.entryDateEditText);
+            _entryTxnType = FindViewById<RadioGroup>(Resource.Id.entryTxnTypeRadioGroup);
+            _entryQuantity = FindViewById<EditText>(Resource.Id.entryQuantityEditText);
+            _entryAmount = FindViewById<EditText>(Resource.Id.entryAmountEditText);
+            _entryNotes = FindViewById<EditText>(Resource.Id.entryNotesEditText);
 
             var entryId = Intent.GetIntExtra("EntryId", 0);
             _entry = IntuneService.GetAccountEntry(entryId);
@@ -47,14 +62,13 @@ namespace Intune.Android
 
         private void EntryDatePicker_Click(object sender, EventArgs e)
         {
-            var entryDate = FindViewById<EditText>(Resource.Id.entryDateEditText);
             var culture = new CultureInfo("en-IN", true);
             var txnDate = DateTime.Today;
-            DateTime.TryParse(entryDate.Text, culture, DateTimeStyles.AllowWhiteSpaces, out txnDate);
+            DateTime.TryParse(_entryDate.Text, culture, DateTimeStyles.AllowWhiteSpaces, out txnDate);
 
             var datePickerFragment = DatePickerFragment.NewInstance(txnDate, delegate (DateTime date)
             {
-                entryDate.Text = date.ToString("dd-MM-yyyy");
+                _entryDate.Text = date.ToString("dd-MM-yyyy");
             });
 
             datePickerFragment.Show(FragmentManager, DatePickerFragment.TAG);
@@ -63,8 +77,10 @@ namespace Intune.Android
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             MenuInflater.Inflate(Resource.Menu.entry_menus, menu);
+
             var voidMenuItem = menu.FindItem(Resource.Id.entry_menu_void);
             voidMenuItem.SetVisible(userCanAddAndVoidEntries());
+
             return base.OnCreateOptionsMenu(menu);
         }
 
@@ -77,7 +93,7 @@ namespace Intune.Android
         public override bool OnPrepareOptionsMenu(IMenu menu)
         {
             var voidMenuItem = menu.FindItem(Resource.Id.entry_menu_void);
-            var enableVloidMenuItem = !_entry.IsNew && _entry.IsVoid;
+            var enableVloidMenuItem = !_entry.IsNew && !_entry.IsVoid;
             voidMenuItem.SetEnabled(enableVloidMenuItem);
 
             var commentMenuItem = menu.FindItem(Resource.Id.entry_menu_comment);
@@ -128,7 +144,7 @@ namespace Intune.Android
                 VoidId = _entry.Id,
             };
 
-            IntuneService.AddAccountEntry(voidEntry);
+            ThreadPool.QueueUserWorkItem(o => saveEntry(voidEntry));
         }
 
         private TxnType makeVoidTxnType()
@@ -152,8 +168,7 @@ namespace Intune.Android
         {
             _entry = new Entry();
             fillForm();
-            var okButton = FindViewById<Button>(Resource.Id.entryOkButton);
-            okButton.Enabled = _entry.IsNew;
+            _okButton.Enabled = _entry.IsNew;
         }
 
         private void hideKeyboard()
@@ -166,47 +181,52 @@ namespace Intune.Android
         {
             hideKeyboard();
 
-            var result = FindViewById<TextView>(Resource.Id.entryResultTextView);
-            var entryDate = FindViewById<EditText>(Resource.Id.entryDateEditText);
-            var entryTxnType = FindViewById<RadioGroup>(Resource.Id.entryTxnTypeRadioGroup);
-            var entryQuantity = FindViewById<EditText>(Resource.Id.entryQuantityEditText);
-            var entryAmount = FindViewById<EditText>(Resource.Id.entryAmountEditText);
-            var entryNotes = FindViewById<EditText>(Resource.Id.entryNotesEditText);
-
             _entry.UserId = Intent.GetIntExtra("LoginUserId", 0);
             _entry.AccountId = Intent.GetIntExtra("AccountId", 0);
             var culture = new CultureInfo("en-IN", true);
             DateTime txnDate;
-            if (!DateTime.TryParse(entryDate.Text, culture, DateTimeStyles.AllowWhiteSpaces, out txnDate))
+            if (!DateTime.TryParse(_entryDate.Text, culture, DateTimeStyles.AllowWhiteSpaces, out txnDate))
             {
-                result.Text = "Invalid date entered.";
+                Snackbar.Make(_rootView, "Invalid date entered.", Snackbar.LengthLong).Show();
                 return;
             }
 
             _entry.TxnDate = txnDate;
-            _entry.TxnType = getTxnType(entryTxnType.CheckedRadioButtonId);
-            _entry.Quantity = entryQuantity.Text.Trim() == "" ? 0 : double.Parse(entryQuantity.Text);
-            _entry.Amount = entryAmount.Text.Trim() == "" ? 0 : decimal.Parse(entryAmount.Text);
-            _entry.Notes = entryNotes.Text;
+            _entry.TxnType = getTxnType(_entryTxnType.CheckedRadioButtonId);
+            _entry.Quantity = _entryQuantity.Text.Trim() == "" ? 0 : double.Parse(_entryQuantity.Text);
+            _entry.Amount = _entryAmount.Text.Trim() == "" ? 0 : decimal.Parse(_entryAmount.Text);
+            _entry.Notes = _entryNotes.Text;
             _entry.VoidId = 0;
 
             if (!_entry.IsValid())
             {
-                result.Text = "Please enter all the details";
+                Snackbar.Make(_rootView, "Please enter all the details", Snackbar.LengthLong).Show();
                 return;
             }
 
-            result.Text = "Adding new entry...";
-            _entry = IntuneService.AddAccountEntry(_entry);
+            Snackbar.Make(_rootView, "Adding new entry...", Snackbar.LengthLong).Show();
+            ThreadPool.QueueUserWorkItem(o => saveEntry());
+        }
 
-            if (_entry != null)
+        private void saveEntry()
+        {
+            _entry = saveEntry(_entry);
+        }
+
+        private Entry saveEntry(Entry entry)
+        {
+            var result = IntuneService.AddAccountEntry(entry);
+            if (result != null)
             {
-                result.Text = string.Format("{0} entry saved.", _entry.Notes);
-                _okButton.Enabled = _entry.IsNew;
-                return;
+                Snackbar.Make(_rootView, $"{result.Notes} entry saved.", Snackbar.LengthLong).Show();
+                RunOnUiThread(() => { _okButton.Enabled = result.IsNew; });
+                return result;
             }
 
-            result.Text = "Saving entry FAILED!";
+            Snackbar.Make(_rootView, "Saving entry FAILED!", Snackbar.LengthIndefinite)
+                    .SetAction("RETRY", (v) => { }).Show();
+
+            return null;
         }
 
         private TxnType getTxnType(int checkedRadioButtonId)
@@ -224,8 +244,7 @@ namespace Intune.Android
 
         private void fillForm()
         {
-            var entryDate = FindViewById<EditText>(Resource.Id.entryDateEditText);
-            entryDate.Text = _entry.TxnDate.ToString("dd/MM/yyyy");
+            _entryDate.Text = _entry.TxnDate.ToString("dd/MM/yyyy");
 
             if (_entry.TxnType == TxnType.Paid)
             {
@@ -243,14 +262,15 @@ namespace Intune.Android
                 entryTxnTypeReceived.Checked = true;
             }
 
-            var entryQuantity = FindViewById<EditText>(Resource.Id.entryQuantityEditText);
-            entryQuantity.Text = _entry.Quantity.ToString();
+            _entryQuantity.Text = "";
+            if (_entry.Quantity != 0)
+                _entryQuantity.Text = _entry.Quantity.ToString();
 
-            var entryAmount = FindViewById<EditText>(Resource.Id.entryAmountEditText);
-            entryAmount.Text = _entry.Amount.ToString();
+            _entryAmount.Text = "";
+            if (_entry.Amount != 0)
+                _entryAmount.Text = _entry.Amount.ToString();
 
-            var entryNotes = FindViewById<EditText>(Resource.Id.entryNotesEditText);
-            entryNotes.Text = _entry.Notes;
+            _entryNotes.Text = _entry.Notes;
         }
 
         private void showMessageBoardActivity()

@@ -1,6 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <resources>
 
+  <style name="IntuneTheme.Splash" parent ="Theme.AppCompat.Light.NoActionBar">
+    <item name="android:windowBackground">@drawable/splash_screen</item>
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowFullscreen">true</item>
+  </style>
+    
   <style name="IntuneTheme" parent="Theme.AppCompat.Light.DarkActionBar">
     <item name="android:windowNoTitle">false</item>
     <item name="android:windowActionBar">true</item>
