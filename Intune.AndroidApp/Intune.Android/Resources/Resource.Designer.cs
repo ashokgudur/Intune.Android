@@ -2270,14 +2270,17 @@ namespace Intune.Android
 			// aapt resource value: 0x7f0700a4
 			public const int accountsTitleBarTextView = 2131165348;
 			
-			// aapt resource value: 0x7f07010a
-			public const int accounts_menu_contacts = 2131165450;
-			
 			// aapt resource value: 0x7f07010b
-			public const int accounts_menu_new = 2131165451;
+			public const int accounts_menu_contacts = 2131165451;
 			
 			// aapt resource value: 0x7f070109
-			public const int accounts_menu_profile = 2131165449;
+			public const int accounts_menu_logout = 2131165449;
+			
+			// aapt resource value: 0x7f07010c
+			public const int accounts_menu_new = 2131165452;
+			
+			// aapt resource value: 0x7f07010a
+			public const int accounts_menu_profile = 2131165450;
 			
 			// aapt resource value: 0x7f070108
 			public const int accounts_menu_refresh = 2131165448;
@@ -2468,29 +2471,32 @@ namespace Intune.Android
 			// aapt resource value: 0x7f0700b7
 			public const int contactTitleBarTextView = 2131165367;
 			
-			// aapt resource value: 0x7f07010c
-			public const int contact_menu_accounts = 2131165452;
-			
 			// aapt resource value: 0x7f07010d
-			public const int contact_menu_chat = 2131165453;
+			public const int contact_menu_accounts = 2131165453;
 			
 			// aapt resource value: 0x7f07010e
-			public const int contact_menu_share = 2131165454;
+			public const int contact_menu_chat = 2131165454;
+			
+			// aapt resource value: 0x7f07010f
+			public const int contact_menu_share = 2131165455;
 			
 			// aapt resource value: 0x7f0700c4
 			public const int contactsListView = 2131165380;
 			
+			// aapt resource value: 0x7f070113
+			public const int contacts_menu_accounts = 2131165459;
+			
 			// aapt resource value: 0x7f070111
-			public const int contacts_menu_accounts = 2131165457;
+			public const int contacts_menu_logout = 2131165457;
+			
+			// aapt resource value: 0x7f070114
+			public const int contacts_menu_new = 2131165460;
 			
 			// aapt resource value: 0x7f070112
-			public const int contacts_menu_new = 2131165458;
+			public const int contacts_menu_profile = 2131165458;
 			
 			// aapt resource value: 0x7f070110
-			public const int contacts_menu_profile = 2131165456;
-			
-			// aapt resource value: 0x7f07010f
-			public const int contacts_menu_refresh = 2131165455;
+			public const int contacts_menu_refresh = 2131165456;
 			
 			// aapt resource value: 0x7f07004e
 			public const int contentPanel = 2131165262;
@@ -2543,17 +2549,17 @@ namespace Intune.Android
 			// aapt resource value: 0x7f07002b
 			public const int enterAlwaysCollapsed = 2131165227;
 			
-			// aapt resource value: 0x7f070114
-			public const int entries_menu_comment_account = 2131165460;
+			// aapt resource value: 0x7f070116
+			public const int entries_menu_comment_account = 2131165462;
+			
+			// aapt resource value: 0x7f070117
+			public const int entries_menu_edit_account = 2131165463;
+			
+			// aapt resource value: 0x7f070118
+			public const int entries_menu_new_entry = 2131165464;
 			
 			// aapt resource value: 0x7f070115
-			public const int entries_menu_edit_account = 2131165461;
-			
-			// aapt resource value: 0x7f070116
-			public const int entries_menu_new_entry = 2131165462;
-			
-			// aapt resource value: 0x7f070113
-			public const int entries_menu_refresh = 2131165459;
+			public const int entries_menu_refresh = 2131165461;
 			
 			// aapt resource value: 0x7f07009a
 			public const int entryAmountEditText = 2131165338;
@@ -2603,11 +2609,11 @@ namespace Intune.Android
 			// aapt resource value: 0x7f07008a
 			public const int entryTxnTypeTextView = 2131165322;
 			
-			// aapt resource value: 0x7f070117
-			public const int entry_menu_comment = 2131165463;
+			// aapt resource value: 0x7f070119
+			public const int entry_menu_comment = 2131165465;
 			
-			// aapt resource value: 0x7f070118
-			public const int entry_menu_void = 2131165464;
+			// aapt resource value: 0x7f07011a
+			public const int entry_menu_void = 2131165466;
 			
 			// aapt resource value: 0x7f07002c
 			public const int exitUntilCollapsed = 2131165228;
@@ -2684,26 +2690,14 @@ namespace Intune.Android
 			// aapt resource value: 0x7f070048
 			public const int list_item = 2131165256;
 			
-			// aapt resource value: 0x7f0700eb
-			public const int loginEmailEditText = 2131165419;
-			
-			// aapt resource value: 0x7f0700ea
-			public const int loginEmailInputLayout = 2131165418;
-			
-			// aapt resource value: 0x7f0700ed
-			public const int loginPasswordEditText = 2131165421;
-			
-			// aapt resource value: 0x7f0700ec
-			public const int loginPasswordInputLayout = 2131165420;
-			
 			// aapt resource value: 0x7f0700e8
 			public const int loginRootLinearLayout = 2131165416;
 			
-			// aapt resource value: 0x7f070119
-			public const int login_menu_forgot = 2131165465;
+			// aapt resource value: 0x7f07011b
+			public const int login_menu_forgot = 2131165467;
 			
-			// aapt resource value: 0x7f07011a
-			public const int login_menu_sign_up = 2131165466;
+			// aapt resource value: 0x7f07011c
+			public const int login_menu_sign_up = 2131165468;
 			
 			// aapt resource value: 0x7f070106
 			public const int masked = 2131165446;
@@ -2849,11 +2843,23 @@ namespace Intune.Android
 			// aapt resource value: 0x7f0700f1
 			public const int signInGreetingTextView = 2131165425;
 			
+			// aapt resource value: 0x7f0700ea
+			public const int signInIdInputLayout = 2131165418;
+			
+			// aapt resource value: 0x7f0700eb
+			public const int signInIdTextInputEditText = 2131165419;
+			
 			// aapt resource value: 0x7f0700e9
 			public const int signInMessageTextView = 2131165417;
 			
+			// aapt resource value: 0x7f0700ec
+			public const int signInPasswordInputLayout = 2131165420;
+			
+			// aapt resource value: 0x7f0700ed
+			public const int signInPasswordTextInputEditText = 2131165421;
+			
 			// aapt resource value: 0x7f0700ee
-			public const int signInRememberCheckBox = 2131165422;
+			public const int signInRememberMeCheckBox = 2131165422;
 			
 			// aapt resource value: 0x7f0700f8
 			public const int signUpButton = 2131165432;

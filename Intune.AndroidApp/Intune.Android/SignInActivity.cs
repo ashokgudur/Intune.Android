@@ -9,16 +9,19 @@ using Android.Graphics;
 using Android.Support.Design.Widget;
 using Android.Views.InputMethods;
 using Android.Util;
+using System.Text.RegularExpressions;
 
 namespace Intune.Android
 {
     [Activity(Label = "Intune", Icon = "@drawable/icon")]
     public class SignInActivity : Activity
     {
-        TextInputLayout _emailLayout;
+        TextInputLayout _idLayout;
+        TextInputEditText _idEditText;
         TextInputLayout _passwordLayout;
-        TextInputEditText _emailEditText;
         TextInputEditText _passwordEditText;
+        CheckBox _rememberMeCheckBox;
+
         View _rootView;
 
         protected override void OnCreate(Bundle bundle)
@@ -30,14 +33,17 @@ namespace Intune.Android
 
             Title = "Welcome to Intune";
 
-            _emailLayout = FindViewById<TextInputLayout>(Resource.Id.loginEmailInputLayout);
-            _passwordLayout = FindViewById<TextInputLayout>(Resource.Id.loginPasswordInputLayout);
-            _emailEditText = FindViewById<TextInputEditText>(Resource.Id.loginEmailEditText);
-            _passwordEditText = FindViewById<TextInputEditText>(Resource.Id.loginPasswordEditText);
             _rootView = FindViewById<View>(Resource.Id.loginRootLinearLayout);
 
+            _idLayout = FindViewById<TextInputLayout>(Resource.Id.signInIdInputLayout);
+            _idEditText = FindViewById<TextInputEditText>(Resource.Id.signInIdTextInputEditText);
+
+            _passwordLayout = FindViewById<TextInputLayout>(Resource.Id.signInPasswordInputLayout);
+            _passwordEditText = FindViewById<TextInputEditText>(Resource.Id.signInPasswordTextInputEditText);
+            _rememberMeCheckBox = FindViewById<CheckBox>(Resource.Id.signInRememberMeCheckBox);
+
             var robotoTypeface = Typeface.CreateFromAsset(Application.Context.Assets, "fonts/Roboto-Regular.ttf");
-            _emailEditText.Typeface = robotoTypeface;
+            _idEditText.Typeface = robotoTypeface;
             _passwordEditText.Typeface = robotoTypeface;
 
             var signInMessageTextView = FindViewById<TextView>(Resource.Id.signInMessageTextView);
@@ -47,7 +53,7 @@ namespace Intune.Android
             signInButton.Click += SignInButton_Click;
 
 #if DEBUG
-            _emailEditText.Text = "ashok.gudur@gmail.com";
+            _idEditText.Text = "ashok.gudur@gmail.com";
             _passwordEditText.Text = "ashokg";
 #endif
         }
@@ -77,44 +83,44 @@ namespace Intune.Android
 
         private void forgotPasswordMenu_Click()
         {
-            var email = _emailEditText.Text.Trim();
+            //var email = _emailEditText.Text.Trim();
 
-            if (string.IsNullOrWhiteSpace(email))
-            {
-                _emailLayout.ErrorEnabled = true;
-                _emailLayout.Error = "Email is required";
-                Snackbar.Make(_rootView, "Please enter email address", Snackbar.LengthLong)
-                        .SetAction("OK", (v) =>
-                        {
-                            _emailLayout.ErrorEnabled = false;
-                            _emailEditText.RequestFocus();
-                        })
-                        .Show();
-                return;
-            }
+            //if (string.IsNullOrWhiteSpace(email))
+            //{
+            //    _emailLayout.ErrorEnabled = true;
+            //    _emailLayout.Error = "Email is required";
+            //    Snackbar.Make(_rootView, "Please enter email address", Snackbar.LengthLong)
+            //            .SetAction("OK", (v) =>
+            //            {
+            //                _emailLayout.ErrorEnabled = false;
+            //                _emailEditText.RequestFocus();
+            //            })
+            //            .Show();
+            //    return;
+            //}
 
-            Snackbar.Make(_rootView, "Emailing your password...", Snackbar.LengthIndefinite).Show();
+            //Snackbar.Make(_rootView, "Emailing your password...", Snackbar.LengthIndefinite).Show();
 
-            try
-            {
-                IntuneService.ForgotPassword(email);
-                Snackbar.Make(_rootView, "Your password has been emailed.", Snackbar.LengthLong)
-                        .SetAction("OK", (v) =>
-                        {
-                            _passwordEditText.Text = "";
-                            _passwordEditText.RequestFocus();
-                        })
-                        .Show();
-            }
-            catch (Exception exp)
-            {
-                Snackbar.Make(_rootView, exp.Message, Snackbar.LengthIndefinite)
-                        .SetAction("OK", (v) =>
-                        {
-                            _emailEditText.RequestFocus();
-                        })
-                        .Show();
-            }
+            //try
+            //{
+            //    IntuneService.ForgotPassword(email);
+            //    Snackbar.Make(_rootView, "Your password has been emailed.", Snackbar.LengthLong)
+            //            .SetAction("OK", (v) =>
+            //            {
+            //                _passwordEditText.Text = "";
+            //                _passwordEditText.RequestFocus();
+            //            })
+            //            .Show();
+            //}
+            //catch (Exception exp)
+            //{
+            //    Snackbar.Make(_rootView, exp.Message, Snackbar.LengthIndefinite)
+            //            .SetAction("OK", (v) =>
+            //            {
+            //                _emailEditText.RequestFocus();
+            //            })
+            //            .Show();
+            //}
         }
 
         private void signUpMenu_Click()
@@ -122,35 +128,49 @@ namespace Intune.Android
             StartActivity(typeof(SignUpActivity));
         }
 
+        private string getSignInId()
+        {
+            return _idEditText.Text.Trim().ToLower();
+        }
+
+        private bool isIdEmail()
+        {
+            var regex = new Regex("[A-Za-z.@]");
+            return regex.IsMatch(getSignInId());
+        }
+
+        private bool isMobileNumberValid()
+        {
+            return Regex.IsMatch(getSignInId(), @"^[0-9]{10}$");
+        }
+
         private void SignInButton_Click(object sender, System.EventArgs e)
         {
             hideKeyboard();
-            _emailLayout.ErrorEnabled = false;
-            var email = _emailEditText.Text.Trim();
-
-            if (string.IsNullOrWhiteSpace(email))
+            _idLayout.ErrorEnabled = false;
+            if (string.IsNullOrWhiteSpace(getSignInId()))
             {
-                _emailLayout.ErrorEnabled = true;
-                _emailLayout.Error = "Email is required";
-                Snackbar.Make(_rootView, "Please enter email", Snackbar.LengthLong)
+                _idLayout.ErrorEnabled = true;
+                _idLayout.Error = "mobile or email is required";
+                Snackbar.Make(_rootView, "Please enter mobile or email.", Snackbar.LengthLong)
                         .SetAction("OK", (v) =>
                         {
-                            _emailLayout.ErrorEnabled = false;
-                            _emailEditText.RequestFocus();
+                            _idLayout.ErrorEnabled = false;
+                            _idEditText.RequestFocus();
                         })
                         .Show();
                 return;
             }
 
-            if (!Patterns.EmailAddress.Matcher(email).Matches())
+            if (isIdEmail() && !Patterns.EmailAddress.Matcher(getSignInId()).Matches() || !isMobileNumberValid())
             {
-                _emailLayout.ErrorEnabled = true;
-                _emailLayout.Error = "Not a valid email address";
-                Snackbar.Make(_rootView, "Please enter valid email address", Snackbar.LengthLong)
+                _idLayout.ErrorEnabled = true;
+                _idLayout.Error = "Valid mobile or email is required";
+                Snackbar.Make(_rootView, "Enter valid mobile or email address.", Snackbar.LengthLong)
                         .SetAction("OK", (v) =>
                         {
-                            _emailLayout.ErrorEnabled = false;
-                            _emailEditText.RequestFocus();
+                            _idLayout.ErrorEnabled = false;
+                            _idEditText.RequestFocus();
                         })
                         .Show();
                 return;
@@ -175,7 +195,7 @@ namespace Intune.Android
 
             Snackbar.Make(_rootView, "Logging into Intune...", Snackbar.LengthIndefinite).Show();
             var us = new IntuneUserService(this);
-            ThreadPool.QueueUserWorkItem(o => us.SignIn(_emailEditText.Text, _passwordEditText.Text));
+            ThreadPool.QueueUserWorkItem(o => us.SignIn(_idEditText.Text, _passwordEditText.Text));
         }
 
         private void hideKeyboard()
@@ -193,10 +213,10 @@ namespace Intune.Android
                 _activity = activity;
             }
 
-            public void SignIn(string email, string password)
+            public void SignIn(string signInid, string password)
             {
                 var rootView = _activity.FindViewById<View>(Resource.Id.loginRootLinearLayout);
-                var user = IntuneService.SignIn(email, password);
+                var user = IntuneService.SignIn(signInid, password);
                 if (user == null)
                 {
                     Snackbar.Make(rootView, "Cannot login!!!", Snackbar.LengthLong)

@@ -150,7 +150,7 @@ namespace Intune.Android
                     IntuneService.SendMobileOtp(countryIsdCode, getSignUpId());
                 }
 
-                Snackbar.Make(_rootView, "Verification code has been emailed.", Snackbar.LengthIndefinite).Show();
+                Snackbar.Make(_rootView, "Verification code has been sent.", Snackbar.LengthIndefinite).Show();
                 RunOnUiThread(() =>
                  {
                      _signUpVerifyCodeLinearLayout.Visibility = ViewStates.Visible;
@@ -251,7 +251,7 @@ namespace Intune.Android
                 var user = new User
                 {
                     Name = _signUpFullNameTextInputEditText.Text.Trim(),
-                    Email = getEmailAddress(),
+                    Email = getSignUpId(),
                     Mobile = getMobileNumber(),
                     Password = _signUpPasswordTextInputEditText.Text.Trim(),
                     //AtUserName = getMobileNumber(),
@@ -288,17 +288,7 @@ namespace Intune.Android
                 return "+910000000000";
             else
                 //TODO: check whether country code exist in the mobile number
-                return string.Format("+91{0}", getSignUpId());
-        }
-
-        private string getEmailAddress()
-        {
-            //TODO: Dummy address for email when mobile is used
-            if (isIdEmail())
-                return getSignUpId();
-            else
-                //TODO: Dummy number for mobile when email is used
-                return string.Format("{0}@iscalable.com", Guid.NewGuid().ToString().ToLower());
+                return $"+91{getSignUpId()}";
         }
     }
 }
