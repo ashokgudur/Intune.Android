@@ -120,7 +120,13 @@ namespace Intune.Android
                 return;
             }
 
-            if ((isIdEmail() && Patterns.EmailAddress.Matcher(getSignUpId()).Matches()) || isMobileNumberValid())
+            var isIdValid = false;
+            if (isIdEmail())
+                isIdValid = Patterns.EmailAddress.Matcher(getSignUpId()).Matches();
+            else
+                isIdValid = new MobileNumberValidator(getSignUpId()).IsValid();
+
+            if (isIdValid)
             {
                 _signUpButton.Enabled = false;
                 Snackbar.Make(_rootView, "Sending verification code...", Snackbar.LengthIndefinite).Show();
@@ -145,9 +151,8 @@ namespace Intune.Android
                     IntuneService.SendEmailOtp(getSignUpId());
                 else
                 {
-                    //TODO: need to check whether country code is prefixed or not
-                    var countryIsdCode = "+91";
-                    IntuneService.SendMobileOtp(countryIsdCode, getSignUpId());
+                    var mnv = new MobileNumberValidator(getSignUpId());
+                    IntuneService.SendMobileOtp(mnv.GetIsdCodeWithoutPlus(), mnv.GetMobileNumberWithoutIsdCode());
                 }
 
                 Snackbar.Make(_rootView, "Verification code has been sent.", Snackbar.LengthIndefinite).Show();
@@ -177,11 +182,6 @@ namespace Intune.Android
         {
             var regex = new Regex("[A-Za-z.@]");
             return regex.IsMatch(getSignUpId());
-        }
-
-        private bool isMobileNumberValid()
-        {
-            return Regex.IsMatch(getSignUpId(), @"^[0-9]{10}$");
         }
 
         private void SignUpVerifyOtpButton_Click(object sender, EventArgs e)
@@ -218,9 +218,8 @@ namespace Intune.Android
                     IntuneService.VerifyEmailOtp(getSignUpId(), verificationCode);
                 else
                 {
-                    //TODO: Country ISD code...
-                    var countryIsdCode = "+91";
-                    IntuneService.VerifyMobileOtp(countryIsdCode, getSignUpId(), verificationCode);
+                    var mnv = new MobileNumberValidator(getSignUpId());
+                    IntuneService.VerifyMobileOtp(mnv.GetIsdCodeWithoutPlus(), mnv.GetMobileNumberWithoutIsdCode(), verificationCode);
                 }
 
                 Snackbar.Make(_rootView, "Registering new user into Intune...", Snackbar.LengthIndefinite).Show();
@@ -248,13 +247,19 @@ namespace Intune.Android
         {
             try
             {
+                var signUpId = getSignUpId();
+                if (!isIdEmail())
+                {
+                    var mnv = new MobileNumberValidator(getSignUpId());
+                    signUpId = mnv.GetFullMobileNumber();
+                }
+
                 var user = new User
                 {
                     Name = _signUpFullNameTextInputEditText.Text.Trim(),
-                    Email = getSignUpId(),
+                    Email = signUpId,
                     Mobile = getMobileNumber(),
                     Password = _signUpPasswordTextInputEditText.Text.Trim(),
-                    //AtUserName = getMobileNumber(),
                     CreatedOn = DateTime.Now, //TODO: UTC date time?
                 };
 
@@ -287,8 +292,10 @@ namespace Intune.Android
             if (isIdEmail())
                 return "+910000000000";
             else
-                //TODO: check whether country code exist in the mobile number
-                return $"+91{getSignUpId()}";
+            {
+                var mnv = new MobileNumberValidator(getSignUpId());
+                return mnv.GetFullMobileNumber();
+            }
         }
     }
 }

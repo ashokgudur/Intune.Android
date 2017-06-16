@@ -10,9 +10,9 @@ namespace Intune.Android
     {
         const string intuneServerUri = @"http://intune-1.apphb.com/";
 
-        public static User SignIn(string email, string password)
+        public static User SignIn(string signInId, string password)
         {
-            var user = new User { Email = email, Password = password };
+            var user = new User { Email = signInId, Password = password };
             var body = JsonConvert.SerializeObject(user);
             var request = new RestRequest(@"api/user/signin/", Method.POST);
             request.AddParameter("text/json", body, ParameterType.RequestBody);
@@ -314,12 +314,9 @@ namespace Intune.Android
 
         public static void SendMobileOtp(string isdCode, string mobileNumber)
         {
-            var countryIsdCode = isdCode.Substring(0, 1) == "+"
-                                 ? isdCode.Substring(1)
-                                 : isdCode;
-
+            var countryIsdCode = isdCode.Replace("+", "");
             var request = new RestRequest(@"api/mobile/otp/send/", Method.GET);
-            request.AddParameter("isdCode", isdCode);
+            request.AddParameter("isdCode", countryIsdCode);
             request.AddParameter("mobileNumber", mobileNumber);
             var client = new RestClient(intuneServerUri);
             var response = client.Execute<List<Comment>>(request);
@@ -329,17 +326,36 @@ namespace Intune.Android
 
         public static void VerifyMobileOtp(string isdCode, string mobileNumber, string otp)
         {
-            var countryIsdCode = isdCode.Substring(0, 1) == "+"
-                      ? isdCode.Substring(1)
-                      : isdCode;
+            var countryIsdCode = isdCode.Replace("+", "");
             var request = new RestRequest(@"api/mobile/otp/verify/", Method.GET);
-            request.AddParameter("isdCode", isdCode);
+            request.AddParameter("isdCode", countryIsdCode);
             request.AddParameter("mobileNumber", mobileNumber);
             request.AddParameter("otp", otp);
             var client = new RestClient(intuneServerUri);
             var response = client.Execute<List<Comment>>(request);
             if (response.StatusCode != HttpStatusCode.OK)
                 throw new Exception("Cannot verify mobile verification code");
+        }
+
+        public static List<Country> GetCountryIsdCodes()
+        {
+            var request = new RestRequest(@"api/country/isdcodes/", Method.GET);
+            var client = new RestClient(intuneServerUri);
+            var response = client.Execute<List<Country>>(request);
+            if (response.StatusCode == HttpStatusCode.OK)
+                return response.Data;
+
+            return null;
+        }
+
+        public static bool IsCountryIsdCodeValid(string isdCode)
+        {
+            var countryIsdCode = isdCode.Replace("+", "");
+            var request = new RestRequest(@"api/country/isdcode/validate/", Method.GET);
+            request.AddParameter("isdCode", countryIsdCode);
+            var client = new RestClient(intuneServerUri);
+            var response = client.Execute<List<Comment>>(request);
+            return response.StatusCode == HttpStatusCode.OK;
         }
     }
 }

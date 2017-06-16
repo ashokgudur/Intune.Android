@@ -139,11 +139,6 @@ namespace Intune.Android
             return regex.IsMatch(getSignInId());
         }
 
-        private bool isMobileNumberValid()
-        {
-            return Regex.IsMatch(getSignInId(), @"^[0-9]{10}$");
-        }
-
         private void SignInButton_Click(object sender, System.EventArgs e)
         {
             hideKeyboard();
@@ -162,7 +157,13 @@ namespace Intune.Android
                 return;
             }
 
-            if (isIdEmail() && !Patterns.EmailAddress.Matcher(getSignInId()).Matches() || !isMobileNumberValid())
+            var isIdValid = false;
+            if (isIdEmail())
+                isIdValid = Patterns.EmailAddress.Matcher(getSignInId()).Matches();
+            else
+                isIdValid = new MobileNumberValidator(getSignInId()).IsValid();
+
+            if (!isIdValid)
             {
                 _idLayout.ErrorEnabled = true;
                 _idLayout.Error = "Valid mobile or email is required";
@@ -193,9 +194,16 @@ namespace Intune.Android
                 return;
             }
 
+            var signId = getSignInId();
+            if (!isIdEmail())
+            {
+                var mobileValidator = new MobileNumberValidator(signId);
+                signId = mobileValidator.GetFullMobileNumber();
+            }
+
             Snackbar.Make(_rootView, "Logging into Intune...", Snackbar.LengthIndefinite).Show();
             var us = new IntuneUserService(this);
-            ThreadPool.QueueUserWorkItem(o => us.SignIn(_idEditText.Text, _passwordEditText.Text));
+            ThreadPool.QueueUserWorkItem(o => us.SignIn(signId, _passwordEditText.Text));
         }
 
         private void hideKeyboard()
@@ -213,10 +221,10 @@ namespace Intune.Android
                 _activity = activity;
             }
 
-            public void SignIn(string signInid, string password)
+            public void SignIn(string signInId, string password)
             {
                 var rootView = _activity.FindViewById<View>(Resource.Id.loginRootLinearLayout);
-                var user = IntuneService.SignIn(signInid, password);
+                var user = IntuneService.SignIn(signInId, password);
                 if (user == null)
                 {
                     Snackbar.Make(rootView, "Cannot login!!!", Snackbar.LengthLong)
