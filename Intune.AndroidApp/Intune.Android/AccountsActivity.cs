@@ -75,6 +75,9 @@ namespace Intune.Android
                 case Resource.Id.accounts_menu_refresh:
                     refreshList();
                     break;
+                case Resource.Id.accounts_menu_logout:
+                    performLogout();
+                    break;
                 case Resource.Id.accounts_menu_profile:
                     showUserProfileActivity();
                     break;
@@ -89,6 +92,16 @@ namespace Intune.Android
             }
 
             return base.OnOptionsItemSelected(item);
+        }
+
+        public override void OnBackPressed() { }
+
+        private void performLogout()
+        {
+            Finish();
+            var signInActivity = new Intent(this, typeof(SignInActivity));
+            signInActivity.SetFlags(ActivityFlags.ClearTop | ActivityFlags.NewTask);
+            StartActivity(signInActivity);
         }
 
         private void showUserProfileActivity()

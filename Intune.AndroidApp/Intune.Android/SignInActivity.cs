@@ -81,6 +81,8 @@ namespace Intune.Android
             return base.OnOptionsItemSelected(item);
         }
 
+        public override void OnBackPressed() { }
+
         private void forgotPasswordMenu_Click()
         {
             //var email = _emailEditText.Text.Trim();
@@ -233,7 +235,7 @@ namespace Intune.Android
                     return;
                 }
 
-                Snackbar.Make(rootView, "Loading accounts...", Snackbar.LengthIndefinite).Show();
+                Snackbar.Make(rootView, "Loading accounts...", Snackbar.LengthLong).Show();
                 showAccountsActivity(user);
             }
 
