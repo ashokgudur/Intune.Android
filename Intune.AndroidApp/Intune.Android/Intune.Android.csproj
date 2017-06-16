@@ -141,8 +141,10 @@
     <Compile Include="IntuneService.cs" />
     <Compile Include="SignInActivity.cs" />
     <Compile Include="AccountsActivity.cs" />
+    <Compile Include="ResetPasswordActivity.cs" />
     <Compile Include="SignUpActivity.cs" />
     <Compile Include="SplashActivity.cs" />
+    <Compile Include="MobileNumberValidator.cs" />
     <Compile Include="UserProfileActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -201,6 +203,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\SignUp.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\ResetPassword.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

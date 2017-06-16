@@ -85,44 +85,7 @@ namespace Intune.Android
 
         private void forgotPasswordMenu_Click()
         {
-            //var email = _emailEditText.Text.Trim();
-
-            //if (string.IsNullOrWhiteSpace(email))
-            //{
-            //    _emailLayout.ErrorEnabled = true;
-            //    _emailLayout.Error = "Email is required";
-            //    Snackbar.Make(_rootView, "Please enter email address", Snackbar.LengthLong)
-            //            .SetAction("OK", (v) =>
-            //            {
-            //                _emailLayout.ErrorEnabled = false;
-            //                _emailEditText.RequestFocus();
-            //            })
-            //            .Show();
-            //    return;
-            //}
-
-            //Snackbar.Make(_rootView, "Emailing your password...", Snackbar.LengthIndefinite).Show();
-
-            //try
-            //{
-            //    IntuneService.ForgotPassword(email);
-            //    Snackbar.Make(_rootView, "Your password has been emailed.", Snackbar.LengthLong)
-            //            .SetAction("OK", (v) =>
-            //            {
-            //                _passwordEditText.Text = "";
-            //                _passwordEditText.RequestFocus();
-            //            })
-            //            .Show();
-            //}
-            //catch (Exception exp)
-            //{
-            //    Snackbar.Make(_rootView, exp.Message, Snackbar.LengthIndefinite)
-            //            .SetAction("OK", (v) =>
-            //            {
-            //                _emailEditText.RequestFocus();
-            //            })
-            //            .Show();
-            //}
+            StartActivity(typeof(ResetPasswordActivity));
         }
 
         private void signUpMenu_Click()

@@ -26,7 +26,7 @@ namespace Intune.Android
 
         public static User GetUserById(int userId)
         {
-            var request = new RestRequest(@"api/user/userbyId/", Method.GET);
+            var request = new RestRequest(@"api/user/id/", Method.GET);
             request.AddParameter("userId", userId);
             var client = new RestClient(intuneServerUri);
             var response = client.Execute<User>(request);
@@ -36,6 +36,17 @@ namespace Intune.Android
             return null;
         }
 
+        public static User GetUserBySignInId(string signInId)
+        {
+            var request = new RestRequest(@"api/user/signinid/", Method.GET);
+            request.AddParameter("signinid", signInId);
+            var client = new RestClient(intuneServerUri);
+            var response = client.Execute<User>(request);
+            if (response.StatusCode == HttpStatusCode.OK)
+                return response.Data;
+
+            return null;
+        }
 
         public static User RegiterUser(User user)
         {
@@ -63,14 +74,15 @@ namespace Intune.Android
             return null;
         }
 
-        public static void ForgotPassword(string email)
+        public static void ResetPassword(User user)
         {
-            var request = new RestRequest(@"api/user/forgotpassword/", Method.GET);
-            request.AddParameter("email", email);
+            var body = JsonConvert.SerializeObject(user);
+            var request = new RestRequest(@"api/user/resetpassword/", Method.POST);
+            request.AddParameter("text/json", body, ParameterType.RequestBody);
             var client = new RestClient(intuneServerUri);
-            var response = client.Execute(request);
+            var response = client.Execute<User>(request);
             if (response.StatusCode != HttpStatusCode.OK)
-                throw new Exception("Cannot send your password.");
+                throw new Exception("Cannot reset your password.");
         }
 
         public static List<Account> GetAllAccounts(int userId, int contactId)
