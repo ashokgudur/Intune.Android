@@ -1,7 +1,6 @@
 ﻿using Android.App;
 using Android.Widget;
 using Android.OS;
-using System;
 using Android.Content;
 using Android.Views;
 using System.Threading;
@@ -10,19 +9,19 @@ using Android.Support.Design.Widget;
 using Android.Views.InputMethods;
 using Android.Util;
 using System.Text.RegularExpressions;
+using Xamarin.Auth;
+using System.Linq;
 
 namespace Intune.Android
 {
     [Activity(Label = "Intune", Icon = "@drawable/icon")]
     public class SignInActivity : Activity
     {
+        View _rootView;
         TextInputLayout _idLayout;
         TextInputEditText _idEditText;
         TextInputLayout _passwordLayout;
         TextInputEditText _passwordEditText;
-        CheckBox _rememberMeCheckBox;
-
-        View _rootView;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -40,7 +39,6 @@ namespace Intune.Android
 
             _passwordLayout = FindViewById<TextInputLayout>(Resource.Id.signInPasswordInputLayout);
             _passwordEditText = FindViewById<TextInputEditText>(Resource.Id.signInPasswordTextInputEditText);
-            _rememberMeCheckBox = FindViewById<CheckBox>(Resource.Id.signInRememberMeCheckBox);
 
             var robotoTypeface = Typeface.CreateFromAsset(Application.Context.Assets, "fonts/Roboto-Regular.ttf");
             _idEditText.Typeface = robotoTypeface;
@@ -107,6 +105,7 @@ namespace Intune.Android
         private void SignInButton_Click(object sender, System.EventArgs e)
         {
             hideKeyboard();
+
             _idLayout.ErrorEnabled = false;
             if (string.IsNullOrWhiteSpace(getSignInId()))
             {
@@ -143,7 +142,6 @@ namespace Intune.Android
             }
 
             _passwordLayout.ErrorEnabled = false;
-
             if (string.IsNullOrWhiteSpace(_passwordEditText.Text.Trim()))
             {
                 _passwordLayout.ErrorEnabled = true;
@@ -167,8 +165,8 @@ namespace Intune.Android
             }
 
             Snackbar.Make(_rootView, "Logging into Intune...", Snackbar.LengthIndefinite).Show();
-            var us = new IntuneUserService(this);
-            ThreadPool.QueueUserWorkItem(o => us.SignIn(signId, _passwordEditText.Text));
+            var us = new IntuneUserService(this, signId, _passwordEditText.Text);
+            ThreadPool.QueueUserWorkItem(o => us.SignIn());
         }
 
         private void hideKeyboard()
@@ -180,16 +178,20 @@ namespace Intune.Android
         private class IntuneUserService
         {
             Activity _activity;
+            string _signInId;
+            string _password;
 
-            public IntuneUserService(Activity activity)
+            public IntuneUserService(Activity activity, string signInId, string password)
             {
                 _activity = activity;
+                _signInId = signInId;
+                _password = password;
             }
 
-            public void SignIn(string signInId, string password)
+            public void SignIn()
             {
                 var rootView = _activity.FindViewById<View>(Resource.Id.loginRootLinearLayout);
-                var user = IntuneService.SignIn(signInId, password);
+                var user = IntuneService.SignIn(_signInId, _password);
                 if (user == null)
                 {
                     Snackbar.Make(rootView, "Cannot login!!!", Snackbar.LengthLong)
@@ -198,8 +200,29 @@ namespace Intune.Android
                     return;
                 }
 
+                var rememberMeCheckBox = _activity.FindViewById<CheckBox>(Resource.Id.signInRememberMeCheckBox);
+                if (rememberMeCheckBox.Checked)
+                    saveSignInCredentials();
+                else
+                    deleteSavedSignInCredentials();
+
                 Snackbar.Make(rootView, "Loading accounts...", Snackbar.LengthLong).Show();
                 showAccountsActivity(user);
+            }
+
+            private void saveSignInCredentials()
+            {
+                var userAccount = new Xamarin.Auth.Account { Username = _signInId };
+                userAccount.Properties.Add("Password", _password);
+                var store = AccountStore.Create();
+                store.Save(userAccount, "IntuneTechnologiesApp");
+            }
+
+            private void deleteSavedSignInCredentials()
+            {
+                var store = AccountStore.Create();
+                var userAccount = new Xamarin.Auth.Account { Username = _signInId };
+                store.Delete(userAccount, "IntuneTechnologiesApp");
             }
 
             private void showAccountsActivity(User user)
@@ -212,4 +235,3 @@ namespace Intune.Android
         }
     }
 }
-
