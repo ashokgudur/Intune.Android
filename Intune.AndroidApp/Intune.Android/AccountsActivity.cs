@@ -4,6 +4,7 @@ using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
+using Xamarin.Auth;
 
 namespace Intune.Android
 {
@@ -65,6 +66,13 @@ namespace Intune.Android
             var userProfileMenuItem = menu.FindItem(Resource.Id.accounts_menu_profile);
             userProfileMenuItem.SetEnabled(false);
 
+            var contactId = Intent.GetIntExtra("ContactId", 0);
+            if (contactId != 0)
+            {
+                var logoutMenuItem = menu.FindItem(Resource.Id.accounts_menu_logout);
+                logoutMenuItem.SetEnabled(false);
+            }
+
             return base.OnPrepareOptionsMenu(menu);
         }
 
@@ -99,9 +107,18 @@ namespace Intune.Android
         private void performLogout()
         {
             Finish();
+            deleteSavedSignInCredentials();
             var signInActivity = new Intent(this, typeof(SignInActivity));
             signInActivity.SetFlags(ActivityFlags.ClearTop | ActivityFlags.NewTask);
             StartActivity(signInActivity);
+        }
+
+        private void deleteSavedSignInCredentials()
+        {
+            var store = AccountStore.Create();
+            var signInId = Intent.GetStringExtra("LoginUserSignInId");
+            var userAccount = new Xamarin.Auth.Account { Username = signInId };
+            store.Delete(userAccount, "IntuneTechnologiesApp");
         }
 
         private void showUserProfileActivity()

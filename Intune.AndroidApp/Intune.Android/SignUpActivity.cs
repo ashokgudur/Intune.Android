@@ -166,10 +166,13 @@ namespace Intune.Android
             }
             catch (Exception ex)
             {
-                _signUpButton.Enabled = true;
-                Snackbar.Make(_rootView, $"Cannot send verification code. Error: {ex.Message}", Snackbar.LengthLong)
-                        .SetAction("RETRY", (v) => { })
-                        .Show();
+                RunOnUiThread(() =>
+                {
+                    _signUpButton.Enabled = true;
+                    Snackbar.Make(_rootView, $"Cannot send verification code. Error: {ex.Message}", Snackbar.LengthLong)
+                            .SetAction("RETRY", (v) => { })
+                            .Show();
+                });
             }
         }
 

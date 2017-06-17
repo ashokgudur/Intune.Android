@@ -229,6 +229,7 @@ namespace Intune.Android
             {
                 var accountsActivity = new Intent(_activity, typeof(AccountsActivity));
                 accountsActivity.PutExtra("LoginUserId", user.Id);
+                accountsActivity.PutExtra("LoginUserSignInId", user.Email);
                 accountsActivity.PutExtra("LoginUserName", user.Name);
                 _activity.StartActivity(accountsActivity);
             }

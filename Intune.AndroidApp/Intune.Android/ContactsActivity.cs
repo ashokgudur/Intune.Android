@@ -3,6 +3,7 @@ using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
+using Xamarin.Auth;
 
 namespace Intune.Android
 {
@@ -86,9 +87,18 @@ namespace Intune.Android
         private void performLogout()
         {
             Finish();
+            deleteSavedSignInCredentials();
             var signInActivity = new Intent(this, typeof(SignInActivity));
             signInActivity.SetFlags(ActivityFlags.ClearTop | ActivityFlags.NewTask);
             StartActivity(signInActivity);
+        }
+
+        private void deleteSavedSignInCredentials()
+        {
+            var store = AccountStore.Create();
+            var signInId = Intent.GetStringExtra("LoginUserSignInId");
+            var userAccount = new Xamarin.Auth.Account { Username = signInId };
+            store.Delete(userAccount, "IntuneTechnologiesApp");
         }
 
         private void showUserProfileActivity()
