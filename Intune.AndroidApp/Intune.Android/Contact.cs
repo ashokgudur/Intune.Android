@@ -28,8 +28,8 @@ namespace Intune.Android
             //TODO: Validate for Email and Mobile formats.
 
             if (string.IsNullOrWhiteSpace(Name)) return false;
-            if (string.IsNullOrWhiteSpace(Email)) return false;
-            if (string.IsNullOrWhiteSpace(Mobile)) return false;
+            //if (string.IsNullOrWhiteSpace(Email)) return false;
+            //if (string.IsNullOrWhiteSpace(Mobile)) return false;
 
             return true;
         }
