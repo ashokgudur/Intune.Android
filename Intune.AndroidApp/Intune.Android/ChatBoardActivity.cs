@@ -82,7 +82,7 @@ namespace Intune.Android
             base.OnDestroy();
         }
 
-        public List<CommentMessage> getChatMessages(List<Comment> messages, string byUserName)
+        private List<CommentMessage> getChatMessages(List<Comment> messages, string byUserName)
         {
             var dates = messages.Select(c => c.DateTimeStamp.Date).Distinct().ToArray();
             var result = new List<CommentMessage>();
@@ -224,7 +224,7 @@ namespace Intune.Android
 
         private string getByUserName(string byUserName)
         {
-            return _entry.IsNew || _account.IsNew ? "" : byUserName;
+            return _entry.IsNew && _account.IsNew ? "" : byUserName;
         }
     }
 }
