@@ -75,12 +75,19 @@ namespace Intune.Android
         private void OkButton_Click(object sender, EventArgs e)
         {
             var result = FindViewById<TextView>(Resource.Id.contactResultTextView);
+
             var mobile = FindViewById<EditText>(Resource.Id.contactMobileEditText);
-            var mnv = new MobileNumberValidator(mobile.Text);
-            if (!mnv.IsValid())
+            var mobileNumber = mobile.Text.Trim();
+            if (!string.IsNullOrWhiteSpace(mobileNumber))
             {
-                result.Text = "Mobile number not valid!";
-                return;
+                var mnv = new MobileNumberValidator(mobile.Text.Trim());
+                if (!mnv.IsValid())
+                {
+                    result.Text = "Mobile number not valid!";
+                    return;
+                }
+
+                mobileNumber = mnv.GetFullMobileNumber();
             }
 
             var fullName = FindViewById<EditText>(Resource.Id.contactNameEditText);
@@ -88,8 +95,8 @@ namespace Intune.Android
             var address = FindViewById<EditText>(Resource.Id.contactAddressEditText);
 
             _contact.Name = fullName.Text;
-            _contact.Email = email.Text;
-            _contact.Mobile = mnv.GetFullMobileNumber();
+            _contact.Email = email.Text.Trim().ToLower();
+            _contact.Mobile = mobileNumber;
             _contact.Address = address.Text;
 
             if (!_contact.IsValid())
