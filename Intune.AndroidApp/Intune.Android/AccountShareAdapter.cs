@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using Android.App;
 using Android.Views;
 using Android.Widget;
-using System.Globalization;
 using System;
 
 namespace Intune.Android
@@ -120,7 +119,7 @@ namespace Intune.Android
                                     CompoundButton.IOnCheckedChangeListener
         {
             RadioGroup _accountShareRoleRadioGroup;
-            Contact _contact = null;
+            Contact _contact;
 
             public ContactCheckedChangeListener(RadioGroup accountShareRoleRadioGroup, Contact contact)
             {
@@ -132,6 +131,12 @@ namespace Intune.Android
             {
                 if (!isChecked)
                     _contact.AccountSharedRole = UserAccountRole.Owner;
+                //else
+                //{
+                //    var defaultRoleRadioButton = _accountShareRoleRadioGroup.GetChildAt(0) as RadioButton;
+                //    defaultRoleRadioButton.Enabled = true;
+                //    defaultRoleRadioButton.Checked = true;
+                //}
 
                 for (int i = 0; i < _accountShareRoleRadioGroup.ChildCount; i++)
                 {

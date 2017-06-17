@@ -98,17 +98,26 @@ namespace Intune.Android
             }
 
             if (_contact.IsNew)
-            {
                 result.Text = "Adding new contact...";
-                _contact = IntuneService.AddContact(_contact);
-            }
             else
-            {
                 result.Text = "Updating contact...";
-                IntuneService.UpdateContact(_contact);
-            }
 
-            result.Text = string.Format("Contact {0} saved.", _contact.Name);
+            try
+            {
+                if (_contact.IsNew)
+                    _contact = IntuneService.AddContact(_contact);
+                else
+                    _contact = IntuneService.UpdateContact(_contact);
+
+                if (_contact == null)
+                    result.Text = string.Format("Cannot save this contact!", _contact.Name);
+                else
+                    result.Text = string.Format("Contact {0} saved.", _contact.Name);
+            }
+            catch (Exception)
+            {
+                result.Text = string.Format("Cannot save this contact!", _contact.Name);
+            }
         }
 
         private void fillForm()
