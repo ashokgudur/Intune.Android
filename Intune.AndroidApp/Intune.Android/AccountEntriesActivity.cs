@@ -18,7 +18,7 @@ namespace Intune.Android
             SetContentView(Resource.Layout.AccountEntries);
 
             var accountName = Intent.GetStringExtra("AccountName");
-            this.Title = string.Format("{0} - Entries", accountName);
+            Title = string.Format("{0} - Entries", accountName);
 
             var entriesListView = FindViewById<ListView>(Resource.Id.accountEntriesListView);
             entriesListView.ItemClick +=

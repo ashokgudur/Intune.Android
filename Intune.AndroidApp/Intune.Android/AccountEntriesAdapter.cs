@@ -3,6 +3,7 @@ using Android.App;
 using Android.Views;
 using Android.Widget;
 using System.Globalization;
+using System.Linq;
 
 namespace Intune.Android
 {
@@ -37,10 +38,7 @@ namespace Intune.Android
 
         public override int Count
         {
-            get
-            {
-                return _accountEntries.Count;
-            }
+            get { return _accountEntries.Count; }
         }
 
         public override Java.Lang.Object GetItem(int position)
@@ -104,7 +102,9 @@ namespace Intune.Android
 
         private void calculateTotals()
         {
-            foreach (var entry in _accountEntries)
+            var entries = _accountEntries.Where(e => !e.IsVoid);
+
+            foreach (var entry in entries)
             {
                 if (entry.TxnType == TxnType.Paid || entry.TxnType == TxnType.Issued)
                 {
