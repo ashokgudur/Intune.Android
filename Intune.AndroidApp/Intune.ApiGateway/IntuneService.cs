@@ -3,8 +3,9 @@ using RestSharp;
 using System.Net;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using Intune.ApiGateway.Model;
 
-namespace Intune.Android
+namespace Intune.ApiGateway
 {
     public static class IntuneService
     {

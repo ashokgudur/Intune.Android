@@ -6,6 +6,8 @@ using Android.Widget;
 using Android.Views;
 using System.Collections.Generic;
 using Android.Content;
+using Intune.ApiGateway;
+using Intune.ApiGateway.Model;
 
 namespace Intune.Android
 {

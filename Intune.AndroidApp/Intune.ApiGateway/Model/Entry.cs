@@ -1,6 +1,6 @@
 using System;
 
-namespace Intune.Android
+namespace Intune.ApiGateway.Model
 {
     public class Entry
     {
@@ -28,12 +28,5 @@ namespace Intune.Android
 
             return true;
         }
-    }
-
-    public enum TxnType
-    {
-        Paid = 0,
-        Issued = 1,
-        Received = 2
     }
 }

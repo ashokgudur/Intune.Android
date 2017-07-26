@@ -1,6 +1,6 @@
 using System;
 
-namespace Intune.Android
+namespace Intune.ApiGateway.Model
 {
     public class User
     {

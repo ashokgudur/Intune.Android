@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.9
+VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intune.Android", "Intune.Android\Intune.Android.csproj", "{A35AB063-59D1-4EC5-8EA5-D1731F2E912B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Intune.ApiGateway", "Intune.ApiGateway\Intune.ApiGateway.csproj", "{E1C51473-6D2E-4DF9-8486-5EBBFE382076}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,6 +19,10 @@ Global
 		{A35AB063-59D1-4EC5-8EA5-D1731F2E912B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A35AB063-59D1-4EC5-8EA5-D1731F2E912B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A35AB063-59D1-4EC5-8EA5-D1731F2E912B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{E1C51473-6D2E-4DF9-8486-5EBBFE382076}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1C51473-6D2E-4DF9-8486-5EBBFE382076}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1C51473-6D2E-4DF9-8486-5EBBFE382076}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1C51473-6D2E-4DF9-8486-5EBBFE382076}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

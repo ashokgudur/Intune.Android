@@ -1,14 +1,7 @@
 using System;
 
-namespace Intune.Android
+namespace Intune.ApiGateway.Model
 {
-    public enum CommentType
-    {
-        Contact,
-        Account,
-        Entry,
-    }
-
     public class ChatMessage
     {
         public string ByEmail { get; set; }

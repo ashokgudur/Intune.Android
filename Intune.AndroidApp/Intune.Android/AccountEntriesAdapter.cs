@@ -4,6 +4,8 @@ using Android.Views;
 using Android.Widget;
 using System.Globalization;
 using System.Linq;
+using Intune.ApiGateway;
+using Intune.ApiGateway.Model;
 
 namespace Intune.Android
 {

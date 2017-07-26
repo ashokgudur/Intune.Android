@@ -1,6 +1,6 @@
 using System;
 
-namespace Intune.Android
+namespace Intune.ApiGateway.Model
 {
     public class Account
     {
@@ -15,21 +15,5 @@ namespace Intune.Android
         public bool HasComments { get; set; }
         public bool HasUnreadComments { get; set; }
         public bool IsNew { get { return Id == 0; } }
-    }
-
-    public class UserAccountShareRole
-    {
-        public int UserId { get; set; }
-        public UserAccountRole Role { get; set; }
-
-        public UserAccountShareRole() { }
-    }
-
-    public enum UserAccountRole
-    {
-        Owner = 0,
-        Impersonator = 1,
-        Collaborator = 2,
-        Viewer = 3
     }
 }

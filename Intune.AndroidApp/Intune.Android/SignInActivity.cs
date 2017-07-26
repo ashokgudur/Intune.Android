@@ -11,6 +11,8 @@ using Android.Util;
 using System.Text.RegularExpressions;
 using Xamarin.Auth;
 using System.Linq;
+using Intune.ApiGateway;
+using Intune.ApiGateway.Model;
 
 namespace Intune.Android
 {

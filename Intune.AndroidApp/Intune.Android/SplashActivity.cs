@@ -4,6 +4,8 @@ using Android.Content;
 using Android.Support.V7.App;
 using Xamarin.Auth;
 using System.Linq;
+using Intune.ApiGateway;
+using Intune.ApiGateway.Model;
 
 namespace Intune.Android
 {

@@ -1,15 +1,9 @@
 using System;
 using System.Text.RegularExpressions;
+using Intune.ApiGateway;
 
 namespace Intune.Android
 {
-    public class Country
-    {
-        public string Name { get; set; }
-        public string Code { get; set; }
-        public string IsdCode { get; set; }
-    }
-
     public class MobileNumberValidator
     {
         const string defaultCountryIsdCode = "+91";

@@ -3,7 +3,7 @@ using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
-using Xamarin.Auth;
+using Intune.ApiGateway.Model;
 
 namespace Intune.Android
 {
@@ -95,7 +95,7 @@ namespace Intune.Android
 
         private void deleteSavedSignInCredentials()
         {
-            var store = AccountStore.Create();
+            var store = Xamarin.Auth.AccountStore.Create();
             var signInId = Intent.GetStringExtra("LoginUserSignInId");
             var userAccount = new Xamarin.Auth.Account { Username = signInId };
             store.Delete(userAccount, "IntuneTechnologiesApp");

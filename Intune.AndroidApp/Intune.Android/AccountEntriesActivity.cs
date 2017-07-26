@@ -3,6 +3,7 @@ using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
+using Intune.ApiGateway.Model;
 using System.Globalization;
 
 namespace Intune.Android
